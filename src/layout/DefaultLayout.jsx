@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Box } from "@mui/material";
 import Navbar from "./Navbar";
 import Home from "../pages/Home/Home";
@@ -14,79 +14,65 @@ function DefaultLayout() {
   const contactUsRef = useRef(null);
   const educationRef = useRef(null);
   const aboutUsRef = useRef(null);
-  const navbarRef = useRef(null);
 
+  // Scroll function with a switch case for smooth scroll to target section
   const scrollToSection = (section) => {
-    let targetRef = null;
-    // Determine which section to scroll to
-    switch (section) {
-      case "home":
-        targetRef = homeRef;
-        break;
-      case "work":
-        targetRef = workExperienceRef;
-        break;
-      case "contact":
-        targetRef = contactUsRef;
-        break;
-      case "education":
-        targetRef = educationRef;
-        break;
-      case "about":
-        targetRef = aboutUsRef;
-        break;
-      default:
-        console.warn(`Section "${section}" not found.`);
-        return;
-    }
+    const targetRefMap = {
+      home: homeRef,
+      work: workExperienceRef,
+      contact: contactUsRef,
+      education: educationRef,
+      about: aboutUsRef,
+    };
+
+    const targetRef = targetRefMap[section];
 
     if (targetRef && targetRef.current) {
-      // Scroll the target section into view with smooth behavior
       targetRef.current.scrollIntoView({
         behavior: "smooth",
         block: "start", // Ensure it scrolls to the top of the section
       });
+    } else {
+      console.warn(`Section "${section}" not found.`);
     }
   };
 
-  const animatedSections = [
-    { name: "Home", element: <Home />, ref: homeRef },
+  const sections = [
+    { name: "Home", component: <Home />, ref: homeRef },
     {
       name: "Work Experience",
-      element: <WorkExperience />,
+      component: <WorkExperience />,
       ref: workExperienceRef,
     },
-    { name: "Education", element: <Education />, ref: educationRef },
-    { name: "Contact Us", element: <ContactUs />, ref: contactUsRef },
-    { name: "About Us", element: <AboutUs />, ref: aboutUsRef },
+    { name: "Education", component: <Education />, ref: educationRef },
+    { name: "Contact Us", component: <ContactUs />, ref: contactUsRef },
+    { name: "About Us", component: <AboutUs />, ref: aboutUsRef },
   ];
 
   return (
     <Box
       sx={{
         height: "100vh",
-        bgcolor: "#28844f",
+        bgcolor: "linear-gradient(135deg, #6e7bff, #5cbbf6)", // Optimized gradient background
         overflowY: "auto",
       }}
     >
-      <motion.div
-        ref={navbarRef} // Reference the Navbar to get its height
-      >
+      <motion.div>
         <Navbar scrollToSection={scrollToSection} />
       </motion.div>
 
       {/* Main content with animated sections */}
       <Box>
-        {animatedSections.map((section, index) => (
+        {sections.map((section) => (
           <motion.div
-            key={section.name} // Unique key for each section
-            style={{ padding: "10px" }}
+            key={section.name}
             ref={section.ref}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
+            style={{ padding: "20px" }} // Added more space for visual balance
           >
-            {section.element}
+            {section.component}
           </motion.div>
         ))}
       </Box>

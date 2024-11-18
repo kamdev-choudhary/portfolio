@@ -1,19 +1,15 @@
-import {
-  Box,
-  Button,
-  Container,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Paper, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import CustomButton from "../../components/CustomButton";
+import { googleScriptUrl } from "../../constants/helper";
+import Swal from "sweetalert2";
 
 function ContactUs() {
   // States for the form fields
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
 
   // Error states to handle validation
   const [emailError, setEmailError] = useState(false);
@@ -21,7 +17,7 @@ function ContactUs() {
   const [messageError, setMessageError] = useState(false);
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Simple validation
@@ -34,8 +30,30 @@ function ContactUs() {
     setMessageError(!messageValid);
 
     if (emailValid && phoneValid && messageValid) {
-      // Here you can submit the data to the backend
-      console.log("Form submitted successfully!", { email, phone, message });
+      setSending(true);
+      fetch(googleScriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          email: email,
+          phone: phone,
+          message: message,
+        }),
+      })
+        .then((res) => {
+          setEmail("");
+          setPhone("");
+          setMessage("");
+          if (res.status === 200) {
+            Swal.fire({ title: "Message Sent Successfully." });
+          }
+        })
+        .catch((e) => console.error(e))
+        .finally(() => {
+          setSending(false);
+        });
     } else {
       console.log("Form contains errors");
     }
@@ -108,7 +126,12 @@ function ContactUs() {
             error={messageError}
             helperText={messageError && "Message is required"}
           />
-          <CustomButton type="submit" label="Submit" />
+          <CustomButton
+            loading={sending}
+            disabled={sending}
+            type="submit"
+            label="Submit"
+          />
         </Box>
       </Container>
     </Box>

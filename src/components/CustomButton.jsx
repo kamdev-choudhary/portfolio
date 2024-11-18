@@ -7,6 +7,8 @@ function CustomButton({
   variant = "contained",
   onClick,
   type,
+  loading,
+  disabled,
 }) {
   return (
     <Button
@@ -20,6 +22,8 @@ function CustomButton({
       onClick={onClick}
       variant={variant}
       type={type}
+      loading={loading}
+      disabled={disabled}
     >
       {label}
     </Button>

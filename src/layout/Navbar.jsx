@@ -7,8 +7,9 @@ const buttons = [
   { name: "Home", icon: icons.home, path: "home" },
   { name: "Work Experience", icon: icons.work, path: "work" },
   { name: "Education", icon: icons.education, path: "education" },
-  { name: "About", icon: icons.about, path: "about" },
+  { name: "Certificates", icon: icons.certificate, path: "certificate" },
   { name: "Contact Us", icon: icons.contactUs, path: "contact" },
+  // { name: "About", icon: icons.about, path: "about" },
 ];
 
 function Navbar({ scrollToSection }) {
@@ -31,7 +32,7 @@ function Navbar({ scrollToSection }) {
               margin: "4px",
               border: "none",
               backgroundColor: "transparent",
-              color: "white",
+
               cursor: "pointer",
             }}
             whileHover={{ scale: 1.1 }}

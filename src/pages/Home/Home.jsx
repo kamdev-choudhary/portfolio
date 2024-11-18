@@ -28,8 +28,8 @@ function Home() {
               src={photo}
               alt="Profile"
               style={{
-                width: 200,
-                height: 200,
+                width: 300,
+                height: 300,
                 borderRadius: "50%",
                 boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
                 border: "4px solid #fff",
@@ -39,7 +39,7 @@ function Home() {
           </Box>
         </Grid>
         <Grid size={{ xs: 12, md: 8, lg: 8 }}>
-          <Typography variant="h2">KAMDEV CHOUDAHRY</Typography>
+          <Typography variant="h2">KAMDEV CHOUDHARY</Typography>
           <TypingText />
         </Grid>
       </Grid>
