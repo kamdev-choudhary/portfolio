@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { Box } from "@mui/material";
 import Navbar from "./Navbar";
-import Home from "../pages/Home";
-import WorkExperience from "../pages/WorkExperience";
-import ContactUs from "../pages/ContactUs";
-import Education from "../pages/Education";
-import AboutUs from "../pages/AboutUs";
+import Home from "../pages/Home/Home";
+import WorkExperience from "../pages/work/WorkExperience";
+import ContactUs from "../pages/contact/ContactUs";
+import Education from "../pages/academic/Education";
+import AboutUs from "../pages/about/AboutUs";
 import { motion } from "framer-motion";
 
 function DefaultLayout() {
@@ -15,8 +15,6 @@ function DefaultLayout() {
   const educationRef = useRef(null);
   const aboutUsRef = useRef(null);
   const navbarRef = useRef(null);
-
-  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   const scrollToSection = (section) => {
     let targetRef = null;
@@ -82,7 +80,7 @@ function DefaultLayout() {
         {animatedSections.map((section, index) => (
           <motion.div
             key={section.name} // Unique key for each section
-            style={{ height: "110vh", padding: "10px" }}
+            style={{ padding: "10px" }}
             ref={section.ref}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

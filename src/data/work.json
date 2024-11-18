@@ -10,21 +10,27 @@
         "location": "Pune, Maharashtra",
         "startDate": "13-Sept-2023",
         "endDate": "present",
-        "description": ""
+        "description": [
+          "Currently working as an Academic Officer in the Pune Valley, overseeing and supporting various academic initiatives. I have been responsible for implementing and managing educational programs that align with the foundation's mission to support underprivileged students in their academic journeys."
+        ]
       },
       {
         "position": "Academic Program Coordinator",
         "location": "Bengaluru, Karnataka",
         "startDate": "01-Sept-2022",
         "endDate": "12-Sept-2023",
-        "description": ""
+        "description": [
+          "As an Academic Program Coordinator in Bengaluru, I played a crucial role in coordinating educational programs, monitoring progress, and ensuring smooth execution of activities aimed at enhancing the academic skills of students. I worked closely with students and faculty to provide the necessary support for their success."
+        ]
       },
       {
         "position": "Academic Program Coordinator",
         "location": "Hyderabad",
-        "startDate": "08-May-2024",
-        "endDate": "28-Aug-2024",
-        "description": ""
+        "startDate": "08-May-2022",
+        "endDate": "28-Aug-2022",
+        "description": [
+          "Upcoming position with responsibilities related to the coordination of academic programs in Hyderabad. The role will involve overseeing the implementation and execution of various educational initiatives aimed at improving students' learning outcomes."
+        ]
       }
     ]
   },
@@ -37,9 +43,11 @@
         "position": "Financial Processor",
         "location": "Ranchi",
         "startDate": "28-August-2021",
-        "endDate": "01-May-2022"
+        "endDate": "01-May-2022",
+        "description": [
+          "Worked as a Financial Processor, handling financial transactions, processing invoices, and ensuring accurate financial records. My role involved managing financial data, coordinating with various departments to ensure proper billing and documentation, and assisting in maintaining the company's financial health."
+        ]
       }
-    ],
-    "description": "haha"
+    ]
   }
 ]

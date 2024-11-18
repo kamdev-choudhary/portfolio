@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import CustomButton from "../components/CustomButton";
+import CustomButton from "../../components/CustomButton";
 
 function ContactUs() {
   // States for the form fields
