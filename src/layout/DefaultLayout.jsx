@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Box } from "@mui/material";
 import Navbar from "./Navbar";
 import Home from "../pages/Home";
@@ -15,6 +15,8 @@ function DefaultLayout() {
   const educationRef = useRef(null);
   const aboutUsRef = useRef(null);
   const navbarRef = useRef(null);
+
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   const scrollToSection = (section) => {
     let targetRef = null;
@@ -65,11 +67,10 @@ function DefaultLayout() {
     <Box
       sx={{
         height: "100vh",
-        bgcolor: "#914D7E",
+        bgcolor: "#28844f",
         overflowY: "auto",
       }}
     >
-      {/* Navbar with sticky positioning */}
       <motion.div
         ref={navbarRef} // Reference the Navbar to get its height
       >

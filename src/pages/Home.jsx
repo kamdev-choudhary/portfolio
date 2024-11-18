@@ -1,13 +1,39 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Box, Grid2 as Grid, Typography } from "@mui/material";
+import photo from "/photo.jpg";
 
 function Home() {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-      aperiam rerum esse quia dicta alias blanditiis, molestias quisquam nobis
-      accusantium repellendus unde delectus corporis culpa repudiandae veniam!
-      Quasi, accusamus magni?
-    </div>
+    <Box
+      sx={{
+        minHeight: "100vh",
+      }}
+    >
+      <Grid container spacing={2}>
+        <Grid size={{ xs: 12, md: 4, lg: 4 }}>
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.1 }}
+            src={photo}
+            alt="Profile"
+            style={{
+              width: 200,
+              height: 200,
+              borderRadius: "50%",
+              boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
+              border: "4px solid #fff",
+              marginLeft: 2,
+            }}
+          />
+        </Grid>
+        <Grid size={{ xs: 12, md: 8, lg: 8 }}>
+          <Typography variant="h2">KAMDEV CHOUDAHRY</Typography>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 

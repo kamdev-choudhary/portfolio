@@ -1,0 +1,45 @@
+[
+  {
+    "company": "Dakshana Foundation",
+    "address": "Kadus, Pune , 412404",
+    "duration": "08-May-2022 to Present",
+    "multiplePosition": true,
+    "positions": [
+      {
+        "position": "Academic Officer",
+        "location": "Pune, Maharashtra",
+        "startDate": "13-Sept-2023",
+        "endDate": "present",
+        "description": ""
+      },
+      {
+        "position": "Academic Program Coordinator",
+        "location": "Bengaluru, Karnataka",
+        "startDate": "01-Sept-2022",
+        "endDate": "12-Sept-2023",
+        "description": ""
+      },
+      {
+        "position": "Academic Program Coordinator",
+        "location": "Hyderabad",
+        "startDate": "08-May-2024",
+        "endDate": "28-Aug-2024",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "Deccan iServices Pvt Ltd.",
+    "address": "Ranchi",
+    "duration": "28-Aug-2021 to 01-May-2022",
+    "positions": [
+      {
+        "position": "Financial Processor",
+        "location": "Ranchi",
+        "startDate": "28-August-2021",
+        "endDate": "01-May-2022"
+      }
+    ],
+    "description": "haha"
+  }
+]

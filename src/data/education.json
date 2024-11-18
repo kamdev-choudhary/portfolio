@@ -1,0 +1,28 @@
+{
+  "basic": [
+    {
+      "level": "Under Graduation",
+      "stream": "Bachelor of Science _ Mathematics",
+      "institute": "Ranchi University, Ranchi",
+      "year": "2021",
+      "gradeSystem": "Percentage",
+      "grade": 81
+    },
+    {
+      "level": "12th",
+      "stream": "Intermediate of Science",
+      "institute": "Jawahar Navodaya Vidyalaya BIT Mesra Ranchi",
+      "year": "2017",
+      "gradeSystem": "Percentage",
+      "grade": 81
+    },
+    {
+      "level": "10th",
+      "stream": "Science",
+      "institute": "Jawahar Navodaya Vidyalaya BIT Mesra Ranchi",
+      "year": "2015",
+      "gradeSystem": "CGPA",
+      "grade": 9
+    }
+  ]
+}
