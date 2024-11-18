@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+const DefaultLayout = React.lazy(() => import("./layout/DefaultLayout"));
 
 const Home = React.lazy(() => import("./pages/Home"));
 
@@ -9,7 +10,7 @@ function App() {
       <Router basename="/portfolio">
         <Routes>
           {/* Define routes here */}
-          <Route path="/*" element={<Home />} />
+          <Route path="/*" element={<DefaultLayout />} />
           {/* Add more routes as needed */}
         </Routes>
       </Router>
