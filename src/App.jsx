@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Lazy load the Home component
 const Home = React.lazy(() => import("./pages/Home"));
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
       <Router basename="/portfolio">
         <Routes>
           {/* Define routes here */}
-          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           {/* Add more routes as needed */}
         </Routes>
       </Router>
