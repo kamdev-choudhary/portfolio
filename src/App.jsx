@@ -6,15 +6,15 @@ const Home = React.lazy(() => import("./pages/Home"));
 
 function App() {
   return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Router basename="/portfolio">
         <Routes>
           {/* Define routes here */}
           <Route path="/" element={<Home />} />
           {/* Add more routes as needed */}
         </Routes>
-      </Suspense>
-    </Router>
+      </Router>
+    </Suspense>
   );
 }
 
