@@ -39,7 +39,7 @@ function Home() {
           </Box>
         </Grid>
         <Grid size={{ xs: 12, md: 8, lg: 8 }}>
-          <Typography variant="h2">KAMDEV CHOUDHARY</Typography>
+          <Typography variant="h3">KAMDEV CHOUDHARY</Typography>
           <TypingText />
         </Grid>
       </Grid>

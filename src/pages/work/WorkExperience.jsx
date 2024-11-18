@@ -32,7 +32,7 @@ function WorkExperience() {
               <Divider />
               {d.positions?.map((p, index) => (
                 <CardContent
-                  sx={{ bgcolor: "#f1f3fb", ml: 4, my: 2, borderRadius: 2 }}
+                  sx={{ bgcolor: "#FDDBBB", ml: 4, my: 2, borderRadius: 2 }}
                   key={index}
                 >
                   <Box sx={{ display: "flex", alignItems: "center" }}>
