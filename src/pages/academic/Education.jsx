@@ -7,25 +7,6 @@ import { icons } from "../../constants/helper";
 function Education() {
   return (
     <>
-      <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-        <img
-          alt="Work Experience"
-          src={icons.education}
-          style={{
-            height: "clamp(40px, 5vw, 65px)", // Minimum: 40px, Maximum: 65px, Responsive: 5% of viewport width
-            width: "auto",
-          }}
-        />
-        <Typography
-          sx={{
-            ml: 2,
-            fontSize: "clamp(1rem, 3vw, 3rem)", // Minimum: 1.5rem, Maximum: 2.5rem, Responsive: 3% of viewport width
-          }}
-          variant="h3"
-        >
-          Education
-        </Typography>
-      </Box>
       {basic?.map((d, index) => (
         <React.Fragment key={index}>
           <motion.div

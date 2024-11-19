@@ -94,16 +94,15 @@ function ContactUs() {
       >
         <Container
           sx={{
-            bgcolor: "rgba(255,255,255,0.7)",
-            border: "1px solid rgba(0,0,0,0.4)",
             p: 2,
             borderRadius: 2,
           }}
           maxWidth="sm"
+          component={Paper}
         >
           <Box sx={{ mb: 1 }}>
-            <Typography variant="h4" gutterBottom>
-              Contact Me
+            <Typography variant="h5" gutterBottom>
+              Send a Message
             </Typography>
           </Box>
           <Box

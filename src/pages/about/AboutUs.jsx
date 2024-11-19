@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Divider, Paper, Typography } from "@mui/material";
-import { packages } from "../../data/website.json";
+import { packages, icons } from "../../data/website.json";
 
 function AboutUs() {
   return (
@@ -27,6 +27,14 @@ function AboutUs() {
               </Typography>
             </li>
           ))}
+        </Box>
+        <Divider />
+        <Box component="ul" sx={{ pl: 3 }}>
+          <li>
+            <Typography variant="body1">
+              <strong>Icons</strong> : {icons.name}
+            </Typography>
+          </li>
         </Box>
         <Typography>
           I am committed to continuously improving this portfolio website by

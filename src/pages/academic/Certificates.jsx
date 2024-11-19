@@ -1,5 +1,12 @@
 import React from "react";
-import { Typography, Box, Paper, Divider, IconButton } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Paper,
+  Divider,
+  IconButton,
+  Link,
+} from "@mui/material";
 import { icons } from "../../constants/helper";
 import { certificates } from "../../data/education.json";
 import { motion } from "framer-motion";
@@ -8,26 +15,6 @@ import { LinkRounded } from "@mui/icons-material";
 function Certificates() {
   return (
     <>
-      <Box sx={{ mb: 1, display: "flex", alignItems: "center" }}>
-        <img
-          src={icons.certificate}
-          style={{
-            height: "clamp(30px, 5vw, 45px)",
-            width: "auto",
-          }}
-          alt="Certificate Icon"
-        />
-        <Typography
-          sx={{
-            ml: 2,
-            fontSize: "clamp(1.8rem, 3vw, 3.5rem)",
-          }}
-          variant="h4"
-        >
-          Certificate Courses
-        </Typography>
-      </Box>
-
       {certificates?.map((cert, index) => (
         <React.Fragment key={index}>
           <motion.div
@@ -46,20 +33,80 @@ function Certificates() {
           >
             <Box
               component={Paper}
-              sx={{ p: 1, mb: 1, display: "grid", gap: 1 }}
+              sx={{
+                p: 2,
+                mb: 2,
+                display: "grid",
+                gap: 1,
+                borderRadius: 2,
+                boxShadow: 3,
+              }}
             >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+              {/* Certificate Name and Link */}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <Typography sx={{ fontWeight: "bold" }} variant="h6">
                   {cert?.name}
                 </Typography>
-                <IconButton>
-                  <LinkRounded />
-                </IconButton>
+                {cert?.link && (
+                  <IconButton
+                    component={Link}
+                    href={cert?.link}
+                    target="_blank"
+                  >
+                    <LinkRounded />
+                  </IconButton>
+                )}
               </Box>
-              <Divider />
-              <Typography>Couse Duration : {cert?.duration}</Typography>
-              <Typography>Institute Name : {cert?.institute}</Typography>
-              <Typography>Course Period : {cert?.period}</Typography>
+
+              <Divider sx={{ mb: 1 }} />
+
+              {/* Certificate Details */}
+              <Typography variant="body1">
+                <strong>Course Duration:</strong> {cert?.duration}
+              </Typography>
+              <Typography variant="body1">
+                <strong>Institute:</strong> {cert?.institute}
+              </Typography>
+              <Typography variant="body1">
+                <strong>Course Period:</strong> {cert?.period}
+              </Typography>
+              <Typography variant="body1">
+                <strong>Mode:</strong> {cert?.mode}
+              </Typography>
+
+              {/* Skills */}
+              {cert?.skills && (
+                <Box>
+                  <Typography
+                    variant="body1"
+                    color="text.primary"
+                    fontWeight="bold"
+                  >
+                    Skills Gained:
+                  </Typography>
+                  <ul>
+                    {cert?.skills.map((skill, idx) => (
+                      <li key={idx}>
+                        <Typography variant="body1">{skill}</Typography>
+                      </li>
+                    ))}
+                  </ul>
+                </Box>
+              )}
+
+              {/* Achievements */}
+              {cert?.achievement && (
+                <Typography variant="body1" color="text.primary">
+                  <strong>Achievements:</strong> {cert?.achievement}
+                </Typography>
+              )}
+
+              {/* Projects */}
+              {cert?.projects && (
+                <Typography variant="body1" color="text.primary">
+                  <strong>Projects:</strong> {cert?.projects}
+                </Typography>
+              )}
             </Box>
           </motion.div>
         </React.Fragment>

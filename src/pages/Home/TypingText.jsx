@@ -2,14 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
 
 function TypingText() {
-  const words = [
-    "MERN Stack Developer",
-    "React Native",
-    "JavaScript Developer",
-  ];
+  const words = ["MERN Stack", "React Native", "JavaScript "];
   const typingSpeed = 120;
   const backspaceSpeed = 100; // Speed of clearing each character
-  const switchDelay = 1000; // Delay before switching to the next word
+  const switchDelay = 100; // Delay before switching to the next word
 
   // State to control typing effect
   const [currentWordIndex, setCurrentWordIndex] = useState(0);

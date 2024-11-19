@@ -34,7 +34,8 @@
     },
     {
       "name": "qrcode",
-      "description": "For generating QR code."
+      "description": "A tool for generating QR codes for various types of data such as URLs, text, or contact information."
     }
-  ]
+  ],
+  "icons": { "name": "icon8", "desciption": "" }
 }

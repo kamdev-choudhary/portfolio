@@ -8,6 +8,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -19,6 +20,7 @@ const buttons = [
   { name: "Work Experience", icon: icons.work, path: "work" },
   { name: "Education", icon: icons.education, path: "education" },
   { name: "Projects", icon: icons.project, path: "project" },
+  { name: "skills", icon: icons.skill, path: "skills" },
   { name: "Certificates", icon: icons.certificate, path: "certificate" },
   { name: "Contact Us", icon: icons.contactUs, path: "contact" },
 ];
@@ -40,8 +42,8 @@ function Navbar({ scrollToSection }) {
     <Box
       sx={{
         p: 1,
-        backgroundColor: "rgba(255, 255, 255, 01)",
-        backdropFilter: "blur(10px)",
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        backdropFilter: "blur(15px)",
         border: "1px solid rgba(0, 0, 0, 0.1)",
         m: 1,
         borderRadius: "10px",
@@ -99,8 +101,10 @@ function Navbar({ scrollToSection }) {
             onClick={() => scrollToSection(b.path)}
           >
             <div style={{ alignItems: "center", display: "flex" }}>
-              <img height="20px" src={b.icon} alt={b.name} />
-              <span style={{ marginLeft: "5px" }}>{b.name}</span>
+              <img height="25px" src={b.icon} alt={b.name} />
+              <Typography variant="body2" sx={{ marginLeft: "5px" }}>
+                {b.name}
+              </Typography>
             </div>
           </motion.button>
         ))
