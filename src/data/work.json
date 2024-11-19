@@ -1,17 +1,20 @@
 [
   {
     "company": "Dakshana Foundation",
-    "address": "Kadus, Pune , 412404",
+    "address": "Kadus, Pune, 412404",
     "duration": "08-May-2022 to Present",
-    "multiplePosition": true,
     "positions": [
       {
         "position": "Academic Officer",
         "location": "Pune, Maharashtra",
         "startDate": "13-Sept-2023",
-        "endDate": "present",
+        "endDate": "Present",
         "description": [
-          "Currently working as an Academic Officer in the Pune Valley, overseeing and supporting various academic initiatives. I have been responsible for implementing and managing educational programs that align with the foundation's mission to support underprivileged students in their academic journeys."
+          "Managing and overseeing various academic activities at the Dakshana Valley, Pune.",
+          "Coordinating educational programs to support underprivileged students in their academic journeys.",
+          "Conducting bimonthly exams, including scheduling, result compilation, and analysis.",
+          "Supporting non-academic activities as needed.",
+          "Performing predictions and analyses based on academic performance data."
         ]
       },
       {
@@ -20,7 +23,9 @@
         "startDate": "01-Sept-2022",
         "endDate": "12-Sept-2023",
         "description": [
-          "As an Academic Program Coordinator in Bengaluru, I played a crucial role in coordinating educational programs, monitoring progress, and ensuring smooth execution of activities aimed at enhancing the academic skills of students. I worked closely with students and faculty to provide the necessary support for their success."
+          "Coordinated educational programs and ensured smooth execution of academic activities.",
+          "Monitored student progress and provided support to enhance their academic skills.",
+          "Worked closely with students and faculty to facilitate their success."
         ]
       },
       {
@@ -29,9 +34,9 @@
         "startDate": "08-May-2022",
         "endDate": "28-Aug-2022",
         "description": [
-          "As starting journey with Dakshana Foundation. I Played a crutial role as an Academic Program in coordinator.",
-          "Handling a batch of strength 61 preparting for JEE Advanced in their academic and non-academic activities.",
-          "Academic activities included their class scheduling, exam and more"
+          "Managed a batch of 61 students preparing for JEE Advanced, overseeing their academic and non-academic activities.",
+          "Handled class scheduling, examinations, and other academic initiatives.",
+          "Played a crucial role in supporting students' academic development during the initial phase of my tenure."
         ]
       }
     ]
@@ -47,7 +52,9 @@
         "startDate": "28-August-2021",
         "endDate": "01-May-2022",
         "description": [
-          "Worked as a Financial Processor, handling financial transactions, processing invoices, and ensuring accurate financial records. My role involved managing financial data, coordinating with various departments to ensure proper billing and documentation, and assisting in maintaining the company's financial health."
+          "Handled financial transactions, processed invoices, and ensured accurate financial records.",
+          "Managed financial data and coordinated with various departments to ensure proper billing and documentation.",
+          "Assisted in maintaining the company's financial health through diligent record-keeping and process optimization."
         ]
       }
     ]

@@ -6,11 +6,17 @@
     "technologies_used": [
       "React",
       "Node.js",
-      "MongoDB",
       "Express",
       "MUI",
-      "JWT",
-      "AWS S3"
+      "AWS S3",
+      "Crypto",
+      "Docx",
+      "excelJs",
+      "Framer Motion",
+      "Lodash",
+      "Redux",
+      "Recharts",
+      "..."
     ],
     "role": "Full-stack Developer",
     "responsibilities": [
@@ -20,13 +26,10 @@
       "Handled file uploads and storage using AWS S3."
     ],
     "features": [
-      "User registration and login with JWT authentication.",
       "Admin dashboard for managing scholars and content.",
-      "File upload functionality with AWS S3 integration.",
-      "Real-time notifications for updates and messages."
+      "File upload functionality with AWS S3 integration."
     ],
     "challenges_faced": [
-      "Optimizing real-time communication features for scalability.",
       "Integrating file upload functionality with S3 storage.",
       "Handling performance issues with large datasets."
     ],
@@ -40,9 +43,7 @@
     "skills_gained": [
       "Full-stack development",
       "RESTful API design",
-      "Database management (MongoDB)",
-      "Cloud storage integration (AWS S3)",
-      "JWT authentication"
+      "Cloud storage integration (AWS S3)"
     ]
   }
 ]
