@@ -9,11 +9,25 @@ function Certificates() {
   return (
     <>
       <Box sx={{ mb: 1, display: "flex", alignItems: "center" }}>
-        <img src={icons.certificate} height={45} />
-        <Typography sx={{ ml: 2 }} variant="h4">
-          Certificates Courses
+        <img
+          src={icons.certificate}
+          style={{
+            height: "clamp(30px, 5vw, 45px)",
+            width: "auto",
+          }}
+          alt="Certificate Icon"
+        />
+        <Typography
+          sx={{
+            ml: 2,
+            fontSize: "clamp(1.8rem, 3vw, 3.5rem)",
+          }}
+          variant="h4"
+        >
+          Certificate Courses
         </Typography>
       </Box>
+
       {certificates?.map((cert, index) => (
         <React.Fragment key={index}>
           <motion.div

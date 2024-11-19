@@ -15,11 +15,25 @@ function WorkExperience() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <img height={65} alt="Work Experience" src={icons.work} />
-        <Typography sx={{ ml: 2 }} variant="h3">
+        <img
+          alt="Work Experience"
+          src={icons.work}
+          style={{
+            height: "clamp(40px, 5vw, 65px)", // Minimum: 40px, Maximum: 65px, Responsive: 5% of viewport width
+            width: "auto",
+          }}
+        />
+        <Typography
+          sx={{
+            ml: 2,
+            fontSize: "clamp(1.8rem, 3vw, 3.5rem)", // Minimum: 1.5rem, Maximum: 2.5rem, Responsive: 3% of viewport width
+          }}
+          variant="h3"
+        >
           Work Experience
         </Typography>
       </Box>
+
       {data?.map((d, index) => (
         <React.Fragment key={index}>
           <motion.div
@@ -32,17 +46,27 @@ function WorkExperience() {
               <Divider />
               {d.positions?.map((p, index) => (
                 <CardContent
-                  sx={{ bgcolor: "#FDDBBB", ml: 4, my: 2, borderRadius: 2 }}
+                  sx={{ bgcolor: "#D0E8C5", mx: 2, my: 2, borderRadius: 2 }}
                   key={index}
                 >
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      Position :
-                    </Typography>
-                    <Typography sx={{ marginLeft: 1 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "flex-start", // Align items to the start for proper wrapping
+                      flexWrap: "wrap", // Enables wrapping on smaller screens
+                      gap: 1, // Adds spacing between items when wrapping
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        whiteSpace: "wrap", // Prevents breaking the "Position:" text
+                      }}
+                    >
+                      <span style={{ fontWeight: "bold" }}>Position</span> :{" "}
                       {p.position} ({p.startDate} to {p.endDate})
                     </Typography>
                   </Box>
+
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Typography sx={{ fontWeight: "bold" }}>
                       Location :

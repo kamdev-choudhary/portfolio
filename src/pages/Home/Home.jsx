@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Box, Divider, Grid2 as Grid, Paper, Typography } from "@mui/material";
 import photo from "/photo.jpg";
+import photo2 from "/photo2.jpg";
 import TypingText from "./TypingText";
 import { aboutMe, info } from "../../data/other.json";
 import { icons } from "../../constants/helper";
@@ -27,7 +28,7 @@ function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
               whileHover={{ scale: 1.1 }}
-              src={photo}
+              src={photo2}
               alt="Profile"
               style={{
                 width: 300,

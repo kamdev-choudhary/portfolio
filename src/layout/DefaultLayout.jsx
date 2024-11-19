@@ -36,7 +36,7 @@ function DefaultLayout() {
     if (targetRef && targetRef.current) {
       targetRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "start", // Ensure it scrolls to the top of the section
+        block: "start",
       });
     } else {
       console.warn(`Section "${section}" not found.`);
@@ -64,8 +64,7 @@ function DefaultLayout() {
   return (
     <Box
       sx={{
-        height: "100vh",
-        bgcolor: "rgba(203,157,240,0.3)", // Optimized gradient background
+        bgcolor: "#f1f3fb", // Optimized gradient background
         overflowY: "auto",
       }}
     >

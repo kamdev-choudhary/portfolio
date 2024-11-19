@@ -81,7 +81,6 @@ function ContactUs() {
   return (
     <Box
       sx={{
-        height: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -97,7 +96,7 @@ function ContactUs() {
           sx={{
             bgcolor: "rgba(255,255,255,0.7)",
             border: "1px solid rgba(0,0,0,0.4)",
-            p: 3,
+            p: 2,
             borderRadius: 2,
           }}
           maxWidth="sm"
