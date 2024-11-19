@@ -31,6 +31,10 @@
     {
       "name": "Google Script",
       "description": "A scripting platform for automating tasks and integrating with Google Workspace services. Used for saving email, password, and message in a spreadsheet for the Contact Us feature."
+    },
+    {
+      "name": "qrcode",
+      "description": "For generating QR code."
     }
   ]
 }
