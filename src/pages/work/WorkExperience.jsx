@@ -32,7 +32,7 @@ function WorkExperience() {
                   }}
                   key={index}
                 >
-                  <Typography sx={{ fontWeight: "bold", color: "#3C3C3C" }}>
+                  <Typography sx={{ fontWeight: "bold" }}>
                     <span style={{ fontWeight: "bold" }}>Position</span> :{" "}
                     {p.position} ({p.startDate} to {p.endDate})
                   </Typography>
@@ -41,22 +41,17 @@ function WorkExperience() {
                     <Typography sx={{ fontWeight: "bold" }}>
                       Location :
                     </Typography>
-                    <Typography sx={{ marginLeft: 1, color: "#616161" }}>
-                      {p.location}
-                    </Typography>
+                    <Typography sx={{ marginLeft: 1 }}>{p.location}</Typography>
                   </Box>
 
                   <Box sx={{ display: "flex", flexDirection: "column" }}>
-                    <Typography sx={{ fontWeight: "bold", color: "#3C3C3C" }}>
+                    <Typography sx={{ fontWeight: "bold" }}>
                       Job Description:
                     </Typography>
                     <Box sx={{ ml: 2 }}>
                       {Array.isArray(p.description) &&
                         p.description.map((desc, idx) => (
-                          <Typography
-                            key={idx}
-                            sx={{ mt: idx === 0 ? 0 : 1, color: "#424242" }}
-                          >
+                          <Typography key={idx} sx={{ mt: idx === 0 ? 0 : 1 }}>
                             {desc}
                           </Typography>
                         ))}

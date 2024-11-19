@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   IconButton,
@@ -9,34 +9,80 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
+import { DarkModeRounded, LightModeRounded } from "@mui/icons-material";
 import { icons } from "../constants/helper";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 const buttons = [
   { name: "Home", icon: icons.home, path: "home" },
   { name: "Work Experience", icon: icons.work, path: "work" },
   { name: "Education", icon: icons.education, path: "education" },
   { name: "Projects", icon: icons.project, path: "project" },
-  { name: "skills", icon: icons.skill, path: "skills" },
+  { name: "Skills", icon: icons.skill, path: "skills" },
   { name: "Certificates", icon: icons.certificate, path: "certificate" },
   { name: "Contact Us", icon: icons.contactUs, path: "contact" },
 ];
 
-function Navbar({ scrollToSection }) {
+const Navbar = ({ scrollToSection, toggleTheme }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const [theme, setTheme] = useState("light");
 
-  const toggleDrawer = (open) => () => {
-    setDrawerOpen(open);
+  const getLocalTheme = () => {
+    const localTheme = localStorage.getItem("theme");
+    if (localTheme === "light" || localTheme === "dark") {
+      setTheme(localTheme);
+    }
   };
+
+  useEffect(() => {
+    // Retrieve theme from localStorage
+    getLocalTheme();
+  }, []);
+
+  const toggleDrawer = (open) => () => setDrawerOpen(open);
 
   const handleButtonClick = (path) => {
-    setDrawerOpen(false); // Close the drawer
+    setDrawerOpen(false);
     setTimeout(() => scrollToSection(path), 200);
   };
+
+  const NavbarButton = ({ button }) => (
+    <motion.div
+      key={button.name}
+      style={{
+        padding: "0.5rem 1rem",
+        margin: "4px",
+        border: "none",
+        backgroundColor: "transparent",
+        cursor: "pointer",
+      }}
+      whileHover={{ scale: 1.1 }}
+      transition={{ duration: 0.5 }}
+      onClick={() => scrollToSection(button.path)}
+    >
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <img height="25px" src={button.icon} alt={button.name} />
+        <Typography variant="body2" sx={{ ml: 1 }}>
+          {button.name}
+        </Typography>
+      </Box>
+    </motion.div>
+  );
+
+  const DrawerListItem = ({ button }) => (
+    <ListItem disablePadding>
+      <ListItemButton onClick={() => handleButtonClick(button.path)}>
+        <ListItemIcon>
+          <img src={button.icon} alt={button.name} style={{ height: "24px" }} />
+        </ListItemIcon>
+        <ListItemText primary={button.name} />
+      </ListItemButton>
+    </ListItem>
+  );
 
   return (
     <Box
@@ -48,7 +94,7 @@ function Navbar({ scrollToSection }) {
         m: 1,
         borderRadius: "10px",
         display: "flex",
-        justifyContent: isSmallScreen ? "flex-start" : "flex-end",
+        justifyContent: isSmallScreen ? "space-between" : "flex-end",
       }}
     >
       {isSmallScreen ? (
@@ -58,59 +104,37 @@ function Navbar({ scrollToSection }) {
           </IconButton>
           <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
             <Box
-              sx={{
-                width: 250,
-                p: 2,
-              }}
+              sx={{ width: 250, p: 2 }}
               role="presentation"
               onClick={toggleDrawer(false)}
               onKeyDown={toggleDrawer(false)}
             >
               <List>
-                {buttons.map((b, index) => (
-                  <ListItem key={index} disablePadding>
-                    <ListItemButton onClick={() => handleButtonClick(b.path)}>
-                      <ListItemIcon>
-                        <img
-                          src={b.icon}
-                          alt={b.name}
-                          style={{ height: "24px" }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText primary={b.name} />
-                    </ListItemButton>
-                  </ListItem>
+                {buttons.map((button) => (
+                  <DrawerListItem key={button.name} button={button} />
                 ))}
               </List>
             </Box>
           </Drawer>
         </>
       ) : (
-        buttons.map((b, index) => (
-          <motion.button
-            key={index}
-            style={{
-              padding: "0.5rem 1rem",
-              margin: "4px",
-              border: "none",
-              backgroundColor: "transparent",
-              cursor: "pointer",
-            }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
-            onClick={() => scrollToSection(b.path)}
-          >
-            <div style={{ alignItems: "center", display: "flex" }}>
-              <img height="25px" src={b.icon} alt={b.name} />
-              <Typography variant="body2" sx={{ marginLeft: "5px" }}>
-                {b.name}
-              </Typography>
-            </div>
-          </motion.button>
+        buttons.map((button) => (
+          <NavbarButton key={button.name} button={button} />
         ))
       )}
+
+      <Box sx={{ display: "flex", alignItems: "center", mx: 2 }}>
+        <IconButton
+          onClick={() => {
+            toggleTheme();
+            getLocalTheme();
+          }}
+        >
+          {theme === "light" ? <LightModeRounded /> : <DarkModeRounded />}
+        </IconButton>
+      </Box>
     </Box>
   );
-}
+};
 
 export default Navbar;

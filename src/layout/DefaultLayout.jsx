@@ -12,7 +12,7 @@ import Skills from "../pages/skills/Skills";
 import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
 
-function DefaultLayout() {
+function DefaultLayout({ toggleTheme }) {
   const homeRef = useRef(null);
   const workExperienceRef = useRef(null);
   const contactUsRef = useRef(null);
@@ -112,7 +112,7 @@ function DefaultLayout() {
   return (
     <Box
       sx={{
-        bgcolor: "#f1f3fb", // Optimized gradient background
+        bgcolor: "background.primary", //backgrou Optimized gradient background
         overflowY: "auto",
       }}
     >
@@ -126,7 +126,7 @@ function DefaultLayout() {
           zIndex: 1000, // Ensure it stays on top of other elements
         }}
       >
-        <Navbar scrollToSection={scrollToSection} />
+        <Navbar toggleTheme={toggleTheme} scrollToSection={scrollToSection} />
       </Box>
 
       {/* Main content with padding to account for the fixed Navbar */}

@@ -47,7 +47,6 @@ function Home() {
                 boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
                 border: "4px solid #fff",
                 marginLeft: 2,
-                mixBlendMode: "multiply",
               }}
               loading="lazy"
             />
