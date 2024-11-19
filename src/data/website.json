@@ -1,0 +1,32 @@
+{
+  "packages": [
+    {
+      "name": "React",
+      "description": "A JavaScript library for building fast, interactive, and dynamic user interfaces."
+    },
+    {
+      "name": "Vite",
+      "description": "A next-generation front-end tool for fast development and optimized production builds."
+    },
+    {
+      "name": "MUI",
+      "description": "A popular library of React components that follow Google's Material Design guidelines."
+    },
+    {
+      "name": "Axios",
+      "description": "A promise-based HTTP client for making requests to APIs and handling responses efficiently."
+    },
+    {
+      "name": "Framer Motion",
+      "description": "A powerful animation library for React that simplifies creating smooth and responsive animations."
+    },
+    {
+      "name": "Sweet Alert 2",
+      "description": "A beautiful and customizable replacement for JavaScript alert boxes, with support for modern UI design."
+    },
+    {
+      "name": "React Spinner",
+      "description": "A react loader animation tool."
+    }
+  ]
+}

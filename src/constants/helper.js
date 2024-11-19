@@ -9,4 +9,12 @@ export const icons = {
   contactUs: "https://img.icons8.com/3d-fluency/94/paper-plane.png",
   certificate:
     "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-certificates-recruitment-agency-flaticons-lineal-color-flat-icons-2.png",
+  project: "https://img.icons8.com/color/48/group-of-projects.png",
+
+  email: "https://img.icons8.com/3d-fluency/50/gmail.png",
+  phone: "https://img.icons8.com/3d-fluency/50/smartphone.png",
+  linkedIn: "https://img.icons8.com/3d-fluency/50/linkedin.png",
+  instagram: "https://img.icons8.com/3d-fluency/50/instagram-new.png",
+  github: "https://img.icons8.com/3d-fluency/50/github.png",
+  WhatsApp: "https://img.icons8.com/3d-fluency/50/whatsapp-logo.png",
 };

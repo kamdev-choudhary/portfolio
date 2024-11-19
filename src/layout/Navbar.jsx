@@ -9,6 +9,11 @@ const buttons = [
   { name: "Home", icon: icons.home, path: "home" },
   { name: "Work Experience", icon: icons.work, path: "work" },
   { name: "Education", icon: icons.education, path: "education" },
+  {
+    name: "Projects",
+    icon: icons.project,
+    path: "project",
+  },
   { name: "Certificates", icon: icons.certificate, path: "certificate" },
   { name: "Contact Us", icon: icons.contactUs, path: "contact" },
 ];

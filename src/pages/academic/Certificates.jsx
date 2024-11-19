@@ -1,8 +1,57 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, Box, Paper, Divider, IconButton } from "@mui/material";
+import { icons } from "../../constants/helper";
+import { certificates } from "../../data/education.json";
+import { motion } from "framer-motion";
+import { LinkRounded } from "@mui/icons-material";
 
 function Certificates() {
-  return <Typography>Certificates</Typography>;
+  return (
+    <>
+      <Box sx={{ mb: 1, display: "flex", alignItems: "center" }}>
+        <img src={icons.certificate} height={45} />
+        <Typography sx={{ ml: 2 }} variant="h4">
+          Certificates Courses
+        </Typography>
+      </Box>
+      {certificates?.map((cert, index) => (
+        <React.Fragment key={index}>
+          <motion.div
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.2,
+            }}
+          >
+            <Box
+              component={Paper}
+              sx={{ p: 1, mb: 1, display: "grid", gap: 1 }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <Typography sx={{ fontWeight: "bold" }} variant="h6">
+                  {cert?.name}
+                </Typography>
+                <IconButton>
+                  <LinkRounded />
+                </IconButton>
+              </Box>
+              <Divider />
+              <Typography>Couse Duration : {cert?.duration}</Typography>
+              <Typography>Institute Name : {cert?.institute}</Typography>
+              <Typography>Course Period : {cert?.period}</Typography>
+            </Box>
+          </motion.div>
+        </React.Fragment>
+      ))}
+    </>
+  );
 }
 
 export default Certificates;

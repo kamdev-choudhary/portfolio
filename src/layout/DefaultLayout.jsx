@@ -7,6 +7,7 @@ import ContactUs from "../pages/contact/ContactUs";
 import Education from "../pages/academic/Education";
 import AboutUs from "../pages/about/AboutUs";
 import Certificate from "../pages/academic/Certificates";
+import Projects from "../pages/project/Projects";
 import { motion } from "framer-motion";
 
 function DefaultLayout() {
@@ -16,6 +17,7 @@ function DefaultLayout() {
   const educationRef = useRef(null);
   const aboutUsRef = useRef(null);
   const certificateRef = useRef(null);
+  const projectRef = useRef(null);
 
   // Scroll function with a switch case for smooth scroll to target section
   const scrollToSection = (section) => {
@@ -26,6 +28,7 @@ function DefaultLayout() {
       education: educationRef,
       about: aboutUsRef,
       certificate: certificateRef,
+      project: projectRef,
     };
 
     const targetRef = targetRefMap[section];
@@ -47,6 +50,11 @@ function DefaultLayout() {
       component: <WorkExperience />,
       ref: workExperienceRef,
     },
+    {
+      name: "Projects",
+      component: <Projects />,
+      ref: projectRef,
+    },
     { name: "Education", component: <Education />, ref: educationRef },
     { name: "Certificate", component: <Certificate />, ref: certificateRef },
     { name: "Contact Us", component: <ContactUs />, ref: contactUsRef },
@@ -57,7 +65,7 @@ function DefaultLayout() {
     <Box
       sx={{
         height: "100vh",
-        bgcolor: "#CB9DF0", // Optimized gradient background
+        bgcolor: "rgba(203,157,240,0.3)", // Optimized gradient background
         overflowY: "auto",
       }}
     >

@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import CustomButton from "../../components/CustomButton";
 import { googleScriptUrl } from "../../constants/helper";
 import Swal from "sweetalert2";
+import { info } from "../../data/other.json";
+import { motion } from "framer-motion";
+import { icons } from "../../constants/helper";
 
 function ContactUs() {
   // States for the form fields
@@ -84,56 +87,92 @@ function ContactUs() {
         justifyContent: "center",
       }}
     >
-      <Container component={Paper} maxWidth="sm" sx={{ p: 3 }}>
-        <Box sx={{ mb: 1 }}>
-          <Typography variant="h4" gutterBottom>
-            Contact Me
-          </Typography>
-        </Box>
-        <Box
-          component="form"
-          sx={{ display: "grid", gap: 2 }}
-          onSubmit={handleSubmit}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        style={{ width: "100%" }}
+      >
+        <Container
+          sx={{
+            bgcolor: "rgba(255,255,255,0.7)",
+            border: "1px solid rgba(0,0,0,0.4)",
+            p: 3,
+            borderRadius: 2,
+          }}
+          maxWidth="sm"
         >
-          <TextField
-            label="Email"
-            type="email"
-            size="small"
-            fullWidth
-            value={email}
-            onChange={handleEmailChange}
-            error={emailError}
-            helperText={emailError && "Email is required"}
-          />
-          <TextField
-            label="Phone"
-            type="tel"
-            size="small"
-            fullWidth
-            value={phone}
-            onChange={handlePhoneChange}
-            error={phoneError}
-            helperText={phoneError && "Phone number is required"}
-          />
-          <TextField
-            label="Message"
-            multiline
-            rows={4}
-            size="small"
-            fullWidth
-            value={message}
-            onChange={handleMessageChange}
-            error={messageError}
-            helperText={messageError && "Message is required"}
-          />
-          <CustomButton
-            loading={sending}
-            disabled={sending}
-            type="submit"
-            label="Submit"
-          />
-        </Box>
-      </Container>
+          <Box sx={{ mb: 1 }}>
+            <Typography variant="h4" gutterBottom>
+              Contact Me
+            </Typography>
+          </Box>
+          <Box
+            component="form"
+            sx={{ display: "grid", gap: 2 }}
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              label="Email"
+              type="email"
+              size="small"
+              fullWidth
+              value={email}
+              onChange={handleEmailChange}
+              error={emailError}
+              helperText={emailError && "Email is required"}
+            />
+            <TextField
+              label="Phone"
+              type="tel"
+              size="small"
+              fullWidth
+              value={phone}
+              onChange={handlePhoneChange}
+              error={phoneError}
+              helperText={phoneError && "Phone number is required"}
+            />
+            <TextField
+              label="Message"
+              multiline
+              rows={4}
+              size="small"
+              fullWidth
+              value={message}
+              onChange={handleMessageChange}
+              error={messageError}
+              helperText={messageError && "Message is required"}
+            />
+            <CustomButton
+              loading={sending}
+              disabled={sending}
+              type="submit"
+              label="Submit"
+            />
+          </Box>
+
+          <Box sx={{ p: 1, display: "flex", justifyContent: "center", mt: 1 }}>
+            <Typography
+              component="a"
+              href={`https://api.whatsapp.com/send/?phone=${info.phone.slice(
+                1
+              )}&text=Hi`}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                textDecoration: "none",
+                color: "inherit",
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
+              <img src={icons.WhatsApp} height={20} />
+              Or send a WhatsApp message
+            </Typography>
+          </Box>
+        </Container>
+      </motion.div>
     </Box>
   );
 }

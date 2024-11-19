@@ -1,15 +1,19 @@
 import React from "react";
-import data from "../../data/education.json";
+import { basic } from "../../data/education.json";
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { icons } from "../../constants/helper";
 
 function Education() {
   return (
     <>
-      <Box sx={{ mb: 1 }}>
-        <Typography variant="h4">Education</Typography>
+      <Box sx={{ mb: 1, display: "flex", alignItems: "center" }}>
+        <img src={icons.education} height={45} />
+        <Typography sx={{ ml: 2 }} variant="h4">
+          Education
+        </Typography>
       </Box>
-      {data?.basic?.map((d, index) => (
+      {basic?.map((d, index) => (
         <React.Fragment key={index}>
           <motion.div
             whileInView={{
