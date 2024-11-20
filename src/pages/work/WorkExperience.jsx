@@ -1,6 +1,6 @@
 import React from "react";
 import data from "../../data/work.json";
-import { Box, Divider, Paper, Typography } from "@mui/material";
+import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
 function WorkExperience() {
@@ -54,6 +54,15 @@ function WorkExperience() {
                           <Typography key={idx} sx={{ mt: idx === 0 ? 0 : 1 }}>
                             {desc}
                           </Typography>
+                        ))}
+                    </Box>
+                  </Box>
+                  <Typography sx={{ fontWeight: "bold" }}>Skills</Typography>
+                  <Box sx={{ display: "flex", gap: 2 }}>
+                    <Box sx={{ ml: 2, display: "flex", gap: 1 }}>
+                      {Array.isArray(p.skills) &&
+                        p.skills.map((desc, idx) => (
+                          <Chip label={desc} key={index} size="small" />
                         ))}
                     </Box>
                   </Box>
