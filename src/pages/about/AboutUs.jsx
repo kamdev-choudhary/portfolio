@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Divider, Paper, Typography } from "@mui/material";
-import { packages, icons } from "../../data/website.json";
+import { packages, icons as icon } from "../../data/website.json";
+import { icons } from "../../constants/helper";
 
 function AboutUs() {
   return (
@@ -32,7 +33,7 @@ function AboutUs() {
         <Box component="ul" sx={{ pl: 3 }}>
           <li>
             <Typography variant="body1">
-              <strong>Icons</strong> : {icons.name}
+              <strong>Icons</strong> : {icon.name}
             </Typography>
           </li>
         </Box>
@@ -40,6 +41,23 @@ function AboutUs() {
           I am committed to continuously improving this portfolio website by
           integrating the best tools and libraries to meet modern web standards.
         </Typography>
+        <Box component="ul" sx={{ pl: 3 }}>
+          <Typography
+            variant="body1"
+            component="a"
+            href="https://github.com/kamdev-choudhary/portfolio"
+            target="_blank"
+            sx={{
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
+            <img src={icons.github} height={20} />
+            <strong>Github Repository</strong>
+          </Typography>
+        </Box>
       </Box>
     </>
   );

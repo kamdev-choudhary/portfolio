@@ -61,8 +61,8 @@ function WorkExperience() {
                   <Box sx={{ display: "flex", gap: 2 }}>
                     <Box sx={{ ml: 2, display: "flex", gap: 1 }}>
                       {Array.isArray(p.skills) &&
-                        p.skills.map((desc, idx) => (
-                          <Chip label={desc} key={idx} size="small" />
+                        p.skills.map((skill, idx) => (
+                          <Chip label={skill} key={idx} size="small" />
                         ))}
                     </Box>
                   </Box>
