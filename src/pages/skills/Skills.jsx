@@ -39,9 +39,7 @@ function Skill() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: idx * 0.1 }}
                 >
-                  <ListItem>
-                    <Typography>{project}</Typography>
-                  </ListItem>
+                  <Typography>{project}</Typography>
                 </motion.li>
               ))}
             </List>
@@ -56,9 +54,7 @@ function Skill() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: idx * 0.1 }}
                 >
-                  <ListItem>
-                    <Typography>{cert}</Typography>
-                  </ListItem>
+                  <Typography>{cert}</Typography>
                 </motion.li>
               ))}
             </List>

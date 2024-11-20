@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import React from "react";
 
 function CustomButton({
@@ -7,7 +7,7 @@ function CustomButton({
   variant = "contained",
   onClick,
   type,
-  loading,
+  loading = false,
   disabled,
 }) {
   return (
@@ -22,10 +22,9 @@ function CustomButton({
       onClick={onClick}
       variant={variant}
       type={type}
-      loading={loading}
-      disabled={disabled}
+      disabled={disabled || loading} // Disable the button when loading
     >
-      {label}
+      {loading ? <CircularProgress size={24} color="inherit" /> : label}
     </Button>
   );
 }

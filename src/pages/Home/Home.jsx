@@ -48,7 +48,6 @@ function Home() {
                 border: "4px solid #fff",
                 marginLeft: 2,
               }}
-              loading="lazy"
             />
           </Box>
         </Grid>

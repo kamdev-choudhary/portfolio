@@ -123,7 +123,7 @@ const Navbar = ({ scrollToSection, toggleTheme }) => {
         ))
       )}
 
-      <Box sx={{ display: "flex", alignItems: "center", mx: 2 }}>
+      <Box sx={{ display: "flex", alignItems: "center", mx: 1 }}>
         <IconButton
           onClick={() => {
             toggleTheme();
