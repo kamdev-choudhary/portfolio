@@ -286,5 +286,33 @@
     }
   },
   "hobbies": ["Playing Chess", "Music"],
-  "extra": [{ "name": "" }]
+  "extra": [
+    {
+      "name": "Sports",
+      "description": "Captain of the college football team and represented the college in inter-university tournaments.",
+      "duration": "2018 - 2022",
+      "achievements": [
+        "Won gold medal in inter-university football championship, 2020",
+        "Organized annual sports fest"
+      ]
+    },
+    {
+      "name": "Volunteering",
+      "description": "Active member of a local NGO focused on teaching underprivileged children.",
+      "duration": "2020 - Present",
+      "achievements": [
+        "Taught over 100 children basic computer skills",
+        "Organized donation drives for educational supplies"
+      ]
+    },
+    {
+      "name": "Debate and Public Speaking",
+      "description": "Participated in various debate competitions at state and national levels.",
+      "duration": "2019 - 2021",
+      "achievements": [
+        "Won first place in National Debate Championship, 2021",
+        "Best Speaker Award at State Debate Competition, 2020"
+      ]
+    }
+  ]
 }

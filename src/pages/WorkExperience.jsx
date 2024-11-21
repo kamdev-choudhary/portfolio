@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 function WorkExperience() {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-      {data.map((d, index) => (
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 2, p: 2 }}>
+      {data?.map((d, index) => (
         <React.Fragment key={index}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

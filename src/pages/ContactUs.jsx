@@ -84,6 +84,7 @@ function ContactUs() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        p: 2,
       }}
     >
       <motion.div

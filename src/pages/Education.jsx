@@ -6,7 +6,7 @@ const { basic } = education;
 
 function Education() {
   return (
-    <>
+    <Box sx={{ p: 2 }}>
       {basic?.map((d, index) => (
         <React.Fragment key={index}>
           <motion.div
@@ -40,7 +40,7 @@ function Education() {
           </motion.div>
         </React.Fragment>
       ))}
-    </>
+    </Box>
   );
 }
 

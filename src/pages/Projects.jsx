@@ -5,7 +5,7 @@ import { projects } from "../data/data.json";
 
 function Projects() {
   return (
-    <Box>
+    <Box sx={{ p: 2 }}>
       {projects?.map((p, index) => (
         <Box
           key={index}

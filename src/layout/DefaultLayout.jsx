@@ -2,21 +2,11 @@ import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
-import { icons } from "../constants/helper";
-import Home from "../pages/Home";
-import WorkExperience from "../pages/WorkExperience";
-import ContactUs from "../pages/ContactUs";
-import Education from "../pages/Education";
-import WebsiteInfo from "../pages/WebsiteInfo";
-import Certificate from "../pages/Certificates";
-import Projects from "../pages/Projects";
-import Skills from "../pages/Skills";
-import ExtraCurricular from "../pages/Extracurricular";
-import HobbiesAndMore from "../pages/HobbiesAndMore";
 import Swal from "sweetalert2";
+import { pages } from "./pages";
 
 function DefaultLayout({ toggleTheme }) {
-  const sectionRefs = {
+  const pagesRefs = {
     home: useRef(null),
     work: useRef(null),
     contact: useRef(null),
@@ -30,7 +20,7 @@ function DefaultLayout({ toggleTheme }) {
   };
 
   const scrollToSection = (section, margin = 140) => {
-    const targetRef = sectionRefs[section];
+    const targetRef = pagesRefs[section];
     if (targetRef?.current) {
       const { top } = targetRef.current.getBoundingClientRect();
       const scrollPosition = window.scrollY + top - margin;
@@ -39,79 +29,6 @@ function DefaultLayout({ toggleTheme }) {
       Swal.fire(`Section "${section}" not found.`);
     }
   };
-
-  const sections = [
-    {
-      name: "Home",
-      component: <Home />,
-      key: "home",
-      icon: icons.home,
-      showHeader: false,
-    },
-    {
-      name: "Work Experience",
-      component: <WorkExperience />,
-      key: "work",
-      icon: icons.work,
-      showHeader: true,
-    },
-    {
-      name: "Projects",
-      component: <Projects />,
-      key: "project",
-      icon: icons.project,
-      showHeader: true,
-    },
-    {
-      name: "Education",
-      component: <Education />,
-      key: "education",
-      icon: icons.education,
-      showHeader: true,
-    },
-    {
-      name: "Certificates",
-      component: <Certificate />,
-      key: "certificate",
-      icon: icons.certificate,
-      showHeader: true,
-    },
-    {
-      name: "Skills",
-      component: <Skills />,
-      key: "skills",
-      icon: icons.skill,
-      showHeader: true,
-    },
-    {
-      name: "Hobbies and More",
-      component: <HobbiesAndMore />,
-      key: "hobbies",
-      icon: icons.hobbies,
-      showHeader: true,
-    },
-    {
-      name: "Extra Curricular Activities",
-      component: <ExtraCurricular />,
-      key: "extra",
-      icon: icons.extra,
-      showHeader: true,
-    },
-    {
-      name: "Contact Us",
-      component: <ContactUs />,
-      key: "contact",
-      icon: icons.contactUs,
-      showHeader: false,
-    },
-    {
-      name: "Website Info",
-      component: <WebsiteInfo />,
-      key: "about",
-      icon: icons.about,
-      showHeader: false,
-    },
-  ];
 
   const headerStyles = {
     display: "flex",
@@ -151,7 +68,7 @@ function DefaultLayout({ toggleTheme }) {
 
       {/* Main content */}
       <Box sx={{ paddingTop: "80px" }}>
-        {sections.map(({ name, component, key, icon, showHeader }) => (
+        {pages?.map(({ name, component, key, icon, showHeader }) => (
           <React.Fragment key={key}>
             {showHeader && (
               <Box sx={headerStyles}>
@@ -160,12 +77,12 @@ function DefaultLayout({ toggleTheme }) {
               </Box>
             )}
             <motion.div
-              ref={sectionRefs[key]}
+              ref={pagesRefs[key]}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <Box sx={{ padding: { sm: 3, xs: 1.5 } }}>{component}</Box>
+              {component}
             </motion.div>
           </React.Fragment>
         ))}

@@ -6,7 +6,7 @@ const { skills } = education;
 
 function Skill() {
   return (
-    <Box>
+    <Box sx={{ p: 2 }}>
       {skills.map((skill, index) => (
         <motion.div
           key={index}
