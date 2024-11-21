@@ -54,19 +54,20 @@ export const pages = [
     showHeader: true,
   },
   {
-    name: "Hobbies and More",
-    component: <HobbiesAndMore />,
-    key: "hobbies",
-    icon: icons.hobbies,
-    showHeader: true,
-  },
-  {
     name: "Extra Curricular Activities",
     component: <ExtraCurricular />,
     key: "extra",
     icon: icons.extra,
     showHeader: true,
   },
+  {
+    name: "Hobbies and More",
+    component: <HobbiesAndMore />,
+    key: "hobbies",
+    icon: icons.hobbies,
+    showHeader: true,
+  },
+
   {
     name: "Contact Us",
     component: <ContactUs />,

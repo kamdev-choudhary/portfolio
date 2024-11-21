@@ -286,33 +286,24 @@
     }
   },
   "hobbies": ["Playing Chess", "Music"],
+
   "extra": [
     {
-      "name": "Sports",
-      "description": "Captain of the college football team and represented the college in inter-university tournaments.",
-      "duration": "2018 - 2022",
+      "name": "National Service Scheme (NSS)",
+      "description": "Participated actively in community service, leading initiatives focused on social awareness and development.",
+      "duration": "2018 - 2021",
       "achievements": [
-        "Won gold medal in inter-university football championship, 2020",
-        "Organized annual sports fest"
+        "Participated in Pre-Republic day Parade camp in 2019.",
+        "Organized blood donation drives benefiting over 500 individuals",
+        "Led a successful tree plantation drive in the community",
+        "Received 'Best Volunteer Award' in 2021 for outstanding contributions"
       ]
     },
     {
-      "name": "Volunteering",
-      "description": "Active member of a local NGO focused on teaching underprivileged children.",
-      "duration": "2020 - Present",
-      "achievements": [
-        "Taught over 100 children basic computer skills",
-        "Organized donation drives for educational supplies"
-      ]
-    },
-    {
-      "name": "Debate and Public Speaking",
-      "description": "Participated in various debate competitions at state and national levels.",
-      "duration": "2019 - 2021",
-      "achievements": [
-        "Won first place in National Debate Championship, 2021",
-        "Best Speaker Award at State Debate Competition, 2020"
-      ]
+      "name": "Scouts and Guide",
+      "description": "Engaged in leadership training, community service activities, and skill-building exercises.",
+      "duration": "2010 - 2014",
+      "achievements": ["Completed Dwitya sopan in 2014."]
     }
   ]
 }

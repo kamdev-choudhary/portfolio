@@ -2,22 +2,16 @@ import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
-import Swal from "sweetalert2";
 import { pages } from "./pages";
 
-function DefaultLayout({ toggleTheme }) {
-  const pagesRefs = {
-    home: useRef(null),
-    work: useRef(null),
-    contact: useRef(null),
-    education: useRef(null),
-    about: useRef(null),
-    certificate: useRef(null),
-    project: useRef(null),
-    skills: useRef(null),
-    hobbies: useRef(null),
-    extra: useRef(null),
-  };
+export default function DefaultLayout({ toggleTheme, theme }) {
+  // Automatically create refs based on pages keys
+  const pagesRefs = useRef(
+    pages.reduce((acc, { key }) => {
+      acc[key] = React.createRef();
+      return acc;
+    }, {})
+  ).current;
 
   const scrollToSection = (section, margin = 140) => {
     const targetRef = pagesRefs[section];
@@ -25,8 +19,6 @@ function DefaultLayout({ toggleTheme }) {
       const { top } = targetRef.current.getBoundingClientRect();
       const scrollPosition = window.scrollY + top - margin;
       window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-    } else {
-      Swal.fire(`Section "${section}" not found.`);
     }
   };
 
@@ -43,7 +35,7 @@ function DefaultLayout({ toggleTheme }) {
 
   const titleStyles = {
     marginLeft: "0.5rem",
-    fontSize: "clamp(2rem, 3vw, 3rem)",
+    fontSize: "clamp(2rem, 3vw, 2.5rem)",
   };
 
   return (
@@ -63,12 +55,16 @@ function DefaultLayout({ toggleTheme }) {
           zIndex: 1000,
         }}
       >
-        <Navbar toggleTheme={toggleTheme} scrollToSection={scrollToSection} />
+        <Navbar
+          toggleTheme={toggleTheme}
+          theme={theme}
+          scrollToSection={scrollToSection}
+        />
       </Box>
 
       {/* Main content */}
       <Box sx={{ paddingTop: "80px" }}>
-        {pages?.map(({ name, component, key, icon, showHeader }) => (
+        {pages.map(({ name, component, key, icon, showHeader }) => (
           <React.Fragment key={key}>
             {showHeader && (
               <Box sx={headerStyles}>
@@ -90,5 +86,3 @@ function DefaultLayout({ toggleTheme }) {
     </Box>
   );
 }
-
-export default DefaultLayout;

@@ -16,6 +16,7 @@ export const icons = {
   hobbies: "https://img.icons8.com/3d-fluency/94/drawing.png",
   voluntary: "https://img.icons8.com/3d-fluency/94/welfare.png",
   location: "https://img.icons8.com/3d-fluency/94/map-marker.png",
+  list: "https://img.icons8.com/color/48/star.png",
 
   email: "https://img.icons8.com/3d-fluency/50/gmail.png",
   phone: "https://img.icons8.com/3d-fluency/50/smartphone.png",

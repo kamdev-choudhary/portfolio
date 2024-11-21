@@ -9,7 +9,7 @@ import { icons } from "../constants/helper";
 
 function Home() {
   return (
-    <Box>
+    <Box sx={{ p: 2 }}>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, md: 4, lg: 4 }}>
           <Box
@@ -47,7 +47,7 @@ function Home() {
             }}
           >
             <Box>
-              <Typography variant="h3" sx={{ mb: 1 }}>
+              <Typography variant="h3" sx={{ mb: 1, fontWeight: "bold" }}>
                 {name}
               </Typography>
               <Box

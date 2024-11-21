@@ -15,7 +15,6 @@ function App() {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    // Retrieve theme from localStorage
     const localTheme = localStorage.getItem("theme");
     if (localTheme === "light" || localTheme === "dark") {
       setTheme(localTheme);
@@ -40,7 +39,9 @@ function App() {
             {/* Default route */}
             <Route
               path="/"
-              element={<DefaultLayout toggleTheme={toggleTheme} />}
+              element={
+                <DefaultLayout toggleTheme={toggleTheme} theme={theme} />
+              }
             />
 
             {/* Catch-all route */}

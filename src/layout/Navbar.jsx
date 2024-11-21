@@ -34,9 +34,8 @@ const buttons = [
   { name: "Contact Us", icon: icons.contactUs, path: "contact" },
 ];
 
-const Navbar = ({ scrollToSection, toggleTheme }) => {
+const Navbar = ({ scrollToSection, toggleTheme, theme }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [theme, setTheme] = useState("light");
   const [anchorEl, setAnchorEl] = useState(null);
   const [visibleButtonsCount, setVisibleButtonCount] = useState(4);
 
@@ -66,13 +65,6 @@ const Navbar = ({ scrollToSection, toggleTheme }) => {
       setVisibleButtonCount(buttons.length);
     }
   }, [isMediumScreen, isLargeScreen, isExtraLargeScreen, isUltraWideScreen]);
-
-  useEffect(() => {
-    const localTheme = localStorage.getItem("theme");
-    if (localTheme === "light" || localTheme === "dark") {
-      setTheme(localTheme);
-    }
-  }, []);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
@@ -203,14 +195,7 @@ const Navbar = ({ scrollToSection, toggleTheme }) => {
       )}
 
       <Box sx={{ display: "flex", alignItems: "center", mx: 1 }}>
-        <IconButton
-          onClick={() => {
-            toggleTheme();
-            const updatedTheme = theme === "light" ? "dark" : "light";
-            setTheme(updatedTheme);
-            localStorage.setItem("theme", updatedTheme);
-          }}
-        >
+        <IconButton onClick={toggleTheme}>
           {theme === "light" ? <LightModeRounded /> : <DarkModeRounded />}
         </IconButton>
       </Box>

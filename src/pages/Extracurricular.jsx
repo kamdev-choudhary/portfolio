@@ -1,6 +1,16 @@
 import React from "react";
 import { extra } from "../data/data.json";
-import { Box, Divider, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Paper,
+  Typography,
+} from "@mui/material";
+import { icons } from "../constants/helper";
 
 function Extracurricular() {
   return (
@@ -16,7 +26,9 @@ function Extracurricular() {
               borderRadius: 2,
             }}
           >
-            <Typography>{e.name}</Typography>
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              {e.name}
+            </Typography>
             <Divider sx={{ my: 1 }} />
             <Typography variant="body1">
               <span style={{ fontWeight: "bold" }}>Duration : </span>
@@ -26,7 +38,17 @@ function Extracurricular() {
               <span style={{ fontWeight: "bold" }}>Description : </span>
               {e.description}
             </Typography>
-            <Typography>{e.achievements}</Typography>
+            <List>
+              {Array.isArray(e.achievements) &&
+                e.achievements.map((a, index) => (
+                  <ListItem key={index}>
+                    <ListItemIcon>
+                      <img src={icons.list} alt="icon" height={20} />
+                    </ListItemIcon>
+                    <ListItemText primary={a} />
+                  </ListItem>
+                ))}
+            </List>
           </Box>
         ))}
       </Box>
