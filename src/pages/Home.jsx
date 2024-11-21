@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { Box, Divider, Grid2 as Grid, Paper, Typography } from "@mui/material";
 import photo from "/photo.jpg";
 import TypingText from "./TypingText";
-import { aboutMe, contact } from "../../data/data.json";
+import { aboutMe, contact } from "../data/data.json";
 
-import { icons } from "../../constants/helper";
+import { icons } from "../constants/helper";
 import QRCode from "qrcode";
 
 function Home() {

@@ -12,7 +12,7 @@ export const lightTheme = createTheme({
       main: "#dc004e", // Customize your secondary color
     },
     background: {
-      default: "#f5f5f5",
+      default: "#f1f3fb",
       paper: "#ffffff",
     },
     text: {

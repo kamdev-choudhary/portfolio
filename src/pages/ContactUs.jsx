@@ -1,11 +1,11 @@
 import { Box, Container, Paper, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import CustomButton from "../../components/CustomButton";
-import { googleScriptUrl } from "../../constants/helper";
+import CustomButton from "../components/CustomButton";
+import { googleScriptUrl } from "../constants/helper";
 import Swal from "sweetalert2";
-import { contact } from "../../data/data.json";
+import { contact } from "../data/data.json";
 import { motion } from "framer-motion";
-import { icons } from "../../constants/helper";
+import { icons } from "../constants/helper";
 
 function ContactUs() {
   // States for the form fields

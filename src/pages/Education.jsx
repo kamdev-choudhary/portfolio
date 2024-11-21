@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { education } from "../../data/data.json";
+import { education } from "../data/data.json";
 const { basic } = education;
 
 function Education() {

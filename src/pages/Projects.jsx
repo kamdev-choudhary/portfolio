@@ -1,7 +1,7 @@
 import { Box, Divider, Paper, Typography, Chip } from "@mui/material";
 import React from "react";
-import { icons } from "../../constants/helper";
-import { projects } from "../../data/data.json";
+import { icons } from "../constants/helper";
+import { projects } from "../data/data.json";
 
 function Projects() {
   return (

@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import Navbar from "./Navbar";
-import Home from "../pages/Home/Home";
-import WorkExperience from "../pages/work/WorkExperience";
-import ContactUs from "../pages/contact/ContactUs";
-import Education from "../pages/academic/Education";
-import WebsiteInfo from "../pages/website/WebsiteInfo";
-import Certificate from "../pages/academic/Certificates";
-import Projects from "../pages/project/Projects";
-import Skills from "../pages/skills/Skills";
+import Home from "../pages/Home";
+import WorkExperience from "../pages/WorkExperience";
+import ContactUs from "../pages/ContactUs";
+import Education from "../pages/Education";
+import WebsiteInfo from "../pages/WebsiteInfo";
+import Certificate from "../pages/Certificates";
+import Projects from "../pages/Projects";
+import Skills from "../pages/Skills";
 import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
 
