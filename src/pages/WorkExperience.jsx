@@ -29,6 +29,7 @@ function WorkExperience() {
                     mb: 1,
                     p: 1,
                     borderRadius: 2,
+                    bgcolor: "background.secondary",
                   }}
                   key={index}
                 >
@@ -49,10 +50,14 @@ function WorkExperience() {
                       Job Description:
                     </Typography>
                     <Box sx={{ ml: 2 }}>
+                      <ul></ul>
                       {Array.isArray(p.description) &&
                         p.description.map((desc, idx) => (
-                          <Typography key={idx} sx={{ mt: idx === 0 ? 0 : 1 }}>
-                            {desc}
+                          <Typography
+                            key={idx}
+                            sx={{ mt: idx === 0 ? 0 : 0.5 }}
+                          >
+                            <li>{desc}</li>
                           </Typography>
                         ))}
                     </Box>

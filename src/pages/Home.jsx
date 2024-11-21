@@ -1,26 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Box, Divider, Grid2 as Grid, Paper, Typography } from "@mui/material";
 import photo from "/photo.jpg";
 import TypingText from "./TypingText";
-import { aboutMe, contact } from "../data/data.json";
-
+import { aboutMe, contact, name, location } from "../data/data.json";
+const { permament: presentAddress } = location;
 import { icons } from "../constants/helper";
 import QRCode from "qrcode";
 
 function Home() {
+  const qrCodeRef = useRef(null);
+
   const generateQRCode = async (text) => {
     try {
       const url = await QRCode.toDataURL(text);
-      document.getElementById("qrcode").src = url;
+      if (qrCodeRef.current) {
+        qrCodeRef.current.src = url;
+      }
     } catch (err) {
       console.error(err);
     }
   };
 
   useEffect(() => {
-    generateQRCode(contact.email);
-  }, []);
+    if (contact.email) {
+      generateQRCode(contact.email);
+    }
+  }, [contact.email]);
 
   return (
     <Box>
@@ -31,6 +37,7 @@ function Home() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              height: { xs: 300, md: 450, lg: 400, xl: 450 },
             }}
           >
             <motion.img
@@ -64,33 +71,62 @@ function Home() {
             {/* Left Section: User contact */}
             <Box>
               <Typography variant="h3" sx={{ mb: 1 }}>
-                KAMDEV CHOUDHARY
+                {name}
               </Typography>
-
-              {/* Email */}
               <Box
-                sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}
+                sx={{
+                  gap: 2,
+                  display: "flex",
+                  flexWrap: "wrap",
+                  mt: 2,
+                }}
               >
-                <img src={icons.email} alt="Email Icon" height={20} />
-                <Typography
-                  component="a"
-                  href={`mailto:${contact.email}`}
-                  sx={{ textDecoration: "none", color: "inherit" }}
-                >
-                  {contact.email}
-                </Typography>
-              </Box>
-
-              {/* Phone */}
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <img src={icons.phone} alt="Phone Icon" height={20} />
-                <Typography
-                  component="a"
-                  href={`tel:${contact.phone}`}
-                  sx={{ textDecoration: "none", color: "inherit" }}
-                >
-                  {contact.phone}
-                </Typography>
+                {/* Email */}
+                <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                  <img src={icons.email} alt="Email Icon" height={20} />
+                  <Typography
+                    component="a"
+                    href={`mailto:${contact.email}`}
+                    sx={{ textDecoration: "none", color: "inherit" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contact.email}
+                  </Typography>
+                </Box>
+                {/* Phone */}
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <img src={icons.phone} alt="Phone Icon" height={20} />
+                  <Typography
+                    component="a"
+                    href={`tel:${contact.phone}`}
+                    sx={{ textDecoration: "none", color: "inherit" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contact.phone}
+                  </Typography>
+                </Box>
+                {/* LinkedIn */}
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <img src={icons.linkedIn} alt="LinkedIn Icon" height={20} />
+                  <Typography
+                    component="a"
+                    href={contact.linkedIn}
+                    sx={{ textDecoration: "none", color: "inherit" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contact.linkedIn}
+                  </Typography>
+                </Box>
+                {/* Address */}
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <img src={icons.location} alt="Location Icon" height={20} />
+                  {presentAddress?.address1}, {presentAddress?.address2},
+                  {presentAddress?.city}, {presentAddress?.state},
+                  {presentAddress?.pincode}
+                </Box>
               </Box>
             </Box>
 
@@ -104,7 +140,7 @@ function Home() {
               }}
             >
               <img
-                id="qrcode"
+                ref={qrCodeRef}
                 alt="QR Code"
                 style={{ maxWidth: "150px", width: "100%" }}
               />
@@ -117,7 +153,9 @@ function Home() {
 
           <Divider sx={{ mb: 1 }} />
           <Box component={Paper} sx={{ p: 1 }}>
-            <Typography variant="body1">{aboutMe}</Typography>
+            <Typography variant="body1" sx={{ fontStyle: "italic" }}>
+              {aboutMe}
+            </Typography>
           </Box>
         </Grid>
       </Grid>

@@ -9,38 +9,70 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
+  Menu,
+  MenuItem,
   useMediaQuery,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
-import { DarkModeRounded, LightModeRounded } from "@mui/icons-material";
+import {
+  ArrowDropDownRounded,
+  DarkModeRounded,
+  LightModeRounded,
+} from "@mui/icons-material";
 import { icons } from "../constants/helper";
 
 const buttons = [
   { name: "Home", icon: icons.home, path: "home" },
   { name: "Work Experience", icon: icons.work, path: "work" },
-  { name: "Education", icon: icons.education, path: "education" },
   { name: "Projects", icon: icons.project, path: "project" },
-  { name: "Skills", icon: icons.skill, path: "skills" },
+  { name: "Education", icon: icons.education, path: "education" },
   { name: "Certificates", icon: icons.certificate, path: "certificate" },
+  { name: "Skills", icon: icons.skill, path: "skills" },
+  { name: "Extra Curricular", icon: icons.extra, path: "extra" },
+  { name: "Hobbies and Intrest", icon: icons.hobbies, path: "hobbies" },
+  { name: "Voluntary", icon: icons.voluntary, path: "voluntary" },
   { name: "Contact Us", icon: icons.contactUs, path: "contact" },
 ];
 
 const Navbar = ({ scrollToSection, toggleTheme }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const [theme, setTheme] = useState("light");
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [visibleButtonsCount, setVisibleButtonCount] = useState(4);
 
-  const getLocalTheme = () => {
+  const isSmallScreen = useMediaQuery(
+    "(min-width: 350px) and (max-width: 600px)"
+  ); // Mobile landscape and small tablets
+  const isMediumScreen = useMediaQuery(
+    "(min-width: 601px) and (max-width: 900px)"
+  ); // Tablets
+  const isLargeScreen = useMediaQuery(
+    "(min-width: 901px) and (max-width: 1200px)"
+  ); // Small desktops
+  const isExtraLargeScreen = useMediaQuery(
+    "(min-width: 1201px) and (max-width: 1549px)"
+  ); // Large desktops
+  const isUltraWideScreen = useMediaQuery("(min-width: 1550px)");
+
+  // Adjust `visibleButtonsCount` based on screen size
+  useEffect(() => {
+    if (isMediumScreen) {
+      setVisibleButtonCount(3);
+    } else if (isLargeScreen) {
+      setVisibleButtonCount(5);
+    } else if (isExtraLargeScreen) {
+      setVisibleButtonCount(8);
+    } else if (isUltraWideScreen) {
+      setVisibleButtonCount(buttons.length);
+    }
+  }, [isMediumScreen, isLargeScreen, isExtraLargeScreen, isUltraWideScreen]);
+
+  useEffect(() => {
     const localTheme = localStorage.getItem("theme");
     if (localTheme === "light" || localTheme === "dark") {
       setTheme(localTheme);
     }
-  };
-
-  useEffect(() => {
-    // Retrieve theme from localStorage
-    getLocalTheme();
   }, []);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
@@ -49,6 +81,10 @@ const Navbar = ({ scrollToSection, toggleTheme }) => {
     setDrawerOpen(false);
     setTimeout(() => scrollToSection(path), 200);
   };
+
+  const handleMoreClick = (event) => setAnchorEl(event.currentTarget);
+
+  const handleMoreClose = () => setAnchorEl(null);
 
   const NavbarButton = ({ button }) => (
     <motion.div
@@ -61,7 +97,7 @@ const Navbar = ({ scrollToSection, toggleTheme }) => {
         cursor: "pointer",
       }}
       whileHover={{ scale: 1.1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
       onClick={() => scrollToSection(button.path)}
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -95,6 +131,7 @@ const Navbar = ({ scrollToSection, toggleTheme }) => {
         borderRadius: "10px",
         display: "flex",
         justifyContent: isSmallScreen ? "space-between" : "flex-end",
+        alignItems: "center",
       }}
     >
       {isSmallScreen ? (
@@ -118,16 +155,61 @@ const Navbar = ({ scrollToSection, toggleTheme }) => {
           </Drawer>
         </>
       ) : (
-        buttons.map((button) => (
-          <NavbarButton key={button.name} button={button} />
-        ))
+        <>
+          {buttons.slice(0, visibleButtonsCount).map((button) => (
+            <NavbarButton key={button.name} button={button} />
+          ))}
+          {visibleButtonsCount < buttons.length && (
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.4 }}
+              style={{ cursor: "pointer", margin: "4px" }}
+              onClick={handleMoreClick}
+            >
+              <Typography
+                variant="body2"
+                sx={{ alignItems: "center", display: "flex" }}
+              >
+                <ArrowDropDownRounded />
+                More
+              </Typography>
+            </motion.div>
+          )}
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMoreClose}
+            disableScrollLock
+          >
+            {buttons.slice(visibleButtonsCount).map((button) => (
+              <MenuItem
+                key={button.name}
+                onClick={() => {
+                  handleMoreClose();
+                  scrollToSection(button.path);
+                }}
+              >
+                <ListItemIcon>
+                  <img
+                    src={button.icon}
+                    alt={button.name}
+                    style={{ height: "24px" }}
+                  />
+                </ListItemIcon>
+                <Typography>{button.name}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </>
       )}
 
       <Box sx={{ display: "flex", alignItems: "center", mx: 1 }}>
         <IconButton
           onClick={() => {
             toggleTheme();
-            getLocalTheme();
+            const updatedTheme = theme === "light" ? "dark" : "light";
+            setTheme(updatedTheme);
+            localStorage.setItem("theme", updatedTheme);
           }}
         >
           {theme === "light" ? <LightModeRounded /> : <DarkModeRounded />}

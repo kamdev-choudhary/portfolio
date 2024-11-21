@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
+import { headlineTexts } from "../data/data.json";
 
 function TypingText() {
-  const words = ["MERN Stack", "React Native", "JavaScript "];
-  const typingSpeed = 120;
-  const backspaceSpeed = 100; // Speed of clearing each character
-  const switchDelay = 100; // Delay before switching to the next word
+  const typingSpeed = 160;
+  const backspaceSpeed = 160; // Speed of clearing each character
+  const switchDelay = 160; // Delay before switching to the next word
 
   // State to control typing effect
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -15,7 +15,7 @@ function TypingText() {
   // Typing effect handler
   useEffect(() => {
     let timer;
-    const currentWord = words[currentWordIndex];
+    const currentWord = headlineTexts[currentWordIndex];
 
     if (isTyping) {
       // Typing the word
@@ -38,22 +38,22 @@ function TypingText() {
       } else {
         // Once the word is fully cleared, switch to the next word
         setIsTyping(true); // Start typing the next word
-        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length); // Loop through words
+        setCurrentWordIndex(
+          (prevIndex) => (prevIndex + 1) % headlineTexts.length
+        ); // Loop through words
       }
     }
 
     return () => clearTimeout(timer); // Cleanup the timer when component unmounts or effect changes
-  }, [currentText, isTyping, currentWordIndex, words]);
+  }, [currentText, isTyping, currentWordIndex, headlineTexts]);
 
   return (
-    <div>
-      <Typography
-        variant="h2"
-        style={{ display: "inline-block", marginBottom: "10px" }}
-      >
-        {currentText}
-      </Typography>
-    </div>
+    <Typography
+      variant="h2"
+      style={{ display: "inline-block", marginBottom: "10px" }}
+    >
+      {currentText}
+    </Typography>
   );
 }
 

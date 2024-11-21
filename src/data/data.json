@@ -1,5 +1,7 @@
 {
-  "aboutMe": "Hello, I am a passionate developer with a deep curiosity for building innovative solutions. Although my current job profile differs from my dream career in tech, I see it as a stepping stone toward my goals. I started my coding journey last year and have already created some exciting projects, especially in the academic field, as a hobby. Beyond coding, I enjoy exploring new technologies, solving challenging problems, and collaborating with like-minded individuals to bring ideas to life. My ultimate aim is to blend creativity and technology to make a meaningful impact.",
+  "name": "KAMDEV CHOUDHARY (KD)",
+  "aboutMe": "I am a passionate developer with a deep curiosity for building innovative solutions. Although my current job profile differs from my dream career in tech, I see it as a stepping stone toward my goals. I started my coding journey last year and have already created some exciting projects, especially in the academic field, as a hobby. Beyond coding, I enjoy exploring new technologies, solving challenging problems, and collaborating with like-minded individuals to bring ideas to life. My ultimate aim is to blend creativity and technology to make a meaningful impact.",
+  "headlineTexts": ["MERN Stack", "JavaScript", "Full Stack", "React Native"],
   "education": {
     "basic": [
       {
@@ -199,7 +201,7 @@
         "live_project": "https://lms.dakshana.org",
         "github_repository": "https://github.com/kamdev-choudhary/dak-edu-portal"
       },
-      "collaborators": [],
+      "collaborators": [{ "name": "none", "role": "" }],
       "completion_date": "October 2024",
       "skills_gained": [
         "Full-stack development",
@@ -212,7 +214,7 @@
     "email": "kamdevchoudhary@gmail.com",
     "phone": "+918340644088",
     "instagram": "kd_6799_",
-    "linkedIn": "https://linkedin.com/kamdev-choudhary",
+    "linkedIn": "https://linkedin.com/in/kamdev-choudhary",
     "github": "https://github.com/kamdev-choudhary",
     "address": "Banta, Silli, Ranchi (Jharkhand), Pin-835102"
   },
@@ -256,5 +258,21 @@
       }
     ],
     "icon": { "name": "icon8", "desciption": "" }
+  },
+  "location": {
+    "permament": {
+      "address1": "H.No 91, Banta",
+      "address2": "Bantahajam, Silli",
+      "city": "Ranchi",
+      "state": "Jharkhand",
+      "pincode": "835102"
+    },
+    "present": {
+      "address1": "413, Dakshana Foundation",
+      "address2": "Kadus, Rajgurnagar",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "pincode": "412404"
+    }
   }
 }
