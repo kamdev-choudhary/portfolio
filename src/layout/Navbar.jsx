@@ -30,8 +30,7 @@ const buttons = [
   { name: "Certificates", icon: icons.certificate, path: "certificate" },
   { name: "Skills", icon: icons.skill, path: "skills" },
   { name: "Extra Curricular", icon: icons.extra, path: "extra" },
-  { name: "Hobbies and Intrest", icon: icons.hobbies, path: "hobbies" },
-  { name: "Voluntary", icon: icons.voluntary, path: "voluntary" },
+  { name: "Hobbies and More", icon: icons.hobbies, path: "hobbies" },
   { name: "Contact Us", icon: icons.contactUs, path: "contact" },
 ];
 
@@ -124,10 +123,10 @@ const Navbar = ({ scrollToSection, toggleTheme }) => {
     <Box
       sx={{
         p: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.2)",
-        backdropFilter: "blur(15px)",
+        backgroundColor: "rgba(255, 255, 255, 0.6)",
+        backdropFilter: "blur(10px)",
         border: "1px solid rgba(0, 0, 0, 0.1)",
-        m: 1,
+        m: 0.8,
         borderRadius: "10px",
         display: "flex",
         justifyContent: isSmallScreen ? "space-between" : "flex-end",

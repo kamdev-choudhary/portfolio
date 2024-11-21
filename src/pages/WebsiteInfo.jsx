@@ -6,7 +6,7 @@ import { icons } from "../constants/helper";
 
 function WebsiteInfo() {
   return (
-    <Box component={Paper} elevation={2} sx={{ p: 2 }}>
+    <Box component={Paper} elevation={4} sx={{ p: 2, borderRadius: 2 }}>
       <Typography variant="h5" gutterBottom>
         Website Info
       </Typography>

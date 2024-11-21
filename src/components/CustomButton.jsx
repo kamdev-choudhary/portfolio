@@ -18,6 +18,7 @@ function CustomButton({
         bgcolor: color,
         minWidth: 150,
         py: 1,
+        color: "#fff",
       }}
       onClick={onClick}
       variant={variant}

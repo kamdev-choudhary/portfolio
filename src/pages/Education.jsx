@@ -25,7 +25,8 @@ function Education() {
           >
             <Box
               component={Paper}
-              sx={{ p: 1, mb: 1, display: "grid", gap: 1 }}
+              elevation={4}
+              sx={{ p: 1, mb: 1, display: "grid", gap: 1, borderRadius: 2 }}
             >
               <Typography sx={{ fontWeight: "bold" }} variant="h6">
                 {d?.level} {d.level !== "10th" && <>({d.stream})</>}

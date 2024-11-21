@@ -1,33 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Box, Divider, Grid2 as Grid, Paper, Typography } from "@mui/material";
 import photo from "/photo.jpg";
 import TypingText from "./TypingText";
 import { aboutMe, contact, name, location } from "../data/data.json";
-const { permament: presentAddress } = location;
+const { present: presentAddress } = location;
 import { icons } from "../constants/helper";
-import QRCode from "qrcode";
 
 function Home() {
-  const qrCodeRef = useRef(null);
-
-  const generateQRCode = async (text) => {
-    try {
-      const url = await QRCode.toDataURL(text);
-      if (qrCodeRef.current) {
-        qrCodeRef.current.src = url;
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    if (contact.email) {
-      generateQRCode(contact.email);
-    }
-  }, [contact.email]);
-
   return (
     <Box>
       <Grid container spacing={2}>
@@ -43,8 +23,8 @@ function Home() {
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ scale: 1.2 }}
               src={photo}
               alt="Profile"
               style={{
@@ -53,7 +33,6 @@ function Home() {
                 borderRadius: "50%",
                 boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
                 border: "4px solid #fff",
-                marginLeft: 2,
               }}
             />
           </Box>
@@ -64,11 +43,9 @@ function Home() {
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
               gap: 2,
-              alignItems: "flex-start",
-              flexWrap: "wrap",
+              alignItems: "space-around",
             }}
           >
-            {/* Left Section: User contact */}
             <Box>
               <Typography variant="h3" sx={{ mb: 1 }}>
                 {name}
@@ -82,7 +59,9 @@ function Home() {
                 }}
               >
                 {/* Email */}
-                <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                <Box
+                  sx={{ display: "flex", alignItems: "center", mb: 1, gap: 1 }}
+                >
                   <img src={icons.email} alt="Email Icon" height={20} />
                   <Typography
                     component="a"
@@ -123,36 +102,29 @@ function Home() {
                 {/* Address */}
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <img src={icons.location} alt="Location Icon" height={20} />
-                  {presentAddress?.address1}, {presentAddress?.address2},
-                  {presentAddress?.city}, {presentAddress?.state},
-                  {presentAddress?.pincode}
+                  {`${presentAddress?.address1}, ${presentAddress?.address2},  ${presentAddress?.city}, ${presentAddress?.state}, ${presentAddress?.pincode}`}
                 </Box>
               </Box>
             </Box>
-
-            {/* Right Section: QR Code */}
-            <Box
-              sx={{
-                display: { sm: "flex", xs: "none" },
-                justifyContent: { xs: "flex-start", sm: "center" },
-                alignItems: "center",
-                flex: 1,
-              }}
-            >
-              <img
-                ref={qrCodeRef}
-                alt="QR Code"
-                style={{ maxWidth: "150px", width: "100%" }}
-              />
-            </Box>
           </Box>
 
-          <Box sx={{ minHeight: 85 }}>
+          <Box
+            sx={{
+              minHeight: 100,
+              mt: 2,
+              bgcolor: "#333",
+              color: "#fff",
+              p: 1,
+              display: "flex",
+              alignItems: "center",
+              borderRadius: 2,
+            }}
+          >
             <TypingText />
           </Box>
 
           <Divider sx={{ mb: 1 }} />
-          <Box component={Paper} sx={{ p: 1 }}>
+          <Box component={Paper} elevation={4} sx={{ p: 2 }}>
             <Typography variant="body1" sx={{ fontStyle: "italic" }}>
               {aboutMe}
             </Typography>

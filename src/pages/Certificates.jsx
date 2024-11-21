@@ -33,6 +33,7 @@ function Certificates() {
           >
             <Box
               component={Paper}
+              elevation={4}
               sx={{
                 p: 2,
                 mb: 2,

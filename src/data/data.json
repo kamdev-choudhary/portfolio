@@ -69,6 +69,17 @@
         "achievement": "Completed with a focus on practical implementation in Python.",
         "projects": "Implemented gradient descent optimization algorithms.",
         "mode": "Online"
+      },
+      {
+        "name": "Youth Employeement Training",
+        "institute": "TCS",
+        "duration": "01 Month",
+        "period": "",
+        "link": "",
+        "skills": [],
+        "achievement": "",
+        "projects": "",
+        "mode": "Online"
       }
     ],
     "skills": [
@@ -124,7 +135,8 @@
             "Worked closely with students and faculty to address academic and personal issues, fostering a supportive learning environment.",
             "Developed and implemented strategies to improve attendance, engagement, and overall performance among scholars.",
             "Collaborated with administrative staff to schedule activities, allocate resources, and maintain program efficiency."
-          ]
+          ],
+          "skills": ["Excel", "Word", "Powerpoint"]
         },
         {
           "position": "Academic Program Coordinator",
@@ -137,7 +149,8 @@
             "Played a crucial role in supporting students' academic development during the initial phase of my tenure.",
             "Help the students to analyse the result and predict for JEE seat possibilities.",
             "Coucelling the poor performance scholars to improve result."
-          ]
+          ],
+          "skills": ["Excel", "Word", "Powerpoint"]
         }
       ]
     },
@@ -156,7 +169,8 @@
             "The role involved knowledge processing outsourcing (KPO), ensuring accurate and efficient handling of complex and detailed data.",
             "Collaborated with team members to streamline processes and improve data accuracy.",
             "Ensured confidentiality and security of sensitive financial information during processing."
-          ]
+          ],
+          "skills": ["Typing", "Accuracy"]
         }
       ]
     }
@@ -251,10 +265,6 @@
       {
         "name": "Google Script",
         "description": "A scripting platform for automating tasks and integrating with Google Workspace services. Used for saving email, password, and message in a spreadsheet for the Contact Us feature."
-      },
-      {
-        "name": "qrcode",
-        "description": "A tool for generating QR codes for various types of data such as URLs, text, or contact information."
       }
     ],
     "icon": { "name": "icon8", "desciption": "" }
@@ -274,5 +284,7 @@
       "state": "Maharashtra",
       "pincode": "412404"
     }
-  }
+  },
+  "hobbies": ["Playing Chess", "Music"],
+  "extra": [{ "name": "" }]
 }

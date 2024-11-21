@@ -11,6 +11,9 @@ import WebsiteInfo from "../pages/WebsiteInfo";
 import Certificate from "../pages/Certificates";
 import Projects from "../pages/Projects";
 import Skills from "../pages/Skills";
+import ExtraCurricular from "../pages/Extracurricular";
+import HobbiesAndMore from "../pages/HobbiesAndMore";
+import Swal from "sweetalert2";
 
 function DefaultLayout({ toggleTheme }) {
   const sectionRefs = {
@@ -22,6 +25,8 @@ function DefaultLayout({ toggleTheme }) {
     certificate: useRef(null),
     project: useRef(null),
     skills: useRef(null),
+    hobbies: useRef(null),
+    extra: useRef(null),
   };
 
   const scrollToSection = (section, margin = 140) => {
@@ -31,7 +36,7 @@ function DefaultLayout({ toggleTheme }) {
       const scrollPosition = window.scrollY + top - margin;
       window.scrollTo({ top: scrollPosition, behavior: "smooth" });
     } else {
-      console.warn(`Section "${section}" not found.`);
+      Swal.fire(`Section "${section}" not found.`);
     }
   };
 
@@ -79,6 +84,20 @@ function DefaultLayout({ toggleTheme }) {
       showHeader: true,
     },
     {
+      name: "Hobbies and More",
+      component: <HobbiesAndMore />,
+      key: "hobbies",
+      icon: icons.hobbies,
+      showHeader: true,
+    },
+    {
+      name: "Extra Curricular Activities",
+      component: <ExtraCurricular />,
+      key: "extra",
+      icon: icons.extra,
+      showHeader: true,
+    },
+    {
       name: "Contact Us",
       component: <ContactUs />,
       key: "contact",
@@ -86,7 +105,7 @@ function DefaultLayout({ toggleTheme }) {
       showHeader: false,
     },
     {
-      name: "About Us",
+      name: "Website Info",
       component: <WebsiteInfo />,
       key: "about",
       icon: icons.about,
@@ -101,13 +120,13 @@ function DefaultLayout({ toggleTheme }) {
   };
 
   const iconStyles = {
-    height: "clamp(30px, 5vw, 45px)",
+    height: "clamp(35px, 5vw, 55px)",
     width: "auto",
   };
 
   const titleStyles = {
-    marginLeft: "1rem",
-    fontSize: "clamp(0.5rem, 3vw, 2.5rem)",
+    marginLeft: "0.5rem",
+    fontSize: "clamp(2rem, 3vw, 3rem)",
   };
 
   return (

@@ -14,7 +14,7 @@ function Skill() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.2 }} // Staggered animation
         >
-          <Box component={Paper} sx={{ p: 2 }}>
+          <Box component={Paper} elevation={4} sx={{ p: 2, borderRadius: 2 }}>
             <Typography variant="h5">{skill.name}</Typography>
             <Divider />
             <Typography variant="body1">
