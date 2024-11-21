@@ -7,8 +7,8 @@ import {
   IconButton,
   Link,
 } from "@mui/material";
-import { icons } from "../../constants/helper";
-import { certificates } from "../../data/education.json";
+import { education } from "../../data/data.json";
+const { certificates } = education;
 import { motion } from "framer-motion";
 import { LinkRounded } from "@mui/icons-material";
 

@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { Box, Divider, Grid2 as Grid, Paper, Typography } from "@mui/material";
 import photo from "/photo.jpg";
 import TypingText from "./TypingText";
-import { aboutMe, info } from "../../data/other.json";
+import { aboutMe, contact } from "../../data/data.json";
+
 import { icons } from "../../constants/helper";
 import QRCode from "qrcode";
 
@@ -17,9 +18,8 @@ function Home() {
     }
   };
 
-  // Call the function
   useEffect(() => {
-    generateQRCode(info.email);
+    generateQRCode(contact.email);
   }, []);
 
   return (
@@ -61,7 +61,7 @@ function Home() {
               flexWrap: "wrap",
             }}
           >
-            {/* Left Section: User Info */}
+            {/* Left Section: User contact */}
             <Box>
               <Typography variant="h3" sx={{ mb: 1 }}>
                 KAMDEV CHOUDHARY
@@ -74,10 +74,10 @@ function Home() {
                 <img src={icons.email} alt="Email Icon" height={20} />
                 <Typography
                   component="a"
-                  href={`mailto:${info.email}`}
+                  href={`mailto:${contact.email}`}
                   sx={{ textDecoration: "none", color: "inherit" }}
                 >
-                  {info.email}
+                  {contact.email}
                 </Typography>
               </Box>
 
@@ -86,10 +86,10 @@ function Home() {
                 <img src={icons.phone} alt="Phone Icon" height={20} />
                 <Typography
                   component="a"
-                  href={`tel:${info.phone}`}
+                  href={`tel:${contact.phone}`}
                   sx={{ textDecoration: "none", color: "inherit" }}
                 >
-                  {info.phone}
+                  {contact.phone}
                 </Typography>
               </Box>
             </Box>

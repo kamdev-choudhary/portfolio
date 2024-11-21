@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Divider, Paper, Typography } from "@mui/material";
-import { packages, icons as icon } from "../../data/website.json";
+import { website } from "../../data/data.json";
+const { packages, icon } = website;
 import { icons } from "../../constants/helper";
 
-function AboutUs() {
+function WebsiteInfo() {
   return (
     <>
       <Box component={Paper} elevation={2} sx={{ p: 2 }}>
@@ -63,4 +64,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default WebsiteInfo;

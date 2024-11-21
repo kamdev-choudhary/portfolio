@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Box, Typography, List, ListItem, Paper, Divider } from "@mui/material";
-import { skills } from "../../data/education.json";
+import { education } from "../../data/data.json";
+const { skills } = education;
 
 function Skill() {
   return (

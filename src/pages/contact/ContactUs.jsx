@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CustomButton from "../../components/CustomButton";
 import { googleScriptUrl } from "../../constants/helper";
 import Swal from "sweetalert2";
-import { info } from "../../data/other.json";
+import { contact } from "../../data/data.json";
 import { motion } from "framer-motion";
 import { icons } from "../../constants/helper";
 
@@ -152,7 +152,7 @@ function ContactUs() {
           <Box sx={{ p: 1, display: "flex", justifyContent: "center", mt: 1 }}>
             <Typography
               component="a"
-              href={`https://api.whatsapp.com/send/?phone=${info.phone.slice(
+              href={`https://api.whatsapp.com/send/?phone=${contact.phone.slice(
                 1
               )}&text=Hi`}
               target="_blank"

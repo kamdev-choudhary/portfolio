@@ -5,7 +5,7 @@ import Home from "../pages/Home/Home";
 import WorkExperience from "../pages/work/WorkExperience";
 import ContactUs from "../pages/contact/ContactUs";
 import Education from "../pages/academic/Education";
-import AboutUs from "../pages/about/AboutUs";
+import WebsiteInfo from "../pages/website/WebsiteInfo";
 import Certificate from "../pages/academic/Certificates";
 import Projects from "../pages/project/Projects";
 import Skills from "../pages/skills/Skills";
@@ -102,7 +102,7 @@ function DefaultLayout({ toggleTheme }) {
     },
     {
       name: "About Us",
-      component: <AboutUs />,
+      component: <WebsiteInfo />,
       ref: aboutUsRef,
       icon: icons.about,
       showHeader: false,

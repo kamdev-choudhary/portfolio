@@ -28,11 +28,14 @@ This project is built using **Vite**, **React**, and **Material-UI (MUI)** compo
 Follow these instructions to get a copy of the project up and running on your local machine.
 
 ### Prerequisites
+
 - **Node.js** (v14 or later)
 - **npm** or **yarn**
 
 ### Installation
+
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/portfolio-website.git
-   cd portfolio-website
+   git clone https://github.com/kamdev-choudhary/portfolio.git
+   cd portfolio
+   ```

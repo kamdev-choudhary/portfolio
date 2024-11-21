@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../../data/work.json";
+import { work as data } from "../../data/data.json";
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 

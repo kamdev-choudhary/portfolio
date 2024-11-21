@@ -1,8 +1,8 @@
 import React from "react";
-import { basic } from "../../data/education.json";
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { icons } from "../../constants/helper";
+import { education } from "../../data/data.json";
+const { basic } = education;
 
 function Education() {
   return (
