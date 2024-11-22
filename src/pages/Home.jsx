@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Box, Divider, Grid2 as Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid2 as Grid, Paper, Typography } from "@mui/material";
 import photo from "/photo.jpg";
-import TypingText from "./TypingText";
+import TypingText from "../components/TypingText";
 import { aboutMe, contact, name, location } from "../data/data.json";
 const { present: presentAddress } = location;
 import { icons } from "../constants/helper";
