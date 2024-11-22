@@ -52,7 +52,7 @@ export default function DefaultLayout({ toggleTheme, theme }) {
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 1000,
+          zIndex: 10,
         }}
       >
         <Navbar

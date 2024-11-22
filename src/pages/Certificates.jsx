@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Box,
@@ -12,8 +12,12 @@ import { education } from "../data/data.json";
 const { certificates } = education;
 import { motion } from "framer-motion";
 import { LinkRounded } from "@mui/icons-material";
+import { CustomModal } from "../components/CustomModal";
 
 function Certificates() {
+  const [showCertificate, setShowCertificate] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState("");
+
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {certificates?.map((cert, index) => (
@@ -51,9 +55,13 @@ function Certificates() {
                 </Typography>
                 {cert?.link && (
                   <IconButton
-                    component={Link}
-                    href={cert?.link}
-                    target="_blank"
+                    // component={Link}
+                    // href={cert?.link}
+                    // target="_blank"
+                    onClick={() => {
+                      setShowCertificate(true);
+                      setSelectedCertificate(cert.link);
+                    }}
                   >
                     <LinkRounded />
                   </IconButton>
@@ -113,6 +121,34 @@ function Certificates() {
           </motion.div>
         </React.Fragment>
       ))}
+      <CustomModal
+        open={showCertificate}
+        onClose={() => setShowCertificate(false)}
+        showHeader={false}
+        width="auto"
+      >
+        <div
+          style={{
+            position: "relative",
+            height: "100vh",
+            width: "100%",
+            overflow: "hidden",
+            minWidth: "780px",
+          }}
+        >
+          <iframe
+            src={selectedCertificate}
+            style={{
+              maxWidth: "794px", // Cap at actual A4 width
+              border: "1px solid #ddd",
+              borderRadius: "8px",
+              width: "100%",
+              minHeight: "100%",
+            }}
+            title="Responsive A4 PDF Viewer"
+          ></iframe>
+        </div>
+      </CustomModal>
     </Box>
   );
 }
