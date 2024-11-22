@@ -1,7 +1,15 @@
 {
   "name": "KAMDEV CHOUDHARY (KD)",
   "aboutMe": "I am a passionate developer with a deep curiosity for building innovative solutions. Although my current job profile differs from my dream career in tech, I see it as a stepping stone toward my goals. I started my coding journey last year and have already created some exciting projects, especially in the academic field, as a hobby. Beyond coding, I enjoy exploring new technologies, solving challenging problems, and collaborating with like-minded individuals to bring ideas to life. My ultimate aim is to blend creativity and technology to make a meaningful impact.",
-  "headlineTexts": ["MERN Stack", "JavaScript", "Full Stack", "React Native"],
+  "headlineTexts": [
+    "MERN Stack",
+    "JavaScript",
+    "Full Stack",
+    "React Native",
+    "Mongo",
+    "NodeJS",
+    "ExpressJS"
+  ],
   "education": {
     "basic": [
       {
@@ -13,7 +21,7 @@
         "grade": "78.28 %"
       },
       {
-        "level": "12th",
+        "level": "Standard 12th",
         "stream": "Intermediate of Science _ PCM",
         "institute": "Jawahar Navodaya Vidyalaya BIT Mesra, Ranchi",
         "year": "2017",
@@ -21,8 +29,8 @@
         "grade": "81 %"
       },
       {
-        "level": "10th",
-        "stream": "Science",
+        "level": "Standard 10th",
+        "stream": null,
         "institute": "Jawahar Navodaya Vidyalaya BIT Mesra Ranchi",
         "year": "2015",
         "gradeSystem": "CGPA",
@@ -38,22 +46,22 @@
         "link": "",
         "skills": [
           "Basic Computing",
+          "Typing",
           "Photoshop",
-          "Page Layout",
-          "Designing",
-          "Basic Typing"
+          "Adobe PageMaker",
+          "Adobe Illustrator"
         ],
         "achievement": "Successfully completed with top performance in practical assignments.",
-        "projects": "Created sample business cards, posters, and booklets.",
+        "projects": "Created sample business cards, posters, Marriage Album and booklets.",
         "mode": "Offline"
       },
 
       {
         "name": "Full-Stack Web Development",
-        "institute": "freeCodeCamp",
+        "institute": "Apna College (Delta Batch)",
         "duration": "6 Months",
-        "period": "2024",
-        "link": "https://www.freecodecamp.org",
+        "period": "may 2023 to Oct 2023",
+        "link": "https://www.apnacollege.in",
         "skills": ["HTML", "CSS", "JavaScript", "Node.js", "MongoDB"],
         "achievement": "Certified as a Full-Stack Web Developer.",
         "projects": "Built an e-commerce website with authentication and payment integration.",
@@ -64,7 +72,7 @@
         "institute": "Anudip Foundation",
         "duration": "1 Months",
         "period": "21-July-2024 to 10-Sep-2024",
-        "link": "https://www.coursera.org/mathematics-for-machine-learning",
+        "link": "https://drive.google.com/file/d/1YvHIRCUBlejW0-RmRJETCOu-SNFN7bla/view?usp=drive_link",
         "skills": ["Linear Algebra", "Calculus", "Probability"],
         "achievement": "Completed with a focus on practical implementation in Python.",
         "projects": "Implemented gradient descent optimization algorithms.",
@@ -72,13 +80,13 @@
       },
       {
         "name": "Youth Employeement Training",
-        "institute": "TCS",
-        "duration": "01 Month",
-        "period": "",
-        "link": "",
-        "skills": [],
+        "institute": "TCS (Tata Consultancy Services)",
+        "duration": "03 Month",
+        "period": "May 2021 to July 2021",
+        "link": "https://drive.google.com/file/d/1_avxnTS4jqkoZBIhlVWneBgOk5LPkrvG/view?usp=drive_link",
+        "skills": ["Softs Skills"],
         "achievement": "",
-        "projects": "",
+        "projects": null,
         "mode": "Online"
       }
     ],
@@ -89,9 +97,17 @@
         "proficiency": "Expert",
         "relatedProjects": [
           "Data analysis using Excel",
-          "Project presentations using PowerPoint"
+          "Project presentations using PowerPoint",
+          "Certification automation using Word and Excel"
         ],
         "certifications": ["MS Office Specialist"]
+      },
+      {
+        "name": "Microsoft Power Automate",
+        "description": "Proficient in MS Power Automate",
+        "proficiency": "Average",
+        "relatedProjects": ["Data Extraction from PDF of 300+ pdfs"],
+        "certifications": null
       }
     ]
   },
@@ -118,7 +134,14 @@
             "Collaborating with faculty and administrative staff to plan schedules and allocate resources effectively.",
             "Maintaining detailed academic records and reports for tracking progress and decision-making."
           ],
-          "skills": ["Excel", "Word", "Powerpoint"]
+          "skills": [
+            "Excel",
+            "Word",
+            "Powerpoint",
+            "Power Automate",
+            "Analytics",
+            "Motivation"
+          ]
         },
         {
           "position": "Academic Program Coordinator",
@@ -183,7 +206,6 @@
       "technologies_used": [
         "React",
         "Node.js",
-        "Express",
         "MUI",
         "AWS S3",
         "Crypto",
@@ -198,9 +220,9 @@
       "role": "Full-stack Developer",
       "responsibilities": [
         "Developed the front-end using React and MUI components.",
-        "Implemented authentication and authorization with JWT.",
-        "Designed and integrated the database schema in MongoDB.",
-        "Handled file uploads and storage using AWS S3."
+        "Handled file uploads and storage using AWS S3.",
+        "Generate Exam Paper analysis in Question Wise, Scholar Wise and Topic wise in frontend.",
+        "Adding additional and handy new features using the existing backend."
       ],
       "features": [
         "Admin dashboard for managing scholars and content.",
@@ -215,11 +237,10 @@
         "live_project": "https://lms.dakshana.org",
         "github_repository": "https://github.com/kamdev-choudhary/dak-edu-portal"
       },
-      "collaborators": [{ "name": "none", "role": "" }],
+      "collaborators": [{ "name": "Sandeep Tiwari", "role": "Web Developer" }],
       "completion_date": "October 2024",
       "skills_gained": [
         "Full-stack development",
-        "RESTful API design",
         "Cloud storage integration (AWS S3)"
       ]
     }
@@ -227,10 +248,9 @@
   "contact": {
     "email": "kamdevchoudhary@gmail.com",
     "phone": "+918340644088",
-    "instagram": "kd_6799_",
     "linkedIn": "https://linkedin.com/in/kamdev-choudhary",
     "github": "https://github.com/kamdev-choudhary",
-    "address": "Banta, Silli, Ranchi (Jharkhand), Pin-835102"
+    "instagram": "kd_6799_"
   },
   "website": {
     "packages": [
@@ -275,14 +295,16 @@
       "address2": "Bantahajam, Silli",
       "city": "Ranchi",
       "state": "Jharkhand",
-      "pincode": "835102"
+      "pincode": "835102",
+      "url": ""
     },
     "present": {
       "address1": "413, Dakshana Foundation",
       "address2": "Kadus, Rajgurnagar",
       "city": "Pune",
       "state": "Maharashtra",
-      "pincode": "412404"
+      "pincode": "412404",
+      "url": "https://maps.app.goo.gl/9xUH8Y975daRDP8t8"
     }
   },
   "hobbies": ["Playing Chess", "Music"],

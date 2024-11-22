@@ -6,6 +6,7 @@ import {
   Divider,
   IconButton,
   Link,
+  Chip,
 } from "@mui/material";
 import { education } from "../data/data.json";
 const { certificates } = education;
@@ -85,13 +86,13 @@ function Certificates() {
                   >
                     Skills Gained:
                   </Typography>
-                  <ul>
+                  <Box
+                    sx={{ display: "flex", flexWrap: "wrap", gap: 2, my: 1 }}
+                  >
                     {cert?.skills.map((skill, idx) => (
-                      <li key={idx}>
-                        <Typography variant="body1">{skill}</Typography>
-                      </li>
+                      <Chip key={idx} label={skill} />
                     ))}
-                  </ul>
+                  </Box>
                 </Box>
               )}
 

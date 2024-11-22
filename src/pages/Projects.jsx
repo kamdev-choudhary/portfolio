@@ -1,4 +1,13 @@
-import { Box, Divider, Paper, Typography, Chip } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Paper,
+  Typography,
+  Chip,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
 import React from "react";
 import { icons } from "../constants/helper";
 import { projects } from "../data/data.json";
@@ -31,9 +40,16 @@ function Projects() {
           <Typography variant="body1" sx={{ fontWeight: "bold" }}>
             Technologies Used:
           </Typography>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 1 }}>
             {p.technologies_used.map((tech, i) => (
-              <Chip key={i} label={tech} size="small" />
+              <Chip
+                // variant="outlined"
+                color="success"
+                sx={{ p: 2 }}
+                key={i}
+                label={tech}
+                size="small"
+              />
             ))}
           </Box>
 
@@ -69,47 +85,54 @@ function Projects() {
           <Typography variant="body1" sx={{ fontWeight: "bold", mt: 1 }}>
             Skills Gained:
           </Typography>
-          <ul>
+
+          <Box sx={{ display: "flex", gap: 2, my: 1.5 }}>
             {p.skills_gained.map((skill, i) => (
-              <li key={i}>
-                <Typography variant="body1">{skill}</Typography>
-              </li>
+              <Chip color="secondary" variant="outlined" label={skill} />
             ))}
-          </ul>
+          </Box>
 
           <Divider sx={{ my: 1 }} />
 
           <Typography variant="body1" sx={{ fontWeight: "bold" }}>
             Collaborators:
           </Typography>
-          <ul>
+          <List sx={{ p: 0 }}>
             {p.collaborators.map((collaborator, i) => (
-              <li key={i}>
-                <Typography variant="body1">
-                  {collaborator.name} ({collaborator.role})
-                </Typography>
-              </li>
+              <ListItem key={i}>
+                <ListItemText
+                  primary={collaborator.name}
+                  secondary={collaborator.role}
+                />
+              </ListItem>
             ))}
-          </ul>
-
-          <Typography variant="body1" sx={{ fontWeight: "bold", mt: 1 }}>
-            Completion Date:
-          </Typography>
-          <Typography variant="body1">{p.completion_date}</Typography>
+          </List>
+          <Box sx={{ display: "flex", gap: 2, mt: 1 }}>
+            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+              Completion Date:
+            </Typography>
+            <Typography variant="body1">{p.completion_date}</Typography>
+          </Box>
 
           <Divider sx={{ my: 1 }} />
 
-          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-            Project Links:
-          </Typography>
           <Box sx={{ display: "flex", gap: 2 }}>
+            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+              Project Links:
+            </Typography>
             <Typography
               variant="body1"
               href={p.links.live_project}
               target="_blank"
               rel="noopener noreferrer"
               component="a"
-              sx={{ alignItems: "center", display: "flex", gap: 1 }}
+              sx={{
+                alignItems: "center",
+                display: "flex",
+                gap: 1,
+                textDecoration: "none",
+                color: "inherit",
+              }}
             >
               <img src={icons.live} height={20} />
               Live Project
@@ -120,7 +143,13 @@ function Projects() {
               href={p.links.github_repository}
               target="_blank"
               rel="noopener noreferrer"
-              sx={{ alignItems: "center", display: "flex", gap: 1 }}
+              sx={{
+                alignItems: "center",
+                display: "flex",
+                gap: 1,
+                textDecoration: "none",
+                color: "inherit",
+              }}
             >
               <img src={icons.github} height={20} />
               GitHub Repository

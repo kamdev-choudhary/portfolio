@@ -8,13 +8,11 @@ export const lightTheme = createTheme({
     primary: {
       main: "#28844f", // Customize your primary color
     },
-    secondary: {
-      main: "#dc004e", // Customize your secondary color
-    },
+
     background: {
       default: "#f1f3fb",
       paper: "#ffffff",
-      secondary: "#fbf4f0",
+      secondary: "#F6F5F5",
     },
     text: {
       primary: "#000000",

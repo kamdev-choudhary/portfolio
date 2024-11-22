@@ -102,7 +102,14 @@ function Home() {
                 {/* Address */}
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <img src={icons.location} alt="Location Icon" height={20} />
-                  {`${presentAddress?.address1}, ${presentAddress?.address2},  ${presentAddress?.city}, ${presentAddress?.state}, ${presentAddress?.pincode}`}
+                  <Typography
+                    component="a"
+                    target="_blank"
+                    sx={{ textDecoration: "none", color: "inherit" }}
+                    href={presentAddress?.url}
+                  >
+                    {`${presentAddress?.address1}, ${presentAddress?.address2},  ${presentAddress?.city}, ${presentAddress?.state}, ${presentAddress?.pincode}`}
+                  </Typography>
                 </Box>
               </Box>
             </Box>

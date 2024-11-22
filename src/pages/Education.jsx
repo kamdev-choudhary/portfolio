@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { education } from "../data/data.json";
 const { basic } = education;
 
-function Education() {
+export default function Education() {
   return (
     <Box sx={{ p: 2 }}>
       {basic?.map((d, index) => (
@@ -26,16 +26,28 @@ function Education() {
             <Box
               component={Paper}
               elevation={4}
-              sx={{ p: 1, mb: 1, display: "grid", gap: 1, borderRadius: 2 }}
+              sx={{ p: 2, mb: 1, display: "grid", gap: 1, borderRadius: 2 }}
             >
               <Typography sx={{ fontWeight: "bold" }} variant="h6">
-                {d?.level} {d.level !== "10th" && <>({d.stream})</>}
+                {d?.level} {d.stream && <>({d.stream})</>}
               </Typography>
               <Divider />
-              <Typography>Passing Year: {d?.year}</Typography>
-              <Typography>Institute Name: {d?.institute}</Typography>
-              <Typography>Grade System: {d?.gradeSystem}</Typography>
-              <Typography>Grade Obtained: {d?.grade}</Typography>
+              <Typography>
+                <span style={{ fontWeight: "bold" }}>Passing Year : </span>
+                {d?.year}
+              </Typography>
+              <Typography>
+                <span style={{ fontWeight: "bold" }}>Instutute Name : </span>
+                {d?.institute}
+              </Typography>
+              <Typography>
+                <span style={{ fontWeight: "bold" }}>Grade System : </span>
+                {d?.gradeSystem}
+              </Typography>
+              <Typography>
+                <span style={{ fontWeight: "bold" }}>Grade Obtained : </span>
+                {d?.grade}
+              </Typography>
             </Box>
           </motion.div>
         </React.Fragment>
@@ -43,5 +55,3 @@ function Education() {
     </Box>
   );
 }
-
-export default Education;

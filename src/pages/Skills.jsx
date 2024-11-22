@@ -6,7 +6,7 @@ const { skills } = education;
 
 function Skill() {
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: 2, gap: 2, display: "flex", flexDirection: "column" }}>
       {skills.map((skill, index) => (
         <motion.div
           key={index}
@@ -48,7 +48,7 @@ function Skill() {
               <strong>Certifications:</strong>
             </Typography>
             <List>
-              {skill.certifications.map((cert, idx) => (
+              {skill?.certifications?.map((cert, idx) => (
                 <motion.li
                   key={idx}
                   initial={{ opacity: 0 }}
