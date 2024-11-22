@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, Divider, Paper, Typography } from "@mui/material";
-import { website } from "../data/data.json";
+import { website, projectGithub } from "../data/data.json";
 const { packages, icon } = website;
 import { icons } from "../constants/helper";
+import IconWithName from "../components/IconWithName";
 
 function WebsiteInfo() {
   return (
@@ -42,22 +43,13 @@ function WebsiteInfo() {
           I am committed to continuously improving this portfolio website by
           integrating the best tools and libraries to meet modern web standards.
         </Typography>
-        <Box component="ul" sx={{ pl: 3 }}>
-          <Typography
-            variant="body1"
+        <Box sx={{ display: "flex", p: 1 }}>
+          <IconWithName
             component="a"
-            href="https://github.com/kamdev-choudhary/portfolio"
-            target="_blank"
-            sx={{
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-            }}
-          >
-            <img src={icons.github} height={20} />
-            <strong>Github Repository</strong>
-          </Typography>
+            label="Website Github Repository"
+            icon={icons.github}
+            href={projectGithub}
+          />
         </Box>
       </Box>
     </Box>

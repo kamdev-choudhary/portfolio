@@ -72,7 +72,7 @@ function WorkExperience() {
                       {Array.isArray(p.skills) &&
                         p.skills.map((skill, idx) => (
                           <Chip
-                            color="warning"
+                            sx={{ p: 2 }}
                             label={skill}
                             key={idx}
                             size="small"

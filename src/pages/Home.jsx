@@ -6,6 +6,7 @@ import TypingText from "./TypingText";
 import { aboutMe, contact, name, location } from "../data/data.json";
 const { present: presentAddress } = location;
 import { icons } from "../constants/helper";
+import IconWithName from "../components/IconWithName";
 
 function Home() {
   return (
@@ -55,62 +56,34 @@ function Home() {
                   gap: 2,
                   display: "flex",
                   flexWrap: "wrap",
-                  mt: 2,
+                  mt: 1,
                 }}
               >
                 {/* Email */}
-                <Box
-                  sx={{ display: "flex", alignItems: "center", mb: 1, gap: 1 }}
-                >
-                  <img src={icons.email} alt="Email Icon" height={20} />
-                  <Typography
-                    component="a"
-                    href={`mailto:${contact.email}`}
-                    sx={{ textDecoration: "none", color: "inherit" }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {contact.email}
-                  </Typography>
-                </Box>
-                {/* Phone */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <img src={icons.phone} alt="Phone Icon" height={20} />
-                  <Typography
-                    component="a"
-                    href={`tel:${contact.phone}`}
-                    sx={{ textDecoration: "none", color: "inherit" }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {contact.phone}
-                  </Typography>
-                </Box>
-                {/* LinkedIn */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <img src={icons.linkedIn} alt="LinkedIn Icon" height={20} />
-                  <Typography
-                    component="a"
-                    href={contact.linkedIn}
-                    sx={{ textDecoration: "none", color: "inherit" }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {contact.linkedIn}
-                  </Typography>
-                </Box>
-                {/* Address */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <img src={icons.location} alt="Location Icon" height={20} />
-                  <Typography
-                    component="a"
-                    target="_blank"
-                    sx={{ textDecoration: "none", color: "inherit" }}
-                    href={presentAddress?.url}
-                  >
-                    {`${presentAddress?.address1}, ${presentAddress?.address2},  ${presentAddress?.city}, ${presentAddress?.state}, ${presentAddress?.pincode}`}
-                  </Typography>
-                </Box>
+                <IconWithName
+                  icon={icons.email}
+                  href={contact.email.href}
+                  label={contact.email.name}
+                  component="a"
+                />
+                <IconWithName
+                  icon={icons.phone}
+                  href={contact.phone.href}
+                  label={contact.phone.name}
+                  component="a"
+                />
+                <IconWithName
+                  icon={icons.linkedIn}
+                  href={contact.linkedIn.href}
+                  label={contact.linkedIn.name}
+                  component="a"
+                />
+                <IconWithName
+                  icon={icons.location}
+                  href={presentAddress.url}
+                  label={`${presentAddress?.address1}, ${presentAddress?.address2},  ${presentAddress?.city}, ${presentAddress?.state}, ${presentAddress?.pincode}`}
+                  component="a"
+                />
               </Box>
             </Box>
           </Box>

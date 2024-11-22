@@ -5,9 +5,6 @@ import { createTheme } from "@mui/material/styles";
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
-    primary: {
-      main: "#28844f", // Customize your primary color
-    },
 
     background: {
       default: "#f1f3fb",

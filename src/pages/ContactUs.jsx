@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { contact } from "../data/data.json";
 import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
+import IconWithName from "../components/IconWithName";
 
 function ContactUs() {
   // States for the form fields
@@ -152,24 +153,15 @@ function ContactUs() {
           </Box>
 
           <Box sx={{ p: 1, display: "flex", justifyContent: "center", mt: 1 }}>
-            <Typography
+            <IconWithName
               component="a"
-              href={`https://api.whatsapp.com/send/?phone=${contact.phone.slice(
+              href={`https://api.whatsapp.com/send/?phone=${contact?.phone?.name.slice(
                 1
-              )}&text=Hi`}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                textDecoration: "none",
-                color: "inherit",
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-              }}
-            >
-              <img src={icons.WhatsApp} height={20} />
-              Or send a WhatsApp message
-            </Typography>
+              )}`}
+              icon={icons.WhatsApp}
+              height={20}
+              label="Or send a message on WhatsApp"
+            />
           </Box>
         </Container>
       </motion.div>

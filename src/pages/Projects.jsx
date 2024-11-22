@@ -11,6 +11,7 @@ import {
 import React from "react";
 import { icons } from "../constants/helper";
 import { projects } from "../data/data.json";
+import IconWithName from "../components/IconWithName";
 
 function Projects() {
   return (
@@ -116,44 +117,29 @@ function Projects() {
 
           <Divider sx={{ my: 1 }} />
 
-          <Box sx={{ display: "flex", gap: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+              flexWrap: "wrap",
+              alignItems: "center",
+            }}
+          >
             <Typography variant="body1" sx={{ fontWeight: "bold" }}>
               Project Links:
             </Typography>
-            <Typography
-              variant="body1"
+            <IconWithName
+              icon={icons.live}
               href={p.links.live_project}
-              target="_blank"
-              rel="noopener noreferrer"
+              label="Live Project"
               component="a"
-              sx={{
-                alignItems: "center",
-                display: "flex",
-                gap: 1,
-                textDecoration: "none",
-                color: "inherit",
-              }}
-            >
-              <img src={icons.live} height={20} />
-              Live Project
-            </Typography>
-            <Typography
-              variant="body1"
-              component="a"
+            />
+            <IconWithName
+              icon={icons.github}
               href={p.links.github_repository}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                alignItems: "center",
-                display: "flex",
-                gap: 1,
-                textDecoration: "none",
-                color: "inherit",
-              }}
-            >
-              <img src={icons.github} height={20} />
-              GitHub Repository
-            </Typography>
+              label="GitHub Repository"
+              component="a"
+            />
           </Box>
         </Box>
       ))}

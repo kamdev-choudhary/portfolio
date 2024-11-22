@@ -1,5 +1,6 @@
 {
   "name": "KAMDEV CHOUDHARY (KD)",
+  "projectGithub": "https://github.com/kamdev-choudhary/portfolio",
   "aboutMe": "I am a passionate developer with a deep curiosity for building innovative solutions. Although my current job profile differs from my dream career in tech, I see it as a stepping stone toward my goals. I started my coding journey last year and have already created some exciting projects, especially in the academic field, as a hobby. Beyond coding, I enjoy exploring new technologies, solving challenging problems, and collaborating with like-minded individuals to bring ideas to life. My ultimate aim is to blend creativity and technology to make a meaningful impact.",
   "headlineTexts": [
     "MERN Stack",
@@ -95,6 +96,8 @@
         "name": "MS Office",
         "description": "Proficient in MS Office tools like Word, Excel, and PowerPoint.",
         "proficiency": "Expert",
+        "yearsOfExperience": "3 Years",
+        "lastUsed": "22-Nov-2024 (as of 23-Nov-2024)",
         "relatedProjects": [
           "Data analysis using Excel",
           "Project presentations using PowerPoint",
@@ -105,6 +108,8 @@
       {
         "name": "Microsoft Power Automate",
         "description": "Proficient in MS Power Automate",
+        "yearsOfExperience": "3 Years",
+        "lastUsed": "22-Nov-2024 (as of 23-Nov-2024)",
         "proficiency": "Average",
         "relatedProjects": ["Data Extraction from PDF of 300+ pdfs"],
         "certifications": null
@@ -247,11 +252,19 @@
     }
   ],
   "contact": {
-    "email": "kamdevchoudhary@gmail.com",
-    "phone": "+918340644088",
-    "linkedIn": "https://linkedin.com/in/kamdev-choudhary",
-    "github": "https://github.com/kamdev-choudhary",
-    "instagram": "kd_6799_"
+    "email": {
+      "name": "kamdevchoudhary@gmail.com",
+      "href": "mailto:kamdevchoudhary@gmail.com"
+    },
+    "phone": { "name": "+918340644088", "href": "tel:+918340644088" },
+    "linkedIn": {
+      "name": "linkedin.com/in/kamdev-choudhary",
+      "href": "https://linkedin.com/in/kamdev-choudhary"
+    },
+    "github": {
+      "name": "github.com/kamdev-choudhary",
+      "href": "https://github.com/kamdev-choudhary"
+    }
   },
   "personal": {
     "dateOfBirth": "06-July-1999"
