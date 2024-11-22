@@ -66,7 +66,9 @@ function WorkExperience() {
                   <Typography sx={{ fontWeight: "bold" }}>Skills</Typography>
                   <Divider />
                   <Box sx={{ display: "flex", gap: 2 }}>
-                    <Box sx={{ ml: 2, display: "flex", gap: 1 }}>
+                    <Box
+                      sx={{ ml: 2, display: "flex", gap: 1, flexWrap: "wrap" }}
+                    >
                       {Array.isArray(p.skills) &&
                         p.skills.map((skill, idx) => (
                           <Chip

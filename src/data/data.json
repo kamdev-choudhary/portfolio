@@ -73,9 +73,9 @@
         "duration": "1 Months",
         "period": "21-July-2024 to 10-Sep-2024",
         "link": "https://drive.google.com/file/d/1YvHIRCUBlejW0-RmRJETCOu-SNFN7bla/view?usp=drive_link",
-        "skills": ["Linear Algebra", "Calculus", "Probability"],
-        "achievement": "Completed with a focus on practical implementation in Python.",
-        "projects": "Implemented gradient descent optimization algorithms.",
+        "skills": ["Softs Skills", "Communication", "Awareness"],
+        "achievement": "",
+        "projects": "",
         "mode": "Online"
       },
       {
@@ -140,7 +140,8 @@
             "Powerpoint",
             "Power Automate",
             "Analytics",
-            "Motivation"
+            "Motivation",
+            "Leadership"
           ]
         },
         {
@@ -159,7 +160,7 @@
             "Developed and implemented strategies to improve attendance, engagement, and overall performance among scholars.",
             "Collaborated with administrative staff to schedule activities, allocate resources, and maintain program efficiency."
           ],
-          "skills": ["Excel", "Word", "Powerpoint"]
+          "skills": ["Excel", "Word", "Powerpoint", "Leadership"]
         },
         {
           "position": "Academic Program Coordinator",
@@ -173,7 +174,7 @@
             "Help the students to analyse the result and predict for JEE seat possibilities.",
             "Coucelling the poor performance scholars to improve result."
           ],
-          "skills": ["Excel", "Word", "Powerpoint"]
+          "skills": ["Excel", "Word", "Powerpoint", "Leadership"]
         }
       ]
     },

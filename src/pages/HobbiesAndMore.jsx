@@ -10,7 +10,7 @@ function HobbiesAndMore() {
           Hobbies
         </Typography>
         <Divider />
-        <Box sx={{ mt: 1, display: "flex", gap: 1 }}>
+        <Box sx={{ mt: 1, display: "flex", gap: 1, flexWrap: "wrap" }}>
           {hobbies?.map((hobby, index) => (
             <React.Fragment key={index}>
               <Chip label={hobby} />

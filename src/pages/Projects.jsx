@@ -86,7 +86,7 @@ function Projects() {
             Skills Gained:
           </Typography>
 
-          <Box sx={{ display: "flex", gap: 2, my: 1.5 }}>
+          <Box sx={{ display: "flex", gap: 2, my: 1.5, flexWrap: "wrap" }}>
             {p.skills_gained.map((skill, i) => (
               <Chip color="secondary" variant="outlined" label={skill} />
             ))}
