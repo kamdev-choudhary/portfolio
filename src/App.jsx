@@ -1,10 +1,5 @@
 import React, { Suspense, useEffect, useState, useCallback } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 const DefaultLayout = React.lazy(() => import("./layout/DefaultLayout"));
 import Loader from "./components/Loader";
 import { ThemeProvider } from "@mui/material/styles";
@@ -34,7 +29,7 @@ function App() {
     <ThemeProvider theme={selectedTheme}>
       <CssBaseline />
       <Suspense fallback={<Loader open={true} />}>
-        <Router basename="/portfolio">
+        <BrowserRouter basename="/portfolio">
           <Routes>
             {/* Default route */}
             <Route
@@ -47,7 +42,7 @@ function App() {
             {/* Catch-all route */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </Router>
+        </BrowserRouter>
       </Suspense>
     </ThemeProvider>
   );

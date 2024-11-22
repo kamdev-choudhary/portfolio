@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Box, Grid2 as Grid, Paper, Typography } from "@mui/material";
-import photo from "/photo.jpg";
+import photo from "../assets/photo.jpg";
 import TypingText from "../components/TypingText";
 import { aboutMe, contact, name, location } from "../data/data.json";
 const { present: presentAddress } = location;
