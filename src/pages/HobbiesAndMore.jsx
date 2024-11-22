@@ -18,9 +18,12 @@ function HobbiesAndMore() {
           ))}
         </Box>
         <Divider sx={{ my: 1 }} />
-        <Typography variant="h6" sx={{ py: 1 }}>
+        <Typography variant="body1" sx={{ py: 1 }}>
           <span style={{ fontWeight: "bold" }}>Date of Birth : </span>{" "}
           {personal.dateOfBirth}
+        </Typography>
+        <Typography variant="body1" sx={{ py: 1 }}>
+          <strong>Marital Status :</strong> {personal.marritalStatus}
         </Typography>
       </Box>
     </Box>

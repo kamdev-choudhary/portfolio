@@ -267,7 +267,8 @@
     }
   },
   "personal": {
-    "dateOfBirth": "06-July-1999"
+    "dateOfBirth": "06-July-1999",
+    "marritalStatus": "Unmarried"
   },
   "website": {
     "packages": [
