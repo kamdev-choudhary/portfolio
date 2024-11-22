@@ -252,6 +252,9 @@
     "github": "https://github.com/kamdev-choudhary",
     "instagram": "kd_6799_"
   },
+  "personal": {
+    "dateOfBirth": "06-July-1999"
+  },
   "website": {
     "packages": [
       {
@@ -287,7 +290,10 @@
         "description": "A scripting platform for automating tasks and integrating with Google Workspace services. Used for saving email, password, and message in a spreadsheet for the Contact Us feature."
       }
     ],
-    "icon": { "name": "icon8", "desciption": "" }
+    "icon": {
+      "name": "icon8",
+      "description": "A vector-based icon representing a specific feature or action, often used in user interfaces to visually communicate meaning or purpose."
+    }
   },
   "location": {
     "permament": {
@@ -307,7 +313,7 @@
       "url": "https://maps.app.goo.gl/9xUH8Y975daRDP8t8"
     }
   },
-  "hobbies": ["Playing Chess", "Music"],
+  "hobbies": ["Playing Chess", "Music", "Coding", "Puzzles", "Workout"],
 
   "extra": [
     {

@@ -34,7 +34,7 @@ function WebsiteInfo() {
         <Box component="ul" sx={{ pl: 3 }}>
           <li>
             <Typography variant="body1">
-              <strong>Icons</strong> : {icon.name}
+              <strong>Icons</strong> : {icon.name} ({icon.description})
             </Typography>
           </li>
         </Box>

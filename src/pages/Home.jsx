@@ -126,12 +126,13 @@ function Home() {
               alignItems: "center",
               borderRadius: 2,
             }}
+            component={Paper}
+            elevation={4}
           >
             <TypingText />
           </Box>
 
-          <Divider sx={{ mb: 1 }} />
-          <Box component={Paper} elevation={4} sx={{ p: 2 }}>
+          <Box component={Paper} elevation={4} sx={{ p: 2, mt: 2 }}>
             <Typography variant="body1" sx={{ fontStyle: "italic" }}>
               {aboutMe}
             </Typography>

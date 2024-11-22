@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
-import { hobbies } from "../data/data.json";
+import { hobbies, personal } from "../data/data.json";
 
 function HobbiesAndMore() {
   return (
@@ -17,6 +17,11 @@ function HobbiesAndMore() {
             </React.Fragment>
           ))}
         </Box>
+        <Divider sx={{ my: 1 }} />
+        <Typography variant="h6" sx={{ py: 1 }}>
+          <span style={{ fontWeight: "bold" }}>Date of Birth : </span>{" "}
+          {personal.dateOfBirth}
+        </Typography>
       </Box>
     </Box>
   );
