@@ -10,7 +10,7 @@ import IconWithName from "../components/IconWithName";
 
 function Home() {
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, md: 4, lg: 4 }}>
           <Box

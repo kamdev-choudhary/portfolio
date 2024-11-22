@@ -5,7 +5,14 @@ import { motion } from "framer-motion";
 
 function WorkExperience() {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2, p: 2 }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        p: { sm: 2, xs: 1 },
+      }}
+    >
       {data?.map((d, index) => (
         <React.Fragment key={index}>
           <motion.div

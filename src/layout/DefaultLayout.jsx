@@ -25,7 +25,7 @@ export default function DefaultLayout({ toggleTheme, theme }) {
   const headerStyles = {
     display: "flex",
     alignItems: "center",
-    marginLeft: "2.5rem",
+    marginLeft: { xs: 2, sm: 3 },
   };
 
   const iconStyles = {

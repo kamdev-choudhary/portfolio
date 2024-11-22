@@ -14,7 +14,7 @@ import { icons } from "../constants/helper";
 
 function Extracurricular() {
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Box component={Paper} sx={{ p: 2 }}>
         {extra?.map((e, index) => (
           <Box

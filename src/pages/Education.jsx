@@ -6,7 +6,7 @@ const { basic } = education;
 
 export default function Education() {
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {basic?.map((d, index) => (
         <React.Fragment key={index}>
           <motion.div

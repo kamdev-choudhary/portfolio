@@ -14,7 +14,14 @@ const { skills } = education;
 
 function Skill() {
   return (
-    <Box sx={{ p: 2, gap: 2, display: "flex", flexDirection: "column" }}>
+    <Box
+      sx={{
+        p: { sm: 2, xs: 1 },
+        gap: 2,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       {skills.map((skill, index) => (
         <motion.div
           key={index}

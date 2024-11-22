@@ -15,7 +15,7 @@ import { LinkRounded } from "@mui/icons-material";
 
 function Certificates() {
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {certificates?.map((cert, index) => (
         <React.Fragment key={index}>
           <motion.div

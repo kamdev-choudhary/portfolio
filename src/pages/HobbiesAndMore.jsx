@@ -4,7 +4,7 @@ import { hobbies, personal } from "../data/data.json";
 
 function HobbiesAndMore() {
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Box component={Paper} elevation={4} sx={{ p: 2, borderRadius: 2 }}>
         <Typography variant="h6" sx={{ fontWeight: "bold", py: 1 }}>
           Hobbies

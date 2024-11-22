@@ -15,7 +15,7 @@ import IconWithName from "../components/IconWithName";
 
 function Projects() {
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {projects?.map((p, index) => (
         <Box
           key={index}
