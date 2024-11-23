@@ -7,6 +7,7 @@ import { aboutMe, contact, name, location } from "../data/data.json";
 const { present: presentAddress } = location;
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
+import CustomIcon from "../components/CustomIcon";
 
 function Home() {
   return (

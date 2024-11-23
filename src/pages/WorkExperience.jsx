@@ -1,7 +1,17 @@
 import React from "react";
 import { work as data } from "../data/data.json";
-import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Chip,
+  Divider,
+  Paper,
+  Typography,
+} from "@mui/material";
 import { motion } from "framer-motion";
+import { ExpandMoreRounded } from "@mui/icons-material";
 
 function WorkExperience() {
   return (
@@ -32,7 +42,6 @@ function WorkExperience() {
                     display: "flex",
                     flexDirection: "column",
                     gap: 1,
-                    border: "1px solid rgba(0,0,0,0.2)",
                     mb: 1,
                     p: 2,
                     borderRadius: 2,
@@ -53,22 +62,26 @@ function WorkExperience() {
                   </Box>
 
                   <Box sx={{ display: "flex", flexDirection: "column" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      Job Description:
-                    </Typography>
-                    <Box sx={{ ml: 2 }}>
-                      <ul>
-                        {Array.isArray(p.description) &&
-                          p.description.map((desc, idx) => (
-                            <Typography
-                              key={idx}
-                              sx={{ mt: idx === 0 ? 0 : 0.5 }}
-                            >
-                              <li>{desc}</li>
-                            </Typography>
-                          ))}
-                      </ul>
-                    </Box>
+                    <Accordion>
+                      <AccordionSummary expandIcon={<ExpandMoreRounded />}>
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          Job Description:
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ul>
+                          {Array.isArray(p.description) &&
+                            p.description.map((desc, idx) => (
+                              <Typography
+                                key={idx}
+                                sx={{ mt: idx === 0 ? 0 : 0.5 }}
+                              >
+                                <li>{desc}</li>
+                              </Typography>
+                            ))}
+                        </ul>
+                      </AccordionDetails>
+                    </Accordion>
                   </Box>
                   <Typography sx={{ fontWeight: "bold" }}>Skills</Typography>
                   <Divider />
