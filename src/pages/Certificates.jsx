@@ -11,10 +11,13 @@ import {
 import { motion } from "framer-motion";
 import { LinkRounded } from "@mui/icons-material";
 import { useGlobalProvider } from "../GlobalProvider";
+import { CustomModal } from "../components/CustomModal";
 
 function Certificates() {
   const { education } = useGlobalProvider();
   const { certificates } = education;
+  const [showCertificate, setShowCertificate] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
@@ -53,9 +56,6 @@ function Certificates() {
                 </Typography>
                 {cert?.link && (
                   <IconButton
-                    // component={Link}
-                    // href={cert?.link}
-                    // target="_blank"
                     onClick={() => {
                       setShowCertificate(true);
                       setSelectedCertificate(cert.link);
