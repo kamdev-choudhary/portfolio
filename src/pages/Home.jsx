@@ -5,7 +5,6 @@ import photo from "../assets/photo.jpg";
 import TypingText from "../components/TypingText";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
-import { useGlobalProvider } from "../GlobalProvider";
 
 function Home() {
   const { aboutMe, contact, name, location } = useGlobalProvider();
