@@ -10,7 +10,21 @@ import {
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    name: "",
+    projectGithub: "",
+    aboutMe: "",
+    headlineTexts: [],
+    education: {},
+    work: [],
+    projects: [],
+    contact: {},
+    personal: {},
+    website: {},
+    location: {},
+    hobbies: [],
+    extra: [],
+  });
   const [isLoaded, setIsLoaded] = useState(false);
   const [theme, setTheme] = useState("light");
 
