@@ -1,4 +1,11 @@
-import { Box, Container, Paper, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Divider,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { googleScriptUrl } from "../constants/helper";
@@ -104,11 +111,12 @@ function ContactUs() {
           component={Paper}
           elevation={4}
         >
-          <Box sx={{ mb: 1 }}>
-            <Typography variant="h5" gutterBottom>
+          <Box>
+            <Typography variant="h5" sx={{ my: 1 }} gutterBottom>
               Send a Message
             </Typography>
           </Box>
+          <Divider sx={{ mb: 2 }} />
           <Box
             component="form"
             sx={{ display: "grid", gap: 2 }}

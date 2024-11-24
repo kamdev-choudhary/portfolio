@@ -117,9 +117,9 @@ const Navbar = ({ scrollToSection }) => {
     <Box
       sx={{
         p: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.6)",
-        backdropFilter: "blur(10px)",
-        border: "1px solid rgba(0, 0, 0, 0.1)",
+        // backgroundColor: "rgba(255, 255, 255, 0.6)",
+        // backdropFilter: "blur(10px)",
+        // border: "1px solid rgba(0, 0, 0, 0.1)",
         m: 0.8,
         borderRadius: "10px",
         display: "flex",
