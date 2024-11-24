@@ -5,9 +5,9 @@ import photo from "../assets/photo.jpg";
 import TypingText from "../components/TypingText";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
+import { aboutMe, contact, name, location } from "../data/data.json";
 
 function Home() {
-  const { aboutMe, contact, name, location } = useGlobalProvider();
   const { present: presentAddress } = location;
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>

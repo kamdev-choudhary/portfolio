@@ -12,10 +12,9 @@ import React from "react";
 import { icons } from "../constants/helper";
 
 import IconWithName from "../components/IconWithName";
-import { useGlobalProvider } from "../GlobalProvider";
+import { projects } from "../data/data.json";
 
 function Projects() {
-  const { projects } = useGlobalProvider();
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {projects?.map((p, index) => (

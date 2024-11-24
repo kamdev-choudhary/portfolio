@@ -14,9 +14,9 @@ import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { useGlobalProvider } from "../GlobalProvider";
+import { contact } from "../data/data.json";
 
 function ContactUs() {
-  const { contact } = useGlobalProvider();
   // States for the form fields
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");

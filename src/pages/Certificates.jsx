@@ -11,9 +11,9 @@ import { motion } from "framer-motion";
 import { LinkRounded } from "@mui/icons-material";
 import { useGlobalProvider } from "../GlobalProvider";
 import { CustomModal } from "../components/CustomModal";
+import { education } from "../data/data.json";
 
 function Certificates() {
-  const { education } = useGlobalProvider();
   const { certificates } = education;
   const [showCertificate, setShowCertificate] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);

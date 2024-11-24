@@ -11,9 +11,9 @@ import {
 } from "@mui/material";
 import { icons } from "../constants/helper";
 import { useGlobalProvider } from "../GlobalProvider";
+import { extra } from "../data/data.json";
 
 function Extracurricular() {
-  const { extra } = useGlobalProvider();
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Box component={Paper} sx={{ p: 2 }}>

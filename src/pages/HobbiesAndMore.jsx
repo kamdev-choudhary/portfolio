@@ -1,9 +1,8 @@
 import React from "react";
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
-import { useGlobalProvider } from "../GlobalProvider";
+import { hobbies, personal } from "../data/data.json";
 
 function HobbiesAndMore() {
-  const { hobbies, personal } = useGlobalProvider();
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Box component={Paper} elevation={4} sx={{ p: 2, borderRadius: 2 }}>

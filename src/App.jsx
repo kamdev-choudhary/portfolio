@@ -8,13 +8,9 @@ import { lightTheme, darkTheme } from "./constants/theme";
 import { useGlobalProvider } from "./GlobalProvider";
 
 function App() {
-  const { isLoaded, theme } = useGlobalProvider();
+  const { theme } = useGlobalProvider();
 
   const selectedTheme = theme === "dark" ? darkTheme : lightTheme;
-
-  if (!isLoaded) {
-    return <Loader open={true} />;
-  }
 
   return (
     <ThemeProvider theme={selectedTheme}>

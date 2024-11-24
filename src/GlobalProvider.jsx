@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
   createContext,
   useContext,
@@ -10,40 +9,7 @@ import {
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [data, setData] = useState({
-    name: "",
-    projectGithub: "",
-    aboutMe: "",
-    headlineTexts: [],
-    education: {},
-    work: [],
-    projects: [],
-    contact: {},
-    personal: {},
-    website: {},
-    location: {},
-    hobbies: [],
-    extra: [],
-  });
-  const [isLoaded, setIsLoaded] = useState(false);
   const [theme, setTheme] = useState("light");
-
-  const getInitialData = async () => {
-    try {
-      const response = await axios.get(
-        "https://script.google.com/macros/s/AKfycbzehAxOZNoECDd8Jb_jYggBxVDmyoenx0K5JGKh-TWTAD_3L1w3cmj6sOxvSp2j1Yj-/exec"
-      );
-      setData(response?.data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoaded(true);
-    }
-  };
-
-  useEffect(() => {
-    getInitialData();
-  }, []);
 
   useEffect(() => {
     const localTheme = localStorage.getItem("theme");
@@ -60,7 +26,7 @@ export const GlobalProvider = ({ children }) => {
   }, [theme]);
 
   return (
-    <GlobalContext.Provider value={{ ...data, isLoaded, theme, toggleTheme }}>
+    <GlobalContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </GlobalContext.Provider>
   );

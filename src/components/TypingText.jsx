@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
 import { useGlobalProvider } from "../GlobalProvider";
-
+import { headlineTexts } from "../data/data.json";
 function TypingText() {
-  const { headlineTexts } = useGlobalProvider();
   const typingSpeed = 160;
   const backspaceSpeed = 160; // Speed of clearing each character
   const switchDelay = 160; // Delay before switching to the next word
