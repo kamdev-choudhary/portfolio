@@ -1,5 +1,4 @@
 import React from "react";
-import { extra } from "../data/data.json";
 import {
   Box,
   Divider,
@@ -11,8 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 import { icons } from "../constants/helper";
+import { useGlobalProvider } from "../GlobalProvider";
 
 function Extracurricular() {
+  const { extra } = useGlobalProvider();
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Box component={Paper} sx={{ p: 2 }}>

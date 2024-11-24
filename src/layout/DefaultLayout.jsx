@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import { motion } from "framer-motion";
 import { pages } from "./pages";
 
-export default function DefaultLayout({ toggleTheme, theme }) {
+export default function DefaultLayout() {
   // Automatically create refs based on pages keys
   const pagesRefs = useRef(
     pages.reduce((acc, { key }) => {
@@ -55,11 +55,7 @@ export default function DefaultLayout({ toggleTheme, theme }) {
           zIndex: 1000,
         }}
       >
-        <Navbar
-          toggleTheme={toggleTheme}
-          theme={theme}
-          scrollToSection={scrollToSection}
-        />
+        <Navbar scrollToSection={scrollToSection} />
       </Box>
 
       {/* Main content */}

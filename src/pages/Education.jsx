@@ -1,10 +1,12 @@
 import React from "react";
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { education } from "../data/data.json";
-const { basic } = education;
+import { useGlobalProvider } from "../GlobalProvider";
 
 export default function Education() {
+  const { education } = useGlobalProvider();
+  const { basic } = education;
+
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {basic?.map((d, index) => (

@@ -8,12 +8,14 @@ import {
   Link,
   Chip,
 } from "@mui/material";
-import { education } from "../data/data.json";
-const { certificates } = education;
 import { motion } from "framer-motion";
 import { LinkRounded } from "@mui/icons-material";
+import { useGlobalProvider } from "../GlobalProvider";
 
 function Certificates() {
+  const { education } = useGlobalProvider();
+  const { certificates } = education;
+
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {certificates?.map((cert, index) => (

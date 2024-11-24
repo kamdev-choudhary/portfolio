@@ -10,25 +10,16 @@ import Loader from "./components/Loader";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { lightTheme, darkTheme } from "./constants/theme";
+import { useGlobalProvider } from "./GlobalProvider";
 
 function App() {
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    const localTheme = localStorage.getItem("theme");
-    if (localTheme === "light" || localTheme === "dark") {
-      setTheme(localTheme);
-    }
-  }, []);
-
-  // Memoize theme toggle function to prevent unnecessary re-renders
-  const toggleTheme = useCallback(() => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme); // Save the new theme to localStorage
-  }, [theme]);
+  const { isLoaded, theme } = useGlobalProvider();
 
   const selectedTheme = theme === "dark" ? darkTheme : lightTheme;
+
+  if (!isLoaded) {
+    return <Loader open={true} />;
+  }
 
   return (
     <ThemeProvider theme={selectedTheme}>
@@ -37,12 +28,7 @@ function App() {
         <Router basename="/portfolio">
           <Routes>
             {/* Default route */}
-            <Route
-              path="/"
-              element={
-                <DefaultLayout toggleTheme={toggleTheme} theme={theme} />
-              }
-            />
+            <Route path="/" element={<DefaultLayout />} />
 
             {/* Catch-all route */}
             <Route path="*" element={<Navigate to="/" replace />} />

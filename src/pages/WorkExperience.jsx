@@ -1,9 +1,11 @@
 import React from "react";
-import { work as data } from "../data/data.json";
+
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useGlobalProvider } from "../GlobalProvider";
 
 function WorkExperience() {
+  const { work: data } = useGlobalProvider();
   return (
     <Box
       sx={{

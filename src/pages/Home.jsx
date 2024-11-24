@@ -3,12 +3,13 @@ import { motion } from "framer-motion";
 import { Box, Grid2 as Grid, Paper, Typography } from "@mui/material";
 import photo from "/photo.jpg";
 import TypingText from "../components/TypingText";
-import { aboutMe, contact, name, location } from "../data/data.json";
-const { present: presentAddress } = location;
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
+import { useGlobalProvider } from "../GlobalProvider";
 
 function Home() {
+  const { aboutMe, contact, name, location } = useGlobalProvider();
+  const { present: presentAddress } = location;
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={2}>

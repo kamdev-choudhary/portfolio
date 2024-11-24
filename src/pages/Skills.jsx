@@ -9,10 +9,11 @@ import {
   Divider,
   ListItemText,
 } from "@mui/material";
-import { education } from "../data/data.json";
-const { skills } = education;
+import { useGlobalProvider } from "../GlobalProvider";
 
 function Skill() {
+  const { education } = useGlobalProvider();
+  const { skills } = education;
   return (
     <Box
       sx={{

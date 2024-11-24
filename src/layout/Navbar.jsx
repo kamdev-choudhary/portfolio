@@ -21,6 +21,7 @@ import {
   LightModeRounded,
 } from "@mui/icons-material";
 import { icons } from "../constants/helper";
+import { useGlobalProvider } from "../GlobalProvider";
 
 const buttons = [
   { name: "Home", icon: icons.home, path: "home" },
@@ -34,7 +35,8 @@ const buttons = [
   { name: "Contact Us", icon: icons.contactUs, path: "contact" },
 ];
 
-const Navbar = ({ scrollToSection, toggleTheme, theme }) => {
+const Navbar = ({ scrollToSection }) => {
+  const { theme, toggleTheme } = useGlobalProvider();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [visibleButtonsCount, setVisibleButtonCount] = useState(4);

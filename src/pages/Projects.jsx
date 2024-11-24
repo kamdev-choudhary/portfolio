@@ -10,10 +10,12 @@ import {
 } from "@mui/material";
 import React from "react";
 import { icons } from "../constants/helper";
-import { projects } from "../data/data.json";
+
 import IconWithName from "../components/IconWithName";
+import { useGlobalProvider } from "../GlobalProvider";
 
 function Projects() {
+  const { projects } = useGlobalProvider();
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {projects?.map((p, index) => (

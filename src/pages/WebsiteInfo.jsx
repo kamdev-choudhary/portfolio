@@ -1,11 +1,13 @@
 import React from "react";
 import { Box, Divider, Paper, Typography } from "@mui/material";
-import { website, projectGithub } from "../data/data.json";
-const { packages, icon } = website;
+
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
+import { useGlobalProvider } from "../GlobalProvider";
 
 function WebsiteInfo() {
+  const { website, projectGithub } = useGlobalProvider();
+  const { packages, icon } = website;
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Box component={Paper} elevation={4} sx={{ p: 2, borderRadius: 2 }}>

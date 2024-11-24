@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { googleScriptUrl } from "../constants/helper";
 import Swal from "sweetalert2";
-import { contact } from "../data/data.json";
 import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
+import { useGlobalProvider } from "../GlobalProvider";
 
 function ContactUs() {
+  const { contact } = useGlobalProvider();
   // States for the form fields
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
