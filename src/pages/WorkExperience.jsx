@@ -1,8 +1,17 @@
 import React from "react";
 import { work as data } from "../data/data.json";
-
-import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Chip,
+  Divider,
+  Paper,
+  Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@mui/material";
 import { motion } from "framer-motion";
+import { ExpandMoreRounded } from "@mui/icons-material";
 
 function WorkExperience() {
   return (
@@ -52,12 +61,13 @@ function WorkExperience() {
                     </Typography>
                     <Typography sx={{ marginLeft: 1 }}>{p.location}</Typography>
                   </Box>
-
-                  <Box sx={{ display: "flex", flexDirection: "column" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      Job Description:
-                    </Typography>
-                    <Box sx={{ ml: 2 }}>
+                  <Accordion>
+                    <AccordionSummary expandIcon={<ExpandMoreRounded />}>
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        Job Description:
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
                       <ul>
                         {Array.isArray(p.description) &&
                           p.description.map((desc, idx) => (
@@ -69,8 +79,9 @@ function WorkExperience() {
                             </Typography>
                           ))}
                       </ul>
-                    </Box>
-                  </Box>
+                    </AccordionDetails>
+                  </Accordion>
+
                   <Typography sx={{ fontWeight: "bold" }}>Skills</Typography>
                   <Divider />
                   <Box sx={{ display: "flex", gap: 2 }}>
