@@ -9,9 +9,12 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  List,
+  ListItem,
+  ListItemIcon,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { ExpandMoreRounded } from "@mui/icons-material";
+import { ExpandMoreRounded, StarRounded } from "@mui/icons-material";
 
 function WorkExperience() {
   return (
@@ -69,17 +72,17 @@ function WorkExperience() {
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <ul>
+                        <List>
                           {Array.isArray(p.description) &&
                             p.description.map((desc, idx) => (
-                              <Typography
-                                key={idx}
-                                sx={{ mt: idx === 0 ? 0 : 0.5 }}
-                              >
-                                <li>{desc}</li>
-                              </Typography>
+                              <ListItem key={idx}>
+                                <ListItemIcon>
+                                  <StarRounded />
+                                </ListItemIcon>
+                                {desc}
+                              </ListItem>
                             ))}
-                        </ul>
+                        </List>
                       </AccordionDetails>
                     </Accordion>
                   </Box>
