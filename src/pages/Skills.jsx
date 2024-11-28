@@ -30,14 +30,13 @@ function Skill() {
           transition={{ duration: 0.5, delay: index * 0.2 }} // Staggered animation
         >
           <Box
-            component={Paper}
-            elevation={4}
             sx={{
               p: 2,
               borderRadius: 2,
               display: "flex",
               flexDirection: "column",
               gap: 1,
+              bgcolor: "#fff",
             }}
           >
             <Typography variant="h5">{skill.name}</Typography>

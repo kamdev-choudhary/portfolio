@@ -25,9 +25,14 @@ export default function Education() {
             }}
           >
             <Box
-              component={Paper}
-              elevation={4}
-              sx={{ p: 2, mb: 1, display: "grid", gap: 1, borderRadius: 2 }}
+              sx={{
+                p: 2,
+                mb: 1,
+                display: "grid",
+                gap: 1,
+                borderRadius: 2,
+                bgcolor: "#fff",
+              }}
             >
               <Typography sx={{ fontWeight: "bold" }} variant="h6">
                 {d?.level} {d.stream && <>({d.stream})</>}

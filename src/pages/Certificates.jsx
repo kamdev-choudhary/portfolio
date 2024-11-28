@@ -37,15 +37,13 @@ function Certificates() {
             }}
           >
             <Box
-              component={Paper}
-              elevation={4}
               sx={{
                 p: 2,
                 mb: 2,
                 display: "grid",
                 gap: 1,
                 borderRadius: 2,
-                boxShadow: 3,
+                bgcolor: "#fff",
               }}
             >
               {/* Certificate Name and Link */}

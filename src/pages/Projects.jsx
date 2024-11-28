@@ -20,9 +20,7 @@ function Projects() {
       {projects?.map((p, index) => (
         <Box
           key={index}
-          component={Paper}
-          elevation={4}
-          sx={{ p: 2, height: "100%", borderRadius: 2 }}
+          sx={{ p: 2, height: "100%", borderRadius: 2, bgcolor: "#fff" }}
         >
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>
             {p.name}

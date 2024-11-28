@@ -10,11 +10,11 @@ const { packages, icon } = website;
 function WebsiteInfo() {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
-      <Box component={Paper} elevation={4} sx={{ p: 2, borderRadius: 2 }}>
-        <Typography variant="h5" gutterBottom>
+      <Box sx={{ p: 2, borderRadius: 2, bgcolor: "#fff" }}>
+        {/* <Typography variant="h5" gutterBottom>
           Website Info
-        </Typography>
-        <Divider sx={{ mb: 1 }} />
+        </Typography> 
+        <Divider sx={{ mb: 1 }} />*/}
         <Typography>
           This website is built using React and Vite, ensuring a fast and smooth
           user experience. It leverages modern web development practices to

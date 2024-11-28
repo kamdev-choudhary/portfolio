@@ -47,13 +47,13 @@ export default function DefaultLayout({ toggleTheme, theme }) {
     >
       {/* Fixed Navbar */}
       <Box
-        sx={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 10,
-        }}
+      // sx={{
+      //   position: "fixed",
+      //   top: 0,
+      //   left: 0,
+      //   right: 0,
+      //   zIndex: 10,
+      // }}
       >
         <Navbar
           toggleTheme={toggleTheme}
@@ -63,7 +63,7 @@ export default function DefaultLayout({ toggleTheme, theme }) {
       </Box>
 
       {/* Main content */}
-      <Box sx={{ paddingTop: "80px" }}>
+      <Box sx={{ paddingTop: "px" }}>
         {pages.map(({ name, component, key, icon, showHeader }) => (
           <React.Fragment key={key}>
             {showHeader && (

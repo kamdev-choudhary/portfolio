@@ -106,10 +106,9 @@ function ContactUs() {
           sx={{
             p: 2,
             borderRadius: 2,
+            bgcolor: "#fff",
           }}
           maxWidth="sm"
-          component={Paper}
-          elevation={4}
         >
           <Box>
             <Typography variant="h5" sx={{ my: 1 }} gutterBottom>

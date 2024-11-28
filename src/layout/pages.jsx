@@ -80,6 +80,6 @@ export const pages = [
     component: <WebsiteInfo />,
     key: "about",
     icon: icons.about,
-    showHeader: false,
+    showHeader: true,
   },
 ];

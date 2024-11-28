@@ -88,13 +88,20 @@ const Navbar = ({ scrollToSection }) => {
         border: "none",
         backgroundColor: "transparent",
         cursor: "pointer",
+        borderRadius: 100,
       }}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{
+        scale: 1.1,
+        backgroundColor: "rgba(255,255,255,0.2)",
+        borderRadius: 100,
+      }}
       transition={{ duration: 0.4 }}
       onClick={() => scrollToSection(button.path)}
     >
-      <Box sx={{ display: "flex", alignItems: "center" }}>
-        <img height="25px" src={button.icon} alt={button.name} />
+      <Box
+        sx={{ display: "flex", alignItems: "center", alignContent: "center" }}
+      >
+        <img height="22px" src={button.icon} alt={button.name} />
         <Typography variant="body2" sx={{ ml: 1 }}>
           {button.name}
         </Typography>
@@ -117,12 +124,10 @@ const Navbar = ({ scrollToSection }) => {
     <Box
       sx={{
         p: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.6)",
-        backdropFilter: "blur(10px)",
-        border: "1px solid rgba(0, 0, 0, 0.1)",
         display: "flex",
-        justifyContent: isSmallScreen ? "space-between" : "flex-end",
+        justifyContent: isSmallScreen ? "space-between" : "center",
         alignItems: "center",
+        m: 1,
       }}
     >
       {isSmallScreen ? (
@@ -147,50 +152,61 @@ const Navbar = ({ scrollToSection }) => {
         </>
       ) : (
         <>
-          {buttons.slice(0, visibleButtonsCount).map((button) => (
-            <NavbarButton key={button.name} button={button} />
-          ))}
-          {visibleButtonsCount < buttons.length && (
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.4 }}
-              style={{ cursor: "pointer", margin: "4px" }}
-              onClick={handleMoreClick}
-            >
-              <Typography
-                variant="body2"
-                sx={{ alignItems: "center", display: "flex" }}
-              >
-                <ArrowDropDownRounded />
-                More
-              </Typography>
-            </motion.div>
-          )}
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMoreClose}
-            disableScrollLock
+          <Box
+            sx={{
+              display: "flex",
+              p: 1,
+              bgcolor: "#C9E9D2",
+              backdropFilter: "blur(5px)",
+              borderRadius: 10,
+              paddingX: 4,
+            }}
           >
-            {buttons.slice(visibleButtonsCount).map((button) => (
-              <MenuItem
-                key={button.name}
-                onClick={() => {
-                  handleMoreClose();
-                  scrollToSection(button.path);
-                }}
-              >
-                <ListItemIcon>
-                  <img
-                    src={button.icon}
-                    alt={button.name}
-                    style={{ height: "24px" }}
-                  />
-                </ListItemIcon>
-                <Typography>{button.name}</Typography>
-              </MenuItem>
+            {buttons.slice(0, visibleButtonsCount).map((button) => (
+              <NavbarButton key={button.name} button={button} />
             ))}
-          </Menu>
+            {visibleButtonsCount < buttons.length && (
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.4 }}
+                style={{ cursor: "pointer", margin: "4px" }}
+                onClick={handleMoreClick}
+              >
+                <Typography
+                  variant="body2"
+                  sx={{ alignItems: "center", display: "flex" }}
+                >
+                  <ArrowDropDownRounded />
+                  More
+                </Typography>
+              </motion.div>
+            )}
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMoreClose}
+              disableScrollLock
+            >
+              {buttons.slice(visibleButtonsCount).map((button) => (
+                <MenuItem
+                  key={button.name}
+                  onClick={() => {
+                    handleMoreClose();
+                    scrollToSection(button.path);
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      src={button.icon}
+                      alt={button.name}
+                      style={{ height: "24px" }}
+                    />
+                  </ListItemIcon>
+                  <Typography>{button.name}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
         </>
       )}
 
