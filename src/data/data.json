@@ -76,7 +76,7 @@
         "link": "https://drive.google.com/file/d/1YvHIRCUBlejW0-RmRJETCOu-SNFN7bla/preview",
         "skills": ["Softs Skills", "Communication", "Awareness"],
         "achievement": "",
-        "projects": "",
+        "projects": null,
         "mode": "Online"
       },
       {
@@ -220,8 +220,7 @@
         "Framer Motion",
         "Lodash",
         "Redux",
-        "Recharts",
-        "..."
+        "Recharts"
       ],
       "role": "Full-stack Developer",
       "responsibilities": [
@@ -317,7 +316,7 @@
       "city": "Ranchi",
       "state": "Jharkhand",
       "pincode": "835102",
-      "url": ""
+      "url": "https://maps.app.goo.gl/vrvnmjXsHrtAHAyq7"
     },
     "present": {
       "address1": "413, Dakshana Foundation",
