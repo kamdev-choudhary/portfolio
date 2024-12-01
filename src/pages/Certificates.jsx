@@ -170,7 +170,6 @@ function Certificates() {
                   {cert?.projects && (
                     <Typography variant="body2" sx={{ display: "flex" }}>
                       <WorkspacePremium sx={{ mr: 1 }} />
-                      <strong>Projects:</strong> {cert?.projects}
                     </Typography>
                   )}
                 </Box>

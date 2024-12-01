@@ -129,6 +129,7 @@ const Navbar = ({ scrollToSection }) => {
         justifyContent: isSmallScreen ? "space-between" : "center",
         alignItems: "center",
         m: 1,
+        bgcolor: isSmallScreen ? "#fff" : "transparent",
       }}
     >
       {isSmallScreen ? (
