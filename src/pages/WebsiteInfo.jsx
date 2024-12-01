@@ -18,10 +18,7 @@ const { packages, icon } = website;
 
 function WebsiteInfo() {
   return (
-    <Box sx={{ p: { sm: 3, xs: 2 } }}>
-      <Typography variant="h4" sx={{ fontWeight: "bold", mb: 3 }}>
-        About This Website
-      </Typography>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Paper
         elevation={4}
         sx={{
@@ -59,45 +56,31 @@ function WebsiteInfo() {
           Icons:
         </Typography>
         <List sx={{ m: 0, p: 0 }}>
-          <ListItem>
-            <ListItemIcon>
-              <CodeRounded sx={{ color: "primary.main" }} />
-            </ListItemIcon>
-            <ListItemText
-              primary={icon.name}
-              secondary={icon.description}
-              primaryTypographyProps={{ fontWeight: "bold" }}
-              secondaryTypographyProps={{ variant: "body2" }}
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <CodeRounded sx={{ color: "primary.main" }} />
-            </ListItemIcon>
-            <ListItemText
-              primary="MUI Icons"
-              secondary="MUI provides beutiful material icons"
-              primaryTypographyProps={{ fontWeight: "bold" }}
-              secondaryTypographyProps={{ variant: "body2" }}
-            />
-          </ListItem>
+          {icon?.map((ic, index) => (
+            <ListItem key={index}>
+              <ListItemIcon>
+                <CodeRounded sx={{ color: "primary.main" }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={ic.name}
+                secondary={ic.description}
+                primaryTypographyProps={{ fontWeight: "bold" }}
+                secondaryTypographyProps={{ variant: "body2" }}
+              />
+            </ListItem>
+          ))}
         </List>
         <Divider sx={{ my: 3 }} />
         <Typography variant="body1" sx={{ mb: 2 }}>
           I am committed to continuously improving this portfolio website by
           integrating the best tools and libraries to meet modern web standards.
         </Typography>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mt: 2 }}>
-          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-            Explore the code:
-          </Typography>
-          <IconWithName
-            component="a"
-            label="GitHub Repository"
-            icon={icons.github}
-            href={projectGithub}
-          />
-        </Box>
+        <IconWithName
+          component="a"
+          label="GitHub Repository"
+          icon={icons.github}
+          href={projectGithub}
+        />
       </Paper>
     </Box>
   );

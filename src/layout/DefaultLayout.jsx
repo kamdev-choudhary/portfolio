@@ -26,6 +26,7 @@ export default function DefaultLayout({ toggleTheme, theme }) {
     display: "flex",
     alignItems: "center",
     marginLeft: { xs: 2, sm: 3 },
+    marginTop: 2,
   };
 
   const iconStyles = {
@@ -66,11 +67,6 @@ export default function DefaultLayout({ toggleTheme, theme }) {
       <Box
         sx={{
           paddingTop: "80px",
-          // background:
-          //   "repeating-linear-gradient(9deg, #fff 0, #fff 5%, transparent 0, transparent 50%), repeating-linear-gradient(180deg, #fff 0, #fff 5%, transparent 0, transparent 50%)",
-          // backgroundSize: "8em 8em",
-          // bgcolor: "#000",
-          // opacity: 1,
         }}
       >
         {pages.map(({ name, component, key, icon, showHeader }) => (

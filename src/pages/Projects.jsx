@@ -20,7 +20,7 @@ function Projects() {
   return (
     <Box
       sx={{
-        p: { sm: 3, xs: 2 },
+        p: { sm: 2, xs: 1 },
         display: "flex",
         flexDirection: "column",
         gap: 3,

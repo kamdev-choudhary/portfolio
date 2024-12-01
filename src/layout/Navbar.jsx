@@ -129,7 +129,9 @@ const Navbar = ({ scrollToSection }) => {
         justifyContent: isSmallScreen ? "space-between" : "center",
         alignItems: "center",
         m: 1,
-        bgcolor: isSmallScreen ? "#fff" : "transparent",
+        bgcolor: isSmallScreen ? "background.paper" : "transparent",
+        borderRadius: isSmallScreen ? 10 : 2,
+        p: isSmallScreen ? 1 : "inherit",
       }}
     >
       {isSmallScreen ? (
@@ -139,7 +141,7 @@ const Navbar = ({ scrollToSection }) => {
           </IconButton>
           <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
             <Box
-              sx={{ width: 250, p: 2 }}
+              sx={{ width: 300, p: 2 }}
               role="presentation"
               onClick={toggleDrawer(false)}
               onKeyDown={toggleDrawer(false)}

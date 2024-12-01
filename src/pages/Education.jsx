@@ -14,7 +14,7 @@ const { basic } = education;
 
 export default function Education() {
   return (
-    <Box sx={{ p: { sm: 3, xs: 2 } }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
         {basic?.map((d, index) => (
           <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4 }} key={index}>

@@ -27,7 +27,7 @@ function Certificates() {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   return (
-    <Box sx={{ p: { sm: 3, xs: 2 } }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
         {certificates?.map((cert, index) => (
           <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>

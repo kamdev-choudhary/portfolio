@@ -13,26 +13,23 @@ import { extra } from "../data/data.json";
 
 function Extracurricular() {
   return (
-    <Box sx={{ p: { sm: 3, xs: 2 } }}>
-      <Paper
-        elevation={6}
-        sx={{
-          p: 3,
-          borderRadius: 4,
-          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-          ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)" },
-        }}
-      >
-        {extra?.map((e, index) => (
-          <Box
-            key={index}
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
+      {extra?.map((e, index) => (
+        <Box
+          key={index}
+          sx={{
+            mb: 3,
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.05)",
+            ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.1)" },
+          }}
+        >
+          <Paper
+            elevation={6}
             sx={{
-              mb: 3,
-              border: "1px solid rgba(0,0,0,0.1)",
               p: 3,
-              borderRadius: 2,
-              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.05)",
-              ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.1)" },
+              borderRadius: 4,
+              boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+              ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)" },
             }}
           >
             <Typography variant="h5" sx={{ fontWeight: "bold" }}>
@@ -58,9 +55,9 @@ function Extracurricular() {
                   </li>
                 ))}
             </ul>
-          </Box>
-        ))}
-      </Paper>
+          </Paper>
+        </Box>
+      ))}
     </Box>
   );
 }

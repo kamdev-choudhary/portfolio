@@ -30,7 +30,7 @@ function WorkExperience() {
         display: "flex",
         flexDirection: "column",
         gap: 3,
-        p: { sm: 3, xs: 2 },
+        p: { sm: 2, xs: 1 },
       }}
     >
       {data?.map((d, index) => (

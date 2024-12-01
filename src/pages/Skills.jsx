@@ -17,7 +17,7 @@ const { skills } = education;
 
 function Skill() {
   return (
-    <Box sx={{ p: { sm: 3, xs: 2 } }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
         {skills?.map((skill, index) => (
           <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
