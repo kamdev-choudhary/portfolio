@@ -12,9 +12,16 @@ import {
   List,
   ListItem,
   ListItemIcon,
+  Avatar,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { ExpandMoreRounded, StarRounded } from "@mui/icons-material";
+import {
+  ExpandMoreRounded,
+  StarRounded,
+  BusinessRounded,
+  LocationOnRounded,
+  AccessTimeRounded,
+} from "@mui/icons-material";
 
 function WorkExperience() {
   return (
@@ -22,92 +29,147 @@ function WorkExperience() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: 2,
-        p: { sm: 2, xs: 1 },
+        gap: 3,
+        p: { sm: 3, xs: 2 },
       }}
     >
       {data?.map((d, index) => (
-        <React.Fragment key={index}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2, duration: 0.5 }}
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.2, duration: 0.5 }}
+        >
+          <Paper
+            elevation={6}
+            sx={{
+              borderRadius: 4,
+              p: 3,
+              display: "flex",
+              flexDirection: "column",
+              boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+              transition: "all 0.3s ease-in-out",
+              ":hover": {
+                boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)",
+              },
+            }}
           >
-            <Box component={Paper} elevation={3} sx={{ p: 2, borderRadius: 2 }}>
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                {d.company}
-              </Typography>
-              <Typography variant="body2">{d.duration}</Typography>
-              <Divider sx={{ my: 1 }} />
-              {d.positions?.map((p, index) => (
-                <Box
+            {/* Company Header */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+                mb: 2,
+              }}
+            >
+              <Avatar sx={{ bgcolor: "primary.main", color: "white" }}>
+                <BusinessRounded />
+              </Avatar>
+              <Box>
+                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                  {d.company}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                  <AccessTimeRounded sx={{ fontSize: 16, mr: 0.5 }} />
+                  {d.duration}
+                </Typography>
+              </Box>
+            </Box>
+
+            <Divider sx={{ mb: 2 }} />
+
+            {/* Positions */}
+            {d.positions?.map((p, idx) => (
+              <Box
+                key={idx}
+                sx={{
+                  mb: 2,
+                  p: 2,
+                  borderRadius: 2,
+                  bgcolor: "background.default",
+                  boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.05)",
+                }}
+              >
+                {/* Position Title */}
+                <Typography
+                  variant="subtitle1"
+                  sx={{ fontWeight: "bold", mb: 1 }}
+                >
+                  {p.position} ({p.startDate} to {p.endDate})
+                </Typography>
+
+                {/* Location */}
+                <Typography
+                  variant="body2"
                   sx={{
                     display: "flex",
-                    flexDirection: "column",
-                    gap: 1,
+                    alignItems: "center",
+                    color: "text.secondary",
                     mb: 1,
-                    p: 2,
-                    borderRadius: 2,
-                    bgcolor: "background.secondary",
                   }}
-                  key={index}
                 >
-                  <Typography sx={{ fontWeight: "bold" }}>
-                    <span style={{ fontWeight: "bold" }}>Position</span> :{" "}
-                    {p.position} ({p.startDate} to {p.endDate})
-                  </Typography>
+                  <LocationOnRounded sx={{ fontSize: 16, mr: 0.5 }} />
+                  {p.location}
+                </Typography>
 
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      Location :
+                {/* Job Description Accordion */}
+                <Accordion>
+                  <AccordionSummary expandIcon={<ExpandMoreRounded />}>
+                    <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                      Job Description
                     </Typography>
-                    <Typography sx={{ marginLeft: 1 }}>{p.location}</Typography>
-                  </Box>
-                  <Box>
-                    <Accordion>
-                      <AccordionSummary expandIcon={<ExpandMoreRounded />}>
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          Job Description:
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <List>
-                          {Array.isArray(p.description) &&
-                            p.description.map((desc, idx) => (
-                              <ListItem key={idx}>
-                                <ListItemIcon>
-                                  <StarRounded />
-                                </ListItemIcon>
-                                {desc}
-                              </ListItem>
-                            ))}
-                        </List>
-                      </AccordionDetails>
-                    </Accordion>
-                  </Box>
-
-                  <Typography sx={{ fontWeight: "bold" }}>Skills</Typography>
-                  <Divider />
-                  <Box sx={{ display: "flex", gap: 2 }}>
-                    <Box
-                      sx={{ ml: 2, display: "flex", gap: 1, flexWrap: "wrap" }}
-                    >
-                      {Array.isArray(p.skills) &&
-                        p.skills.map((skill, idx) => (
-                          <Chip
-                            sx={{ p: 2 }}
-                            label={skill}
-                            key={idx}
-                            size="small"
-                          />
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <List>
+                      {Array.isArray(p.description) &&
+                        p.description.map((desc, idx) => (
+                          <ListItem key={idx}>
+                            <ListItemIcon>
+                              <StarRounded sx={{ color: "secondary.main" }} />
+                            </ListItemIcon>
+                            <Typography variant="body2">{desc}</Typography>
+                          </ListItem>
                         ))}
-                    </Box>
+                    </List>
+                  </AccordionDetails>
+                </Accordion>
+
+                {/* Skills Section */}
+                <Box sx={{ mt: 2 }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: "bold", mb: 1 }}
+                  >
+                    Skills
+                  </Typography>
+                  <Divider sx={{ mb: 1 }} />
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 1,
+                    }}
+                  >
+                    {Array.isArray(p.skills) &&
+                      p.skills.map((skill, idx) => (
+                        <Chip
+                          key={idx}
+                          label={skill}
+                          size="small"
+                          sx={{
+                            p: 1,
+                            bgcolor: "primary.light",
+                            color: "primary.contrastText",
+                          }}
+                        />
+                      ))}
                   </Box>
                 </Box>
-              ))}
-            </Box>
-          </motion.div>
-        </React.Fragment>
+              </Box>
+            ))}
+          </Paper>
+        </motion.div>
       ))}
     </Box>
   );

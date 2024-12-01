@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Divider,
@@ -7,142 +8,194 @@ import {
   List,
   ListItem,
   ListItemText,
+  Avatar,
+  Link,
 } from "@mui/material";
-import React from "react";
+import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
-
 import IconWithName from "../components/IconWithName";
 import { projects } from "../data/data.json";
 
 function Projects() {
   return (
-    <Box sx={{ p: { sm: 2, xs: 1 } }}>
+    <Box
+      sx={{
+        p: { sm: 3, xs: 2 },
+        display: "flex",
+        flexDirection: "column",
+        gap: 3,
+      }}
+    >
       {projects?.map((p, index) => (
-        <Box
+        <motion.div
           key={index}
-          sx={{ p: 2, height: "100%", borderRadius: 2 }}
-          component={Paper}
-          elevation={3}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.2, duration: 0.5 }}
         >
-          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-            {p.name}
-          </Typography>
-          <Divider sx={{ my: 1 }} />
-          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-            Time Taken:
-          </Typography>
-          <Typography variant="body1">{p.time}</Typography>
-          <Typography variant="body1" sx={{ fontWeight: "bold", mt: 1 }}>
-            Description:
-          </Typography>
-          <Typography variant="body1" paragraph>
-            {p.description}
-          </Typography>
-
-          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-            Technologies Used:
-          </Typography>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 1 }}>
-            {p.technologies_used.map((tech, i) => (
-              <Chip
-                // variant="outlined"
-                color="success"
-                sx={{ p: 2 }}
-                key={i}
-                label={tech}
-                size="small"
-              />
-            ))}
-          </Box>
-
-          <Typography variant="body1" sx={{ fontWeight: "bold", mt: 1 }}>
-            Responsibilities:
-          </Typography>
-          <ul>
-            {p.responsibilities.map((task, i) => (
-              <li key={i}>
-                <Typography variant="body1">{task}</Typography>
-              </li>
-            ))}
-          </ul>
-
-          <Typography variant="body1" sx={{ fontWeight: "bold", mt: 1 }}>
-            Key Features:
-          </Typography>
-          <ul>
-            {p.features.map((feature, i) => (
-              <li key={i}>
-                <Typography variant="body1">{feature}</Typography>
-              </li>
-            ))}
-          </ul>
-
-          <Typography variant="body1" sx={{ fontWeight: "bold", mt: 1 }}>
-            Outcome/Impact:
-          </Typography>
-          <Typography variant="body1" paragraph>
-            {p.outcome_impact}
-          </Typography>
-
-          <Typography variant="body1" sx={{ fontWeight: "bold", mt: 1 }}>
-            Skills Gained:
-          </Typography>
-
-          <Box sx={{ display: "flex", gap: 2, my: 1.5, flexWrap: "wrap" }}>
-            {p.skills_gained.map((skill, i) => (
-              <Chip color="" label={skill} />
-            ))}
-          </Box>
-
-          <Divider sx={{ my: 1 }} />
-
-          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-            Collaborators:
-          </Typography>
-          <List sx={{ p: 0 }}>
-            {p.collaborators.map((collaborator, i) => (
-              <ListItem key={i}>
-                <ListItemText
-                  primary={collaborator.name}
-                  secondary={collaborator.role}
-                />
-              </ListItem>
-            ))}
-          </List>
-          <Box sx={{ display: "flex", gap: 2, mt: 1 }}>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Completion Date:
-            </Typography>
-            <Typography variant="body1">{p.completion_date}</Typography>
-          </Box>
-
-          <Divider sx={{ my: 1 }} />
-
-          <Box
+          <Paper
+            elevation={6}
             sx={{
-              display: "flex",
-              gap: 2,
-              flexWrap: "wrap",
-              alignItems: "center",
+              p: 3,
+              borderRadius: 4,
+              boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+              transition: "all 0.3s ease-in-out",
+              ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)" },
             }}
           >
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Project Links:
+            {/* Header */}
+            <Box sx={{ display: "flex", alignItems: "center", mb: 2, gap: 2 }}>
+              <Avatar
+                sx={{
+                  bgcolor: "primary.main",
+                  width: 48,
+                  height: 48,
+                  color: "white",
+                }}
+              >
+                {p.name.charAt(0)}
+              </Avatar>
+              <Box>
+                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                  {p.name}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                  {p.time}
+                </Typography>
+              </Box>
+            </Box>
+
+            <Divider sx={{ my: 2 }} />
+
+            {/* Description */}
+            <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
+              Description:
             </Typography>
-            <IconWithName
-              icon={icons.live}
-              href={p.links.live_project}
-              label="Live Project"
-              component="a"
-            />
-            <IconWithName
-              icon={icons.github}
-              href={p.links.github_repository}
-              label="GitHub Repository"
-              component="a"
-            />
-          </Box>
-        </Box>
+            <Typography variant="body2" sx={{ mb: 2 }}>
+              {p.description}
+            </Typography>
+
+            {/* Technologies Used */}
+            <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
+              Technologies Used:
+            </Typography>
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 2 }}>
+              {p.technologies_used.map((tech, i) => (
+                <Chip
+                  key={i}
+                  label={tech}
+                  color="success"
+                  size="small"
+                  sx={{
+                    p: 1,
+                    bgcolor: "success.light",
+                    color: "white",
+                  }}
+                />
+              ))}
+            </Box>
+
+            {/* Responsibilities */}
+            <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
+              Responsibilities:
+            </Typography>
+            <List sx={{ pl: 2, mb: 2 }}>
+              {p.responsibilities.map((task, i) => (
+                <ListItem key={i} disablePadding>
+                  <ListItemText primary={`• ${task}`} />
+                </ListItem>
+              ))}
+            </List>
+
+            {/* Features */}
+            <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
+              Key Features:
+            </Typography>
+            <List sx={{ pl: 2, mb: 2 }}>
+              {p.features.map((feature, i) => (
+                <ListItem key={i} disablePadding>
+                  <ListItemText primary={`• ${feature}`} />
+                </ListItem>
+              ))}
+            </List>
+
+            {/* Outcome/Impact */}
+            <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
+              Outcome/Impact:
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 2 }}>
+              {p.outcome_impact}
+            </Typography>
+
+            {/* Skills Gained */}
+            <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
+              Skills Gained:
+            </Typography>
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 2 }}>
+              {p.skills_gained.map((skill, i) => (
+                <Chip
+                  key={i}
+                  label={skill}
+                  size="small"
+                  sx={{ bgcolor: "info.light", color: "white" }}
+                />
+              ))}
+            </Box>
+
+            {/* Collaborators */}
+            <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
+              Collaborators:
+            </Typography>
+            <List>
+              {p.collaborators.map((collaborator, i) => (
+                <ListItem key={i}>
+                  <ListItemText
+                    primary={collaborator.name}
+                    secondary={collaborator.role}
+                  />
+                </ListItem>
+              ))}
+            </List>
+
+            {/* Completion Date */}
+            <Box sx={{ display: "flex", gap: 2, mt: 2, mb: 2 }}>
+              <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                Completion Date:
+              </Typography>
+              <Typography variant="body2">{p.completion_date}</Typography>
+            </Box>
+
+            <Divider sx={{ my: 2 }} />
+
+            {/* Project Links */}
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                alignItems: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                Project Links:
+              </Typography>
+              <Link
+                href={p.links.live_project}
+                target="_blank"
+                underline="none"
+              >
+                <IconWithName icon={icons.live} label="Live Project" />
+              </Link>
+              <Link
+                href={p.links.github_repository}
+                target="_blank"
+                underline="none"
+              >
+                <IconWithName icon={icons.github} label="GitHub Repository" />
+              </Link>
+            </Box>
+          </Paper>
+        </motion.div>
       ))}
     </Box>
   );
