@@ -33,7 +33,7 @@ function WorkExperience() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
           >
-            <Box sx={{ p: 2, borderRadius: 2, bgcolor: "#fff" }}>
+            <Box component={Paper} elevation={3} sx={{ p: 2, borderRadius: 2 }}>
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 {d.company}
               </Typography>

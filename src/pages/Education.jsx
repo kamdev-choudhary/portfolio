@@ -31,8 +31,9 @@ export default function Education() {
                 display: "grid",
                 gap: 1,
                 borderRadius: 2,
-                bgcolor: "#fff",
               }}
+              component={Paper}
+              elevation={3}
             >
               <Typography sx={{ fontWeight: "bold" }} variant="h6">
                 {d?.level} {d.stream && <>({d.stream})</>}

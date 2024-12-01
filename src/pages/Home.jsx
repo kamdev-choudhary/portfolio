@@ -103,7 +103,11 @@ function Home() {
             <TypingText />
           </Box>
 
-          <Box sx={{ p: 2, mt: 2, bgcolor: "#fff", borderRadius: 2 }}>
+          <Box
+            component={Paper}
+            elevation={3}
+            sx={{ p: 2, mt: 2, borderRadius: 2 }}
+          >
             <Typography variant="body1" sx={{ fontStyle: "italic" }}>
               {aboutMe}
             </Typography>

@@ -55,10 +55,10 @@ function ContactUs() {
         }),
       })
         .then((res) => {
-          setEmail("");
-          setPhone("");
-          setMessage("");
           if (res.status === 200) {
+            setEmail("");
+            setPhone("");
+            setMessage("");
             Swal.fire({ title: "Message Sent Successfully." });
           }
         })
@@ -106,9 +106,10 @@ function ContactUs() {
           sx={{
             p: 2,
             borderRadius: 2,
-            bgcolor: "#fff",
           }}
           maxWidth="sm"
+          component={Paper}
+          elevation={3}
         >
           <Box>
             <Typography variant="h5" sx={{ my: 1 }} gutterBottom>

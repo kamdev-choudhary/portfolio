@@ -12,6 +12,7 @@ import {
   Menu,
   MenuItem,
   useMediaQuery,
+  Paper,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -92,7 +93,8 @@ const Navbar = ({ scrollToSection }) => {
       }}
       whileHover={{
         scale: 1.1,
-        backgroundColor: "rgba(255,255,255,0.2)",
+        backgroundColor:
+          theme === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
         borderRadius: 100,
       }}
       transition={{ duration: 0.4 }}
@@ -123,7 +125,6 @@ const Navbar = ({ scrollToSection }) => {
   return (
     <Box
       sx={{
-        p: 1,
         display: "flex",
         justifyContent: isSmallScreen ? "space-between" : "center",
         alignItems: "center",
@@ -153,13 +154,15 @@ const Navbar = ({ scrollToSection }) => {
       ) : (
         <>
           <Box
+            component={Paper}
+            elevation={3}
             sx={{
               display: "flex",
               p: 1,
-              bgcolor: "#C9E9D2",
               backdropFilter: "blur(5px)",
               borderRadius: 10,
               paddingX: 4,
+              alignItems: "center",
             }}
           >
             {buttons.slice(0, visibleButtonsCount).map((button) => (

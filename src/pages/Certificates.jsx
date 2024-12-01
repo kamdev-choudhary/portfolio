@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { LinkRounded } from "@mui/icons-material";
-import { useGlobalProvider } from "../GlobalProvider";
 import { CustomModal } from "../components/CustomModal";
 import { education } from "../data/data.json";
 
@@ -43,8 +42,9 @@ function Certificates() {
                 display: "grid",
                 gap: 1,
                 borderRadius: 2,
-                bgcolor: "#fff",
               }}
+              component={Paper}
+              elevation={3}
             >
               {/* Certificate Name and Link */}
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>

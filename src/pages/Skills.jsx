@@ -36,8 +36,9 @@ function Skill() {
               display: "flex",
               flexDirection: "column",
               gap: 1,
-              bgcolor: "#fff",
             }}
+            component={Paper}
+            elevation={3}
           >
             <Typography variant="h5">{skill.name}</Typography>
             <Divider />

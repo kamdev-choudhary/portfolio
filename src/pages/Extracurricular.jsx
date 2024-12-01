@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Paper,
   Typography,
 } from "@mui/material";
 import { icons } from "../constants/helper";
@@ -14,7 +15,7 @@ import { extra } from "../data/data.json";
 function Extracurricular() {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
-      <Box sx={{ p: 2, bgcolor: "#fff", borderRadius: 2 }}>
+      <Box component={Paper} elevation={3} sx={{ p: 2, borderRadius: 2 }}>
         {extra?.map((e, index) => (
           <Box
             key={index}

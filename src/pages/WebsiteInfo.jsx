@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Paper, Typography } from "@mui/material";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { website, projectGithub } from "../data/data.json";
@@ -8,7 +8,7 @@ const { packages, icon } = website;
 function WebsiteInfo() {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
-      <Box sx={{ p: 2, borderRadius: 2, bgcolor: "#fff" }}>
+      <Box sx={{ p: 2, borderRadius: 2 }} component={Paper} elevation={3}>
         <Typography>
           This website is built using React and Vite, ensuring a fast and smooth
           user experience. It leverages modern web development practices to
