@@ -36,7 +36,8 @@ export default function DefaultLayout({ toggleTheme, theme }) {
 
   const titleStyles = {
     marginLeft: "0.5rem",
-    fontSize: "clamp(2rem, 3vw, 2.5rem)",
+    fontSize: "clamp(1.55rem, 3vw, 2rem)",
+    fontWeight: "bold",
   };
 
   return (

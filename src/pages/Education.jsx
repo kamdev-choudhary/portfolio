@@ -31,7 +31,7 @@ export default function Education() {
                 elevation={4}
                 sx={{
                   borderRadius: 4,
-                  p: 3,
+                  p: 2,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "start",
@@ -78,28 +78,43 @@ export default function Education() {
                   sx={{ display: "flex", alignItems: "center", mb: 1 }}
                 >
                   <CalendarToday sx={{ mr: 1, color: "secondary.main" }} />
-                  <strong>Passing Year : </strong> {d?.year}
+                  <strong>Passing Year : </strong>&nbsp; {d?.year}
                 </Typography>
                 <Typography
                   variant="body2"
-                  sx={{ display: "flex", alignItems: "center", mb: 1 }}
+                  sx={{
+                    display: "flex",
+                    mb: 1,
+                  }}
                 >
-                  <School sx={{ mr: 1, color: "secondary.main" }} />
-                  <strong>Institute Name : </strong> {d?.institute}
+                  <School
+                    sx={{ mr: 1, color: "secondary.main", flexShrink: 0 }}
+                  />
+                  <strong style={{ flexShrink: 0 }}>Institute : </strong>
+                  <span
+                    style={{
+                      marginLeft: 4,
+                      flexGrow: 1,
+                      overflowWrap: "break-word",
+                    }}
+                  >
+                    {d?.institute}
+                  </span>
                 </Typography>
+
                 <Typography
                   variant="body2"
                   sx={{ display: "flex", alignItems: "center", mb: 1 }}
                 >
                   <Grade sx={{ mr: 1, color: "secondary.main" }} />
-                  <strong>Grade System : </strong> {d?.gradeSystem}
+                  <strong>Grade System : &nbsp;</strong> {d?.gradeSystem}
                 </Typography>
                 <Typography
                   variant="body2"
                   sx={{ display: "flex", alignItems: "center" }}
                 >
                   <EmojiEvents sx={{ mr: 1, color: "secondary.main" }} />
-                  <strong>Grade Obtained : </strong> {d?.grade}
+                  <strong>Grade Obtained : &nbsp;</strong> {d?.grade}
                 </Typography>
               </Paper>
             </motion.div>

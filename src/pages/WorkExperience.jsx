@@ -44,7 +44,7 @@ function WorkExperience() {
             elevation={6}
             sx={{
               borderRadius: 4,
-              p: 3,
+              p: 2,
               display: "flex",
               flexDirection: "column",
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
@@ -70,7 +70,14 @@ function WorkExperience() {
                 <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                   {d.company}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "text.secondary",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
                   <AccessTimeRounded sx={{ fontSize: 16, mr: 0.5 }} />
                   {d.duration}
                 </Typography>
@@ -92,11 +99,14 @@ function WorkExperience() {
                 }}
               >
                 {/* Position Title */}
+                <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
+                  {p.position}
+                </Typography>
                 <Typography
-                  variant="subtitle1"
-                  sx={{ fontWeight: "bold", mb: 1 }}
+                  sx={{ mb: 1, display: "flex", alignItems: "center" }}
                 >
-                  {p.position} ({p.startDate} to {p.endDate})
+                  <AccessTimeRounded sx={{ fontSize: 16, mr: 0.5 }} />
+                  {p.startDate} to {p.endDate}
                 </Typography>
 
                 {/* Location */}
@@ -114,13 +124,19 @@ function WorkExperience() {
                 </Typography>
 
                 {/* Job Description Accordion */}
-                <Accordion>
-                  <AccordionSummary expandIcon={<ExpandMoreRounded />}>
-                    <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                <Accordion sx={{ borderRadius: 2 }}>
+                  <AccordionSummary
+                    sx={{ borderRadius: 2 }}
+                    expandIcon={<ExpandMoreRounded />}
+                  >
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: "bold", borderRadius: 2 }}
+                    >
                       Job Description
                     </Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails sx={{ borderRadius: 2 }}>
                     <List>
                       {Array.isArray(p.description) &&
                         p.description.map((desc, idx) => (
@@ -158,7 +174,7 @@ function WorkExperience() {
                           label={skill}
                           size="small"
                           sx={{
-                            p: 1,
+                            p: 2,
                             bgcolor: "primary.light",
                             color: "primary.contrastText",
                           }}

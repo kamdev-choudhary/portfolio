@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  Box,
-  Divider,
-  ListItemIcon,
-  Paper,
-  Typography,
-  Grid2 as Grid,
-  Chip,
-} from "@mui/material";
-import { icons } from "../constants/helper";
+import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
 import { extra } from "../data/data.json";
+import { nssLogo } from "../constants/helper";
+import { AccessTimeRounded, BusinessRounded } from "@mui/icons-material";
 
 function Extracurricular() {
   return (
@@ -32,9 +25,39 @@ function Extracurricular() {
               ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)" },
             }}
           >
-            <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-              {e.name}
-            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+                mb: 2,
+              }}
+            >
+              <Avatar
+                sx={{
+                  bgcolor: "primary.main",
+                  width: 40, // Set avatar width
+                  height: 40, // Set avatar height
+                }}
+              >
+                <img
+                  src={e.logo}
+                  alt="logo"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "contain", // Ensures the full logo fits within the avatar
+                  }}
+                />
+              </Avatar>
+
+              <Box>
+                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                  {e?.name}
+                </Typography>
+              </Box>
+            </Box>
+
             <Divider sx={{ my: 2 }} />
             <Typography variant="body1" sx={{ fontWeight: "bold" }}>
               Duration: {e.duration}

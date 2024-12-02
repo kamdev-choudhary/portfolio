@@ -36,7 +36,7 @@ function Projects() {
           <Paper
             elevation={6}
             sx={{
-              p: 3,
+              p: 2,
               borderRadius: 4,
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
               transition: "all 0.3s ease-in-out",
@@ -87,7 +87,7 @@ function Projects() {
                   color="success"
                   size="small"
                   sx={{
-                    p: 1,
+                    p: 2,
                     bgcolor: "success.light",
                     color: "white",
                   }}
@@ -137,28 +137,40 @@ function Projects() {
                   key={i}
                   label={skill}
                   size="small"
-                  sx={{ bgcolor: "info.light", color: "white" }}
+                  sx={{ p: 2, bgcolor: "info.light", color: "white" }}
                 />
               ))}
             </Box>
 
             {/* Collaborators */}
-            <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
-              Collaborators:
-            </Typography>
-            <List>
-              {p.collaborators.map((collaborator, i) => (
-                <ListItem key={i}>
-                  <ListItemText
-                    primary={collaborator.name}
-                    secondary={collaborator.role}
-                  />
-                </ListItem>
-              ))}
-            </List>
+            {p?.collaborators && (
+              <>
+                <Typography variant="body1" sx={{ fontWeight: "bold", mb: 1 }}>
+                  Collaborators:
+                </Typography>
+                <List sx={{ m: 0, p: 0 }}>
+                  {p.collaborators.map((collaborator, i) => (
+                    <ListItem key={i}>
+                      <ListItemText
+                        primary={collaborator.name}
+                        secondary={collaborator.role}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </>
+            )}
 
             {/* Completion Date */}
-            <Box sx={{ display: "flex", gap: 2, mt: 2, mb: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                mt: 2,
+                mb: 2,
+                alignItems: "center",
+              }}
+            >
               <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                 Completion Date:
               </Typography>
@@ -179,20 +191,18 @@ function Projects() {
               <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                 Project Links:
               </Typography>
-              <Link
+              <IconWithName
+                icon={icons.live}
+                label="Live Project"
                 href={p.links.live_project}
-                target="_blank"
-                underline="none"
-              >
-                <IconWithName icon={icons.live} label="Live Project" />
-              </Link>
-              <Link
+                component="a"
+              />
+              <IconWithName
+                icon={icons.github}
+                label="GitHub Repository"
                 href={p.links.github_repository}
-                target="_blank"
-                underline="none"
-              >
-                <IconWithName icon={icons.github} label="GitHub Repository" />
-              </Link>
+                component="a"
+              />
             </Box>
           </Paper>
         </motion.div>
