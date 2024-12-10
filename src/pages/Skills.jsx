@@ -17,7 +17,7 @@ const { skills } = education;
 
 function Skill() {
   return (
-    <Box sx={{ p: { sm: 3, xs: 2 } }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
         {skills?.map((skill, index) => (
           <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
@@ -68,20 +68,33 @@ function Skill() {
                 </List>
 
                 {/* Certifications */}
-                <Typography variant="body1" sx={{ fontWeight: "bold", mt: 2 }}>
-                  Certifications:
-                </Typography>
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 1 }}>
-                  {skill?.certifications?.map((cert, idx) => (
-                    <Chip
-                      key={idx}
-                      label={cert}
-                      color="primary"
-                      size="small"
-                      sx={{ bgcolor: "primary.light", color: "white" }}
-                    />
-                  ))}
-                </Box>
+                {skill?.certifications && skill?.certifications.length > 0 && (
+                  <>
+                    <Typography
+                      variant="body1"
+                      sx={{ fontWeight: "bold", mt: 2 }}
+                    >
+                      Certifications:
+                    </Typography>
+                    <Box
+                      sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 1 }}
+                    >
+                      {skill?.certifications?.map((cert, idx) => (
+                        <Chip
+                          key={idx}
+                          label={cert}
+                          color="primary"
+                          size="small"
+                          sx={{
+                            p: 2,
+                            bgcolor: "primary.light",
+                            color: "white",
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </>
+                )}
               </Paper>
             </motion.div>
           </Grid>

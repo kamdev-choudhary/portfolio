@@ -27,7 +27,7 @@ function Certificates() {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   return (
-    <Box sx={{ p: { sm: 3, xs: 2 } }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
         {certificates?.map((cert, index) => (
           <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
@@ -71,7 +71,7 @@ function Certificates() {
                   </Box>
                 )}
 
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ p: 2 }}>
                   {/* Certificate Name and Link */}
                   <Box
                     sx={{
@@ -130,7 +130,6 @@ function Certificates() {
                       <Public sx={{ mr: 1 }} /> {cert?.mode}
                     </Typography>
                   </Box>
-
                   {/* Skills */}
                   {cert?.skills && (
                     <Box sx={{ mb: 2 }}>
@@ -157,19 +156,64 @@ function Certificates() {
                       </Box>
                     </Box>
                   )}
-
                   {/* Achievements */}
-                  {cert?.achievement && (
-                    <Typography variant="body2" sx={{ display: "flex", mb: 1 }}>
-                      <WorkspacePremium sx={{ mr: 1 }} />
-                      <strong>Achievements : </strong> {cert?.achievement}
-                    </Typography>
-                  )}
+                  {cert?.achievements &&
+                    Array.isArray(cert.achievements) &&
+                    cert?.achievements?.length > 0 && (
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          display: "flex",
+                          flexWrap: "wrap", // Allows content to wrap if necessary
+                          alignItems: "center",
+                          mb: 1,
+                        }}
+                      >
+                        <WorkspacePremium sx={{ mr: 1, flexShrink: 0 }} />
+                        <strong style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
+                          Achievements:
+                        </strong>
+                        <span style={{ marginLeft: 4, flexGrow: 1 }}>
+                          {cert.achievements.map((achievement, index) => (
+                            <span
+                              key={index}
+                              style={{
+                                display: "inline-block",
+                                marginRight: 8,
+                              }}
+                            >
+                              {achievement}
+                            </span>
+                          ))}
+                        </span>
+                      </Typography>
+                    )}
 
                   {/* Projects */}
-                  {cert?.projects && (
-                    <Typography variant="body2" sx={{ display: "flex" }}>
-                      <WorkspacePremium sx={{ mr: 1 }} />
+                  {cert?.projects && cert?.projects?.length > 0 && (
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        display: "flex",
+                        flexWrap: "wrap", // Allows wrapping of long content
+                        alignItems: "center", // Aligns items vertically
+                        mb: 1,
+                      }}
+                    >
+                      <WorkspacePremium sx={{ mr: 1, flexShrink: 0 }} />
+                      <strong style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
+                        Projects:
+                      </strong>
+                      <span style={{ marginLeft: 4, flexGrow: 1 }}>
+                        {cert?.projects?.map((project, index) => (
+                          <span
+                            key={index}
+                            style={{ display: "inline-block", marginRight: 8 }}
+                          >
+                            {project}
+                          </span>
+                        ))}
+                      </span>
                     </Typography>
                   )}
                 </Box>

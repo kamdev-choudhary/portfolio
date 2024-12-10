@@ -13,7 +13,7 @@ function HobbiesAndMore() {
         <Box sx={{ mt: 1, display: "flex", gap: 1, flexWrap: "wrap" }}>
           {hobbies?.map((hobby, index) => (
             <React.Fragment key={index}>
-              <Chip label={hobby} />
+              <Chip sx={{ p: 1 }} label={hobby} />
             </React.Fragment>
           ))}
         </Box>
