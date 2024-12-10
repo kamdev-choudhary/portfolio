@@ -22,6 +22,7 @@ import {
   LocationOnRounded,
   AccessTimeRounded,
 } from "@mui/icons-material";
+import { icons } from "../constants/helper";
 
 function WorkExperience() {
   return (

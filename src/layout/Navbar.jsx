@@ -92,9 +92,8 @@ const Navbar = ({ scrollToSection }) => {
         borderRadius: 100,
       }}
       whileHover={{
-        scale: 1.1,
-        backgroundColor:
-          theme === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
+        scale: 1.03,
+        backgroundColor: theme === "dark" ? "rgba(255,255,255,0.2)" : "#EBEAFF",
         borderRadius: 100,
       }}
       transition={{ duration: 0.4 }}

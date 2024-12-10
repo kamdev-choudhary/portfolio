@@ -1,7 +1,31 @@
 import { createTheme } from "@mui/material/styles";
 
+// Define Common Settings
+const commonSettings = {
+  typography: {
+    fontFamily: '"Open Sans", "Arial", sans-serif',
+    h1: {
+      fontFamily: "Roboto",
+    },
+    body1: {
+      fontFamily: "Open Sans",
+    },
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          padding: "16px",
+        },
+      },
+    },
+  },
+};
+
 // Define the Light Theme
 export const lightTheme = createTheme({
+  ...commonSettings, // Include common settings
   palette: {
     mode: "light",
     background: {
@@ -18,6 +42,7 @@ export const lightTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
+          ...commonSettings.components.MuiPaper.styleOverrides.root,
           boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
           transition: "all 0.3s ease-in-out",
           ":hover": {
@@ -31,13 +56,14 @@ export const lightTheme = createTheme({
 
 // Define the Dark Theme
 export const darkTheme = createTheme({
+  ...commonSettings, // Include common settings
   palette: {
     mode: "dark",
     primary: {
-      main: "#90caf9", // Customize your primary color
+      main: "#90caf9",
     },
     secondary: {
-      main: "#f48fb1", // Customize your secondary color
+      main: "#f48fb1",
     },
     background: {
       default: "#121212",
@@ -53,9 +79,8 @@ export const darkTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 8, // Customize border radius
-          padding: "16px", // Default padding
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.4)", // Shadow style
+          ...commonSettings.components.MuiPaper.styleOverrides.root,
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.4)",
         },
       },
     },

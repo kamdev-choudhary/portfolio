@@ -53,7 +53,7 @@ function Home() {
               </Typography>
               <Box
                 sx={{
-                  gap: 2,
+                  gap: 1,
                   display: "flex",
                   flexWrap: "wrap",
                   mt: 1,

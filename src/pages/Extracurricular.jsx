@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Divider,
-  ListItemIcon,
-  Paper,
-  Typography,
-  Grid2 as Grid,
-  Chip,
-} from "@mui/material";
-import { icons } from "../constants/helper";
+import { Box, Divider, Paper, Typography } from "@mui/material";
 import { extra } from "../data/data.json";
 
 function Extracurricular() {
