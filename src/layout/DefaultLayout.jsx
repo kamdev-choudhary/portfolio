@@ -47,7 +47,6 @@ export default function DefaultLayout({ toggleTheme, theme }) {
           />
         </Box>
 
-<<<<<<< HEAD
         {/* Main content */}
         <Box
           sx={{
@@ -102,33 +101,6 @@ export default function DefaultLayout({ toggleTheme, theme }) {
           ))}
         </Box>
       </Container>
-=======
-      {/* Main content */}
-      <Box
-        sx={{
-          paddingTop: "80px",
-        }}
-      >
-        {pages.map(({ name, component, key, icon, showHeader }) => (
-          <React.Fragment key={key}>
-            {showHeader && (
-              <Box sx={headerStyles}>
-                <img src={icon} alt={`${name} Icon`} style={iconStyles} />
-                <Typography sx={titleStyles}>{name}</Typography>
-              </Box>
-            )}
-            <motion.div
-              ref={pagesRefs[key]}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              {component}
-            </motion.div>
-          </React.Fragment>
-        ))}
-      </Box>
->>>>>>> e39b91c07b7994d986eb65e6c6916fcedf39fab3
     </Box>
   );
 }
