@@ -27,8 +27,7 @@ export const certificates = [
     institute: "Apna College (Delta Batch)",
     duration: "6 Months",
     period: "may 2023 to Oct 2023",
-    links:
-      "https://drive.google.com/file/d/1pqEgT6b0t48mzCyp0UDknxxseM6hBjoA/preview",
+    link: "https://drive.google.com/file/d/1pqEgT6b0t48mzCyp0UDknxxseM6hBjoA/preview",
     skills: ["HTML", "CSS", "JavaScript", "Node.js", "MongoDB"],
     achievements: ["Certified as a Full-Stack Web Developer."],
     projects: [
@@ -41,8 +40,7 @@ export const certificates = [
     institute: "Anudip Foundation",
     duration: "1 Months",
     period: "21-July-2024 to 10-Sep-2024",
-    links:
-      "https://drive.google.com/file/d/1YvHIRCUBlejW0-RmRJETCOu-SNFN7bla/preview",
+    link: "https://drive.google.com/file/d/1YvHIRCUBlejW0-RmRJETCOu-SNFN7bla/preview",
     skills: ["Softs Skills", "Communication", "Awareness"],
     achievements: [],
     projects: [],
@@ -53,8 +51,7 @@ export const certificates = [
     institute: "TCS (Tata Consultancy Services)",
     duration: "03 Month",
     period: "May 2021 to July 2021",
-    links:
-      "https://drive.google.com/file/d/1_avxnTS4jqkoZBIhlVWneBgOk5LPkrvG/view?usp=drive_link",
+    link: "https://drive.google.com/file/d/1_avxnTS4jqkoZBIhlVWneBgOk5LPkrvG/view?usp=drive_link",
     skills: ["Softs Skills"],
     achievements: "",
     projects: [],
@@ -89,11 +86,7 @@ export const certificates = [
     institute: "Google Cloud",
     duration: "04 Months",
     period: "2021",
-    links: [
-      {
-        title: "Engineer Data for Predictive Modeling with BigQuery ML",
-        link: "https://www.cloudskillsboost.google/public_profiles/4741e38b-3d41-4037-a246-1e4f646c2115/badges/947115",
-      },
-    ],
+    links:
+      "https://www.cloudskillsboost.google/public_profiles/4741e38b-3d41-4037-a246-1e4f646c2115",
   },
 ];

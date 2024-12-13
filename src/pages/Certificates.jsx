@@ -6,7 +6,6 @@ import {
   IconButton,
   Chip,
   Grid2 as Grid,
-  Avatar,
   Divider,
 } from "@mui/material";
 import {
@@ -20,11 +19,14 @@ import {
 import { motion } from "framer-motion";
 import { CustomModal } from "../components/CustomModal";
 import { education } from "../data/data.json";
+import { certificates } from "../data/data";
 
 function Certificates() {
-  const { certificates } = education;
+  // const { certificates } = education;
   const [showCertificate, setShowCertificate] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [showCertificatesLinks, setShowCertificatesLinks] = useState(false);
+  const [links, setLinks] = useState([]);
 
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
@@ -92,6 +94,16 @@ function Certificates() {
                         onClick={() => {
                           setShowCertificate(true);
                           setSelectedCertificate(cert.link);
+                        }}
+                      >
+                        <LinkRounded />
+                      </IconButton>
+                    )}
+                    {cert?.links && (
+                      <IconButton
+                        onClick={() => {
+                          setShowCertificatesLinks(true);
+                          setLinks(cert?.links);
                         }}
                       >
                         <LinkRounded />
@@ -251,6 +263,22 @@ function Certificates() {
             title="Responsive A4 PDF Viewer"
           ></iframe>
         </div>
+      </CustomModal>
+      <CustomModal
+        open={showCertificatesLinks}
+        onClose={() => setShowCertificatesLinks(false)}
+        showHeader={false}
+        width="auto"
+      >
+        <div
+          style={{
+            position: "relative",
+            height: "100vh",
+            width: "100%",
+            overflow: "hidden",
+            minWidth: "780px",
+          }}
+        ></div>
       </CustomModal>
     </Box>
   );
