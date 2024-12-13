@@ -1,12 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
-import { Box, Divider, Paper, Typography } from "@mui/material";
-=======
 import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
->>>>>>> e39b91c07b7994d986eb65e6c6916fcedf39fab3
 import { extra } from "../data/data.json";
-import { nssLogo } from "../constants/helper";
-import { AccessTimeRounded, BusinessRounded } from "@mui/icons-material";
 
 function Extracurricular() {
   return (
