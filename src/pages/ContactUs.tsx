@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -6,35 +7,33 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
-import { googleScriptUrl } from "../constants/helper";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
-import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { contact } from "../data/data";
+import { googleScriptUrl, icons } from "../constants/helper";
 
-function ContactUs() {
+const ContactUs: React.FC = () => {
   // States for the form fields
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
-  const [sending, setSending] = useState(false);
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [sending, setSending] = useState<boolean>(false);
 
   // Error states to handle validation
-  const [emailError, setEmailError] = useState(false);
-  const [phoneError, setPhoneError] = useState(false);
-  const [messageError, setMessageError] = useState(false);
+  const [emailError, setEmailError] = useState<boolean>(false);
+  const [phoneError, setPhoneError] = useState<boolean>(false);
+  const [messageError, setMessageError] = useState<boolean>(false);
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Simple validation
-    const emailValid = email !== "";
-    const phoneValid = phone !== "";
-    const messageValid = message !== "";
+    const emailValid = email.trim() !== "";
+    const phoneValid = phone.trim() !== "";
+    const messageValid = message.trim() !== "";
 
     setEmailError(!emailValid);
     setPhoneError(!phoneValid);
@@ -42,48 +41,51 @@ function ContactUs() {
 
     if (emailValid && phoneValid && messageValid) {
       setSending(true);
-      fetch(googleScriptUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          email: email,
-          phone: phone,
-          message: message,
-        }),
-      })
-        .then((res) => {
-          if (res.status === 200) {
-            setEmail("");
-            setPhone("");
-            setMessage("");
-            Swal.fire({ title: "Message Sent Successfully." });
-          }
-        })
-        .catch((e) => console.error(e))
-        .finally(() => {
-          setSending(false);
+      try {
+        const response = await fetch(googleScriptUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            email,
+            phone,
+            message,
+          }).toString(),
         });
+
+        if (response.status === 200) {
+          setEmail("");
+          setPhone("");
+          setMessage("");
+          Swal.fire({ title: "Message Sent Successfully." });
+        } else {
+          throw new Error("Failed to send the message");
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setSending(false);
+      }
     } else {
       console.log("Form contains errors");
     }
   };
 
   // Reset the error state when user types
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    if (emailError) setEmailError(false); // Reset error when typing
+    if (emailError) setEmailError(false);
   };
 
-  const handlePhoneChange = (e) => {
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhone(e.target.value);
-    if (phoneError) setPhoneError(false); // Reset error when typing
+    if (phoneError) setPhoneError(false);
   };
 
-  const handleMessageChange = (e) => {
+  const handleMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
-    if (messageError) setMessageError(false); // Reset error when typing
+    if (messageError) setMessageError(false);
   };
 
   return (
@@ -175,6 +177,6 @@ function ContactUs() {
       </motion.div>
     </Box>
   );
-}
+};
 
 export default ContactUs;

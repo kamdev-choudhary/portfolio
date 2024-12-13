@@ -16,7 +16,7 @@ import { website, projectGithub } from "../data/data";
 
 const { packages, icon } = website;
 
-function WebsiteInfo() {
+const WebsiteInfo: React.FC = () => {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Paper
@@ -84,6 +84,6 @@ function WebsiteInfo() {
       </Paper>
     </Box>
   );
-}
+};
 
 export default WebsiteInfo;

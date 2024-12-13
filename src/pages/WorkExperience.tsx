@@ -20,7 +20,7 @@ import {
 
 import { work } from "../data/data";
 
-function WorkExperience() {
+const WorkExperience: React.FC = () => {
   return (
     <Box
       sx={{
@@ -192,6 +192,6 @@ function WorkExperience() {
       ))}
     </Box>
   );
-}
+};
 
 export default WorkExperience;

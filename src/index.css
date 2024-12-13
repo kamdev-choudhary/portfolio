@@ -1,30 +1,10 @@
-/* Reset body padding and margin */
-body {
-  padding: 0;
-  margin: 0;
-  overflow-y: scroll; /* Ensures the scrollbar is always visible */
-}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-/* Custom scrollbar styling */
-::-webkit-scrollbar {
-  width: 0px; /* Width of the scrollbar */
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f3fb; /* Background of the scrollbar track */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #a3a3a3; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded edges for the thumb */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #6b6b6b; /* Darker shade on hover */
-}
-
-/* For Firefox */
-* {
-  scrollbar-width: none; /* Thin scrollbar width */
-  scrollbar-color: #a3a3a3 #f1f3fb; /* Thumb and track colors */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

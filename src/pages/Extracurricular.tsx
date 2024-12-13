@@ -1,9 +1,8 @@
 import React from "react";
 import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
-
 import { extra } from "../data/data";
 
-function Extracurricular() {
+const Extracurricular: React.FC = () => {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {extra?.map((e, index) => (
@@ -72,7 +71,7 @@ function Extracurricular() {
             <ul>
               {Array.isArray(e.achievements) &&
                 e.achievements.map((a, idx) => (
-                  <li sx={{ mb: 1 }} key={idx}>
+                  <li style={{ marginBottom: 1 }} key={idx}>
                     {a}
                   </li>
                 ))}
@@ -82,6 +81,6 @@ function Extracurricular() {
       ))}
     </Box>
   );
-}
+};
 
 export default Extracurricular;

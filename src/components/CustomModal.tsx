@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import {
   Modal,
   Box,
@@ -26,8 +26,20 @@ export const style = {
   flexDirection: "column",
 };
 
-export const CustomModal = ({
-  open = false,
+interface CustomModalProps {
+  open: boolean;
+  autoClose?: boolean;
+  children: ReactNode;
+  header?: string;
+  onClose: () => void;
+  height?: string;
+  width?: string;
+  showHeader?: boolean;
+  showFullScreenButton?: boolean;
+}
+
+export const CustomModal: React.FC<CustomModalProps> = ({
+  open,
   autoClose = true,
   children,
   header = "",
@@ -37,9 +49,9 @@ export const CustomModal = ({
   showHeader = true,
   showFullScreenButton = false,
 }) => {
-  const [fullScreen, setFullScreen] = useState(false);
+  const [fullScreen, setFullScreen] = useState<boolean>(false);
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const deviceTheme = "light";
+  const deviceTheme = "light"; // You can replace this with a theme context if needed
 
   return (
     <Modal
@@ -89,8 +101,7 @@ export const CustomModal = ({
                 <IconButton
                   sx={{ ml: 1 }}
                   onClick={onClose}
-                  variant="contained"
-                  color="error"
+                  color="error" // Use color instead of variant
                 >
                   <CancelRounded />
                 </IconButton>

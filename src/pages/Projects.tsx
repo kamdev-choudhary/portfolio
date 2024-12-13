@@ -9,14 +9,13 @@ import {
   ListItem,
   ListItemText,
   Avatar,
-  Link,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { projects } from "../data/data";
 
-function Projects() {
+const Projects: React.FC = () => {
   return (
     <Box
       sx={{
@@ -209,6 +208,6 @@ function Projects() {
       ))}
     </Box>
   );
-}
+};
 
 export default Projects;

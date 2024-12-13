@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
-import { useGlobalProvider } from "../GlobalProvider";
 import { headlineTexts } from "../data/data";
-function TypingText() {
+
+const TypingText: React.FC = () => {
   const typingSpeed = 160;
   const backspaceSpeed = 160; // Speed of clearing each character
   const switchDelay = 160; // Delay before switching to the next word
@@ -14,7 +14,7 @@ function TypingText() {
 
   // Typing effect handler
   useEffect(() => {
-    let timer;
+    let timer: any;
     const currentWord = headlineTexts[currentWordIndex];
 
     if (isTyping) {
@@ -55,6 +55,6 @@ function TypingText() {
       {currentText}
     </Typography>
   );
-}
+};
 
 export default TypingText;

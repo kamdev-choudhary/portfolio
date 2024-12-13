@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
 import { hobbies, personal } from "../data/data";
 
-function HobbiesAndMore() {
+const HobbiesAndMore: React.FC = () => {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Box component={Paper} elevation={3} sx={{ p: 2, borderRadius: 2 }}>
@@ -28,6 +28,6 @@ function HobbiesAndMore() {
       </Box>
     </Box>
   );
-}
+};
 
 export default HobbiesAndMore;

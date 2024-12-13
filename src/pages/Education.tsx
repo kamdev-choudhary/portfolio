@@ -11,7 +11,7 @@ import { School, CalendarToday, Grade, EmojiEvents } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { basicEducation } from "../data/data";
 
-export default function Education() {
+const Education: React.FC = () => {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
@@ -122,4 +122,6 @@ export default function Education() {
       </Grid>
     </Box>
   );
-}
+};
+
+export default Education;

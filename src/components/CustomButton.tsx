@@ -1,15 +1,25 @@
-import { Button, CircularProgress } from "@mui/material";
 import React from "react";
+import { Button, CircularProgress } from "@mui/material";
 
-function CustomButton({
+interface CustomButtonProps {
+  color?: string;
+  label?: string;
+  variant?: "text" | "outlined" | "contained"; // Restrict to valid MUI variants
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  type?: "button" | "submit" | "reset";
+  loading?: boolean;
+  disabled?: boolean;
+}
+
+const CustomButton: React.FC<CustomButtonProps> = ({
   color = "#F96E2A",
   label = "Button",
   variant = "contained",
   onClick,
-  type,
+  type = "button",
   loading = false,
-  disabled,
-}) {
+  disabled = false,
+}) => {
   return (
     <Button
       sx={{
@@ -19,6 +29,10 @@ function CustomButton({
         minWidth: 150,
         py: 1,
         color: "#fff",
+        "&:hover": {
+          bgcolor: color,
+          opacity: 0.9,
+        },
       }}
       onClick={onClick}
       variant={variant}
@@ -28,6 +42,6 @@ function CustomButton({
       {loading ? <CircularProgress size={24} color="inherit" /> : label}
     </Button>
   );
-}
+};
 
 export default CustomButton;

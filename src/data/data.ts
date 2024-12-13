@@ -416,7 +416,7 @@ export const extra = [
     description:
       "Participated actively in community service, leading initiatives focused on social awareness and development.",
     duration: "2018 - 2021",
-    achievementss: [
+    achievements: [
       "Participated in Pre-Republic day Parade camp in 2019.",
       "Organized blood donation drives benefiting over 500 individuals",
       "Led a successful tree plantation drive in the community",
@@ -429,6 +429,6 @@ export const extra = [
     description:
       "Engaged in leadership training, community service activities, and skill-building exercises.",
     duration: "2010 - 2014",
-    achievementss: ["Completed Dwitya sopan in 2014."],
+    achievements: ["Completed Dwitya sopan in 2014."],
   },
 ];

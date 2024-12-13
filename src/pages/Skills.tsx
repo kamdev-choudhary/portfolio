@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { skills } from "../data/data";
 
-function Skill() {
+const Skill: React.FC = () => {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
@@ -100,6 +100,6 @@ function Skill() {
       </Grid>
     </Box>
   );
-}
+};
 
 export default Skill;

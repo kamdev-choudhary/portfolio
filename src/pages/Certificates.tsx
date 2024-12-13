@@ -20,12 +20,14 @@ import { motion } from "framer-motion";
 import { CustomModal } from "../components/CustomModal";
 import { certificates } from "../data/data";
 
-function Certificates() {
+const Certificates: React.FC = () => {
   // const { certificates } = education;
-  const [showCertificate, setShowCertificate] = useState(false);
-  const [selectedCertificate, setSelectedCertificate] = useState(null);
-  const [showCertificatesLinks, setShowCertificatesLinks] = useState(false);
-  const [links, setLinks] = useState([]);
+  const [showCertificate, setShowCertificate] = useState<boolean>(false);
+  const [selectedCertificate, setSelectedCertificate] = useState<string | null>(
+    null
+  );
+  const [showCertificatesLinks, setShowCertificatesLinks] =
+    useState<boolean>(false);
 
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
@@ -57,23 +59,7 @@ function Certificates() {
                   },
                 }}
               >
-                {/* Thumbnail */}
-                {cert?.image && (
-                  <Box sx={{ height: 140, overflow: "hidden" }}>
-                    <img
-                      src={cert.image}
-                      alt={cert.name}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                    />
-                  </Box>
-                )}
-
                 <Box sx={{ p: 2 }}>
-                  {/* Certificate Name and Link */}
                   <Box
                     sx={{
                       display: "flex",
@@ -102,7 +88,6 @@ function Certificates() {
                       <IconButton
                         onClick={() => {
                           setShowCertificatesLinks(true);
-                          setLinks(cert?.links);
                         }}
                       >
                         <LinkRounded />
@@ -251,7 +236,7 @@ function Certificates() {
           }}
         >
           <iframe
-            src={selectedCertificate}
+            src={selectedCertificate || ""}
             style={{
               maxWidth: "794px",
               border: "1px solid #ddd",
@@ -281,6 +266,6 @@ function Certificates() {
       </CustomModal>
     </Box>
   );
-}
+};
 
 export default Certificates;

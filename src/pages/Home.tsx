@@ -7,10 +7,10 @@ import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { aboutMe, contact, name, location } from "../data/data";
 
-function Home() {
+const Home: React.FC = () => {
   const { present: presentAddress } = location;
   return (
-    <Box sx={{ p: { sm: 2, xs: 1 } }}>
+    <Box sx={{ p: { sm: 2, xs: 1 }, mt: 10 }}>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, md: 4, lg: 4 }}>
           <Box
@@ -116,6 +116,6 @@ function Home() {
       </Grid>
     </Box>
   );
-}
+};
 
 export default Home;
