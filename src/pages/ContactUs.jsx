@@ -161,7 +161,7 @@ function ContactUs() {
             />
           </Box>
 
-          <Box sx={{ p: 1, display: "flex", justifyContent: "center", mt: 1 }}>
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
             <IconWithName
               component="a"
               href={`https://api.whatsapp.com/send/?phone=${contact?.phone?.name.slice(

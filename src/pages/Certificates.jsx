@@ -93,7 +93,7 @@ function Certificates() {
                       <IconButton
                         onClick={() => {
                           setShowCertificate(true);
-                          setSelectedCertificate(cert.link);
+                          setSelectedCertificate(cert?.link);
                         }}
                       >
                         <LinkRounded />

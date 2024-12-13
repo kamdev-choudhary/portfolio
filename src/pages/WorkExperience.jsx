@@ -125,7 +125,7 @@ function WorkExperience() {
                 </Typography>
 
                 {/* Job Description Accordion */}
-                <Accordion sx={{ borderRadius: 2 }}>
+                <Accordion sx={{ borderRadius: 2, p: 0.5 }}>
                   <AccordionSummary
                     sx={{ borderRadius: 2 }}
                     expandIcon={<ExpandMoreRounded />}
@@ -138,17 +138,23 @@ function WorkExperience() {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails sx={{ borderRadius: 2 }}>
-                    <List>
-                      {Array.isArray(p.description) &&
-                        p.description.map((desc, idx) => (
-                          <ListItem key={idx}>
-                            <ListItemIcon>
-                              <StarRounded sx={{ color: "secondary.main" }} />
-                            </ListItemIcon>
-                            <Typography variant="body2">{desc}</Typography>
-                          </ListItem>
-                        ))}
-                    </List>
+                    {Array.isArray(p.description) &&
+                      p.description.map((desc, idx) => (
+                        <Typography
+                          key={idx}
+                          sx={{
+                            py: 1,
+                            mb: 1,
+                            borderBottom:
+                              idx !== p?.description.length - 1
+                                ? "1px dotted black"
+                                : "",
+                          }}
+                          variant="body2"
+                        >
+                          {desc}
+                        </Typography>
+                      ))}
                   </AccordionDetails>
                 </Accordion>
 

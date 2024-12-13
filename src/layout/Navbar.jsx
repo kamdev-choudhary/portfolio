@@ -13,6 +13,7 @@ import {
   MenuItem,
   useMediaQuery,
   Paper,
+  Divider,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -140,11 +141,15 @@ const Navbar = ({ scrollToSection }) => {
           </IconButton>
           <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
             <Box
-              sx={{ width: 300, p: 2 }}
+              sx={{ width: 250, p: 2 }}
               role="presentation"
               onClick={toggleDrawer(false)}
               onKeyDown={toggleDrawer(false)}
             >
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Typography variant="h6">Portfolio</Typography>
+              </Box>
+              <Divider />
               <List>
                 {buttons.map((button) => (
                   <DrawerListItem key={button.name} button={button} />

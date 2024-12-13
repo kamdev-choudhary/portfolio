@@ -29,7 +29,7 @@ export default function DefaultLayout({ toggleTheme, theme }) {
         overflowY: "auto",
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ p: 0.5 }}>
         {/* Fixed Navbar */}
         <Box
           sx={{
@@ -68,17 +68,13 @@ export default function DefaultLayout({ toggleTheme, theme }) {
                   <img
                     src={icon}
                     alt={`${name} Icon`}
-                    sx={{
-                      height: "clamp(35px, 5vw, 55px)",
-                      width: "auto",
-                      borderRadius: "50%", // make the icon circular
-                      boxShadow: 1, // slight shadow around the icon
-                    }}
+                    height="50px"
+                    width="auto"
                   />
                   <Typography
                     sx={{
                       ml: 1, // equivalent to marginLeft
-                      fontSize: "clamp(2rem, 3vw, 2.5rem)",
+                      fontSize: "clamp(1.8rem, 3vw, 2.3rem)",
                       fontWeight: 600, // slightly bolder font for emphasis
                       color: "text.primary", // for text color
                       letterSpacing: 0.5, // a little letter spacing for readability
