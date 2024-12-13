@@ -6,7 +6,7 @@ const commonThemeOptions: ThemeOptions = {
     borderRadius: 8, // Set default border radius
   },
   typography: {
-    fontFamily: "'Dosis','Roboto', 'Arial', sans-serif",
+    fontFamily: "'Roboto', 'Arial', sans-serif",
     fontSize: 14, // Default font size
   },
   components: {
