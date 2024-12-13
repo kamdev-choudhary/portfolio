@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
 import { useGlobalProvider } from "../GlobalProvider";
-import { headlineTexts } from "../data/data.json";
+import { headlineTexts } from "../data/data";
 function TypingText() {
   const typingSpeed = 160;
   const backspaceSpeed = 160; // Speed of clearing each character
