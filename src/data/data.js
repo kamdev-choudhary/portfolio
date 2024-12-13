@@ -1,7 +1,14 @@
 export const name = "KAMDEV CHOUDHARY (KD)";
 export const projectGithub = "https://github.com/kamdev-choudhary/portfolio";
-export const aboutMe =
-  "I am a passionate developer with a deep curiosity for building innovative solutions. Although my current job profile differs from my dream career in tech, I see it as a stepping stone toward my goals. I started my coding journey last year and have already created some exciting projects, especially in the academic field, as a hobby. Beyond coding, I enjoy exploring new technologies, solving challenging problems, and collaborating with like-minded individuals to bring ideas to life. My ultimate aim is to blend creativity and technology to make a meaningful impact.";
+export const aboutMe = [
+  "I am a passionate developer with a deep curiosity for building innovative solutions.",
+  " Although my current job profile differs from my dream career in tech,",
+  " I see it as a stepping stone toward my goals.",
+  " I started my coding journey last year and have already created some exciting projects, ",
+  "especially in the academic field, as a hobby. Beyond coding, I enjoy exploring new technologies,",
+  " solving challenging problems, and collaborating with like-minded individuals to bring ideas to life.",
+  "My ultimate aim is to blend creativity and technology to make a meaningful impact.",
+];
 
 export const headlineTexts = [
   "MERN Stack",
