@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
-import { extra } from "../data/data.json";
+
+import { extra } from "../data/data";
 
 function Extracurricular() {
   return (

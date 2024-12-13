@@ -11,9 +11,7 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
-import { education } from "../data/data.json";
-
-const { skills } = education;
+import { skills } from "../data/data";
 
 function Skill() {
   return (

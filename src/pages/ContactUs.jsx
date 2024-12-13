@@ -13,8 +13,7 @@ import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
-import { useGlobalProvider } from "../GlobalProvider";
-import { contact } from "../data/data.json";
+import { contact } from "../data/data";
 
 function ContactUs() {
   // States for the form fields

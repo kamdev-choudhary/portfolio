@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
-import { hobbies, personal } from "../data/data.json";
+import { hobbies, personal } from "../data/data";
 
 function HobbiesAndMore() {
   return (

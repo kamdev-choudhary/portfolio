@@ -18,7 +18,6 @@ import {
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { CustomModal } from "../components/CustomModal";
-import { education } from "../data/data.json";
 import { certificates } from "../data/data";
 
 function Certificates() {

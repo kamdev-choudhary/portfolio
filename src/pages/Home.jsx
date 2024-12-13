@@ -5,7 +5,7 @@ import photo from "../assets/photo.jpg";
 import TypingText from "../components/TypingText";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
-import { aboutMe, contact, name, location } from "../data/data.json";
+import { aboutMe, contact, name, location } from "../data/data";
 
 function Home() {
   const { present: presentAddress } = location;

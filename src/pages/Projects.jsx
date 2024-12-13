@@ -14,7 +14,7 @@ import {
 import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
-import { projects } from "../data/data.json";
+import { projects } from "../data/data";
 
 function Projects() {
   return (

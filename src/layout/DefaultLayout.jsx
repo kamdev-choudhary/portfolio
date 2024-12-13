@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { pages } from "./pages";
 
 export default function DefaultLayout({ toggleTheme, theme }) {
-  // Automatically create refs based on pages keys
   const pagesRefs = useRef(
     pages.reduce((acc, { key }) => {
       acc[key] = React.createRef();

@@ -1,5 +1,4 @@
 import React from "react";
-import { work as data } from "../data/data.json";
 import {
   Box,
   Chip,
@@ -9,20 +8,17 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  List,
-  ListItem,
-  ListItemIcon,
   Avatar,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import {
   ExpandMoreRounded,
-  StarRounded,
   BusinessRounded,
   LocationOnRounded,
   AccessTimeRounded,
 } from "@mui/icons-material";
-import { icons } from "../constants/helper";
+
+import { work } from "../data/data";
 
 function WorkExperience() {
   return (
@@ -34,7 +30,7 @@ function WorkExperience() {
         p: { sm: 2, xs: 1 },
       }}
     >
-      {data?.map((d, index) => (
+      {work?.map((d, index) => (
         <motion.div
           key={index}
           initial={{ opacity: 0, y: 20 }}

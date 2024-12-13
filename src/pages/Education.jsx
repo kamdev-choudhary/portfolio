@@ -9,14 +9,13 @@ import {
 } from "@mui/material";
 import { School, CalendarToday, Grade, EmojiEvents } from "@mui/icons-material";
 import { motion } from "framer-motion";
-import { education } from "../data/data.json";
-const { basic } = education;
+import { basicEducation } from "../data/data";
 
 export default function Education() {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
-        {basic?.map((d, index) => (
+        {basicEducation?.map((d, index) => (
           <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4 }} key={index}>
             <motion.div
               whileHover={{ scale: 1.02 }}

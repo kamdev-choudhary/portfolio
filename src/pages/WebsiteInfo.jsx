@@ -12,7 +12,7 @@ import {
 import { CodeRounded, EmojiObjectsRounded } from "@mui/icons-material";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
-import { website, projectGithub } from "../data/data.json";
+import { website, projectGithub } from "../data/data";
 
 const { packages, icon } = website;
 
