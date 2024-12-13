@@ -123,9 +123,14 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
         justifyContent: isSmallScreen ? "space-between" : "center",
         alignItems: "center",
         m: 1,
-        bgcolor: isSmallScreen ? "background.paper" : "transparent",
+        bgcolor: isSmallScreen
+          ? theme === "light"
+            ? "rgba(201, 201, 234,0.6)"
+            : "rgba(45, 41, 41, 0.6)"
+          : "transparent",
         borderRadius: isSmallScreen ? 10 : 2,
         p: isSmallScreen ? 1 : "inherit",
+        backdropFilter: "blur(15px)",
       }}
     >
       {isSmallScreen ? (

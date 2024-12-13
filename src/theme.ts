@@ -59,7 +59,7 @@ const lightThemeOptions: ThemeOptions = {
       main: "#1976d2", // Strong blue for secondary elements
     },
     background: {
-      default: "#fafafa", // Light gray background for the overall page
+      default: "#f1f3fb", // Light gray background for the overall page
       paper: "#ffffff", // White background for Paper components
     },
     text: {

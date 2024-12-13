@@ -236,30 +236,32 @@ const Certificates: React.FC = () => {
       <CustomModal
         open={showCertificate}
         onClose={() => setShowCertificate(false)}
-        showHeader={false}
         width="auto"
+        height="auto"
       >
-        <div
-          style={{
+        <Box
+          sx={{
             position: "relative",
-            height: "100vh",
+            height: "100%",
             width: "100%",
-            overflow: "hidden",
-            minWidth: "780px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <iframe
             src={selectedCertificate || ""}
             style={{
-              maxWidth: "794px",
-              border: "1px solid #ddd",
-              borderRadius: "8px",
               width: "100%",
-              minHeight: "100%",
+              height: "100%",
+              maxWidth: "794px", // Optional max width constraint for larger screens
+              maxHeight: "100vh", // Limit the iframe height to the viewport height
+              borderRadius: "8px",
+              minHeight: "281px",
             }}
             title="Certificate View"
           />
-        </div>
+        </Box>
       </CustomModal>
 
       {/* Modal for Multiple Links */}

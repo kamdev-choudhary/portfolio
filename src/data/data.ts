@@ -57,10 +57,6 @@ export const certificates = [
         type: "Google Drive",
         url: "https://drive.google.com/file/d/1pqEgT6b0t48mzCyp0UDknxxseM6hBjoA/preview",
       },
-      {
-        type: "Browser",
-        url: "https://apnacollege.com/certificates/fullstack",
-      },
     ],
     skills: ["HTML", "CSS", "JavaScript", "Node.js", "MongoDB"],
     achievements: ["Certified as a Full-Stack Web Developer."],

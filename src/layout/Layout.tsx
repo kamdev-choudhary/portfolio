@@ -75,6 +75,7 @@ export default function Layout() {
                 px: 2, // padding for better spacing
                 py: 1, // padding for vertical space
               }}
+              ref={pagesRefs[key]}
             >
               <img src={icon} alt={`${name} Icon`} height="50px" width="auto" />
               <Typography
