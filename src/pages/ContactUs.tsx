@@ -89,76 +89,78 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      style={{ width: "100%", marginTop: 6, marginBottom: 6 }}
-    >
-      <Container maxWidth="sm" component={Paper} elevation={3}>
-        <Box>
-          <Typography variant="h5" sx={{ my: 1 }} gutterBottom>
-            Send a Message
-          </Typography>
-        </Box>
-        <Divider sx={{ mb: 2 }} />
-        <Box
-          component="form"
-          sx={{ display: "grid", gap: 2 }}
-          onSubmit={handleSubmit}
-        >
-          <TextField
-            label="Email"
-            type="email"
-            size="small"
-            fullWidth
-            value={email}
-            onChange={handleEmailChange}
-            error={emailError}
-            helperText={emailError && "Email is required"}
-          />
-          <TextField
-            label="Phone"
-            type="tel"
-            size="small"
-            fullWidth
-            value={phone}
-            onChange={handlePhoneChange}
-            error={phoneError}
-            helperText={phoneError && "Phone number is required"}
-          />
-          <TextField
-            label="Message"
-            multiline
-            rows={4}
-            size="small"
-            fullWidth
-            value={message}
-            onChange={handleMessageChange}
-            error={messageError}
-            helperText={messageError && "Message is required"}
-          />
-          <CustomButton
-            loading={sending}
-            disabled={sending}
-            type="submit"
-            label="Submit"
-          />
-        </Box>
+    <Box sx={{ p: 1 }}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        style={{ width: "100%", marginTop: 6, marginBottom: 6 }}
+      >
+        <Container maxWidth="sm" component={Paper} elevation={3}>
+          <Box>
+            <Typography variant="h5" sx={{ my: 1 }} gutterBottom>
+              Send a Message
+            </Typography>
+          </Box>
+          <Divider sx={{ mb: 2 }} />
+          <Box
+            component="form"
+            sx={{ display: "grid", gap: 2 }}
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              label="Email"
+              type="email"
+              size="small"
+              fullWidth
+              value={email}
+              onChange={handleEmailChange}
+              error={emailError}
+              helperText={emailError && "Email is required"}
+            />
+            <TextField
+              label="Phone"
+              type="tel"
+              size="small"
+              fullWidth
+              value={phone}
+              onChange={handlePhoneChange}
+              error={phoneError}
+              helperText={phoneError && "Phone number is required"}
+            />
+            <TextField
+              label="Message"
+              multiline
+              rows={4}
+              size="small"
+              fullWidth
+              value={message}
+              onChange={handleMessageChange}
+              error={messageError}
+              helperText={messageError && "Message is required"}
+            />
+            <CustomButton
+              loading={sending}
+              disabled={sending}
+              type="submit"
+              label="Submit"
+            />
+          </Box>
 
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-          <IconWithName
-            component="a"
-            href={`https://api.whatsapp.com/send/?phone=${contact?.phone?.name.slice(
-              1
-            )}`}
-            icon={icons.WhatsApp}
-            height={20}
-            label="Or send a message on WhatsApp"
-          />
-        </Box>
-      </Container>
-    </motion.div>
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <IconWithName
+              component="a"
+              href={`https://api.whatsapp.com/send/?phone=${contact?.phone?.name.slice(
+                1
+              )}`}
+              icon={icons.WhatsApp}
+              height={20}
+              label="Or send a message on WhatsApp"
+            />
+          </Box>
+        </Container>
+      </motion.div>
+    </Box>
   );
 };
 

@@ -75,7 +75,7 @@ const Certificates: React.FC = () => {
                   position: "relative",
                 }}
               >
-                <Box sx={{ p: 2 }}>
+                <Box>
                   <Box
                     sx={{
                       display: "flex",

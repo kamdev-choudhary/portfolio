@@ -37,13 +37,7 @@ const WorkExperience: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.2, duration: 0.5 }}
         >
-          <Paper
-            elevation={6}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
+          <Paper>
             {/* Company Header */}
             <Box
               sx={{
