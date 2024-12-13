@@ -1,6 +1,5 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Paper,
   Box,
   IconButton,
   Drawer,
@@ -13,29 +12,57 @@ import {
   Menu,
   MenuItem,
   useMediaQuery,
+  Paper,
   Divider,
 } from "@mui/material";
-import React from "react";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
-import { buttons } from "./buttons";
+import {
+  ArrowDropDownRounded,
+  DarkModeRounded,
+  LightModeRounded,
+} from "@mui/icons-material";
 import { useGlobalContext } from "../GlobalProvider";
+import { buttons } from "./buttons";
 
-interface Button {
-  name: string;
-  path: string;
-  icon: string;
-}
+// Define types for button and props
 
 interface NavbarProps {
-  scrollToSection?: (path: string) => void;
+  scrollToSection: (path: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ scrollToSection = () => {} }) => {
-  const { theme } = useGlobalContext();
+const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
+  const { theme, toggleTheme } = useGlobalContext();
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
-  const [anchorEl, setAnchorEl] = useState<any>(null);
-  const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [visibleButtonsCount, setVisibleButtonCount] = useState<number>(4);
+
+  const isSmallScreen = useMediaQuery(
+    "(min-width: 350px) and (max-width: 600px)"
+  ); // Mobile landscape and small tablets
+  const isMediumScreen = useMediaQuery(
+    "(min-width: 601px) and (max-width: 900px)"
+  ); // Tablets
+  const isLargeScreen = useMediaQuery(
+    "(min-width: 901px) and (max-width: 1200px)"
+  ); // Small desktops
+  const isExtraLargeScreen = useMediaQuery(
+    "(min-width: 1201px) and (max-width: 1549px)"
+  ); // Large desktops
+  const isUltraWideScreen = useMediaQuery("(min-width: 1550px)");
+
+  // Adjust `visibleButtonsCount` based on screen size
+  useEffect(() => {
+    if (isMediumScreen) {
+      setVisibleButtonCount(3);
+    } else if (isLargeScreen) {
+      setVisibleButtonCount(5);
+    } else if (isExtraLargeScreen) {
+      setVisibleButtonCount(8);
+    } else if (isUltraWideScreen) {
+      setVisibleButtonCount(buttons.length);
+    }
+  }, [isMediumScreen, isLargeScreen, isExtraLargeScreen, isUltraWideScreen]);
 
   const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
 
@@ -44,12 +71,13 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection = () => {} }) => {
     setTimeout(() => scrollToSection(path), 200);
   };
 
+  const handleMoreClick = (event: React.MouseEvent<HTMLElement>) =>
+    setAnchorEl(event.currentTarget);
   const handleMoreClose = () => setAnchorEl(null);
 
-  // Define NavbarButton prop type
-  const NavbarButton: React.FC<{ button: Button }> = ({ button }) => (
+  const NavbarButton: React.FC<{ button: any }> = ({ button }) => (
     <motion.div
-      key={button?.name}
+      key={button.name}
       style={{
         padding: "0.5rem 1rem",
         margin: "4px",
@@ -59,9 +87,8 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection = () => {} }) => {
         borderRadius: 100,
       }}
       whileHover={{
-        scale: 1.02,
-        backgroundColor:
-          theme === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
+        scale: 1.03,
+        backgroundColor: theme === "dark" ? "rgba(255,255,255,0.2)" : "#EBEAFF",
         borderRadius: 100,
       }}
       transition={{ duration: 0.4 }}
@@ -78,95 +105,120 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection = () => {} }) => {
     </motion.div>
   );
 
-  // Define DrawerListItem prop type
-  const DrawerListItem: React.FC<{ button: Button }> = ({ button }) => (
+  const DrawerListItem: React.FC<{ button: any }> = ({ button }) => (
     <ListItem disablePadding>
       <ListItemButton onClick={() => handleButtonClick(button.path)}>
         <ListItemIcon>
-          <img src={button.icon} alt={button.name} style={{ height: "28px" }} />
+          <img src={button.icon} alt={button.name} style={{ height: "24px" }} />
         </ListItemIcon>
         <ListItemText primary={button.name} />
       </ListItemButton>
     </ListItem>
   );
 
-  return isSmallScreen ? (
-    <>
-      <IconButton onClick={toggleDrawer(true)}>
-        <MenuIcon />
-      </IconButton>
-      <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-        <Box
-          sx={{ width: 250, p: 2 }}
-          role="presentation"
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-        >
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: isSmallScreen ? "space-between" : "center",
+        alignItems: "center",
+        m: 1,
+        bgcolor: isSmallScreen ? "background.paper" : "transparent",
+        borderRadius: isSmallScreen ? 10 : 2,
+        p: isSmallScreen ? 1 : "inherit",
+      }}
+    >
+      {isSmallScreen ? (
+        <>
+          <IconButton onClick={toggleDrawer(true)}>
+            <MenuIcon />
+          </IconButton>
+          <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+            <Box
+              sx={{ width: 250, p: 2 }}
+              role="presentation"
+              onClick={toggleDrawer(false)}
+              onKeyDown={toggleDrawer(false)}
+            >
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Typography variant="h6">Portfolio</Typography>
+              </Box>
+              <Divider />
+              <List>
+                {buttons.map((button) => (
+                  <DrawerListItem key={button.name} button={button} />
+                ))}
+              </List>
+            </Box>
+          </Drawer>
+        </>
+      ) : (
+        <>
           <Box
+            component={Paper}
+            elevation={3}
             sx={{
               display: "flex",
-              flexDirection: "column",
-              alignContent: "center",
+              p: 1,
+              backdropFilter: "blur(5px)",
+              borderRadius: 10,
+              paddingX: 4,
               alignItems: "center",
             }}
           >
-            <Typography variant="h3">Love</Typography>
-            <Typography variant="h3"> Drawer. 💞</Typography>
-          </Box>
-          <Divider />
-          <List>
-            {buttons.map((button) => (
-              <DrawerListItem key={button.name} button={button} />
+            {buttons.slice(0, visibleButtonsCount).map((button) => (
+              <NavbarButton key={button.name} button={button} />
             ))}
-          </List>
-        </Box>
-      </Drawer>
-    </>
-  ) : (
-    <>
-      <Box
-        component={Paper}
-        elevation={3}
-        sx={{
-          display: "flex",
-          p: 1,
-          backdropFilter: "blur(5px)",
-          borderRadius: 10,
-          paddingX: 4,
-          alignItems: "center",
-        }}
-      >
-        {buttons.map((button) => (
-          <NavbarButton key={button.name} button={button} />
-        ))}
-
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMoreClose}
-          disableScrollLock
-        >
-          {buttons.map((button) => (
-            <MenuItem
-              key={button.name}
-              onClick={() => {
-                handleMoreClose();
-                scrollToSection(button.path);
-              }}
+            {visibleButtonsCount < buttons.length && (
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.4 }}
+                style={{ cursor: "pointer", margin: "4px" }}
+                onClick={handleMoreClick}
+              >
+                <Typography
+                  variant="body2"
+                  sx={{ alignItems: "center", display: "flex" }}
+                >
+                  <ArrowDropDownRounded />
+                  More
+                </Typography>
+              </motion.div>
+            )}
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMoreClose}
+              disableScrollLock
             >
-              <ListItemIcon>
-                <img
-                  src={button.icon}
-                  alt={button.name}
-                  style={{ height: "24px" }}
-                />
-              </ListItemIcon>
-              <Typography>{button.name}</Typography>
-            </MenuItem>
-          ))}
-        </Menu>
+              {buttons.slice(visibleButtonsCount).map((button) => (
+                <MenuItem
+                  key={button.name}
+                  onClick={() => {
+                    handleMoreClose();
+                    scrollToSection(button.path);
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      src={button.icon}
+                      alt={button.name}
+                      style={{ height: "24px" }}
+                    />
+                  </ListItemIcon>
+                  <Typography>{button.name}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </>
+      )}
+      <Box sx={{ display: "flex", alignItems: "center", mx: 1 }}>
+        <IconButton onClick={toggleTheme}>
+          {theme === "light" ? <LightModeRounded /> : <DarkModeRounded />}
+        </IconButton>
       </Box>
-    </>
+    </Box>
   );
 };
 

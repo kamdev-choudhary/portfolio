@@ -27,12 +27,7 @@ const Skill: React.FC = () => {
               <Paper
                 elevation={6}
                 sx={{
-                  p: 3,
-                  borderRadius: 4,
                   height: "100%",
-                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-                  transition: "all 0.3s ease-in-out",
-                  ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)" },
                 }}
               >
                 <Typography variant="h6" sx={{ fontWeight: "bold" }}>

@@ -32,16 +32,7 @@ const Projects: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.2, duration: 0.5 }}
         >
-          <Paper
-            elevation={6}
-            sx={{
-              p: 2,
-              borderRadius: 4,
-              boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-              transition: "all 0.3s ease-in-out",
-              ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)" },
-            }}
-          >
+          <Paper>
             {/* Header */}
             <Box sx={{ display: "flex", alignItems: "center", mb: 2, gap: 2 }}>
               <Avatar

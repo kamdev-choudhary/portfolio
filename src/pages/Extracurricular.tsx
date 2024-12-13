@@ -10,19 +10,9 @@ const Extracurricular: React.FC = () => {
           key={index}
           sx={{
             mb: 3,
-            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.05)",
-            ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.1)" },
           }}
         >
-          <Paper
-            elevation={6}
-            sx={{
-              p: 3,
-              borderRadius: 4,
-              boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-              ":hover": { boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)" },
-            }}
-          >
+          <Paper>
             <Box
               sx={{
                 display: "flex",

@@ -15,19 +15,44 @@ import {
   CalendarToday,
   Public,
   WorkspacePremium,
+  OpenInNewRounded,
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { CustomModal } from "../components/CustomModal";
 import { certificates } from "../data/data";
+import { Link } from "react-router-dom";
+
+interface CertificateLink {
+  name: string;
+  link: string;
+  title?: string;
+  url?: string;
+  links?: string;
+}
 
 const Certificates: React.FC = () => {
-  // const { certificates } = education;
   const [showCertificate, setShowCertificate] = useState<boolean>(false);
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(
     null
   );
   const [showCertificatesLinks, setShowCertificatesLinks] =
     useState<boolean>(false);
+
+  const [selectedCertificateLinks, setSelectedCertificateLinks] = useState<
+    CertificateLink[]
+  >([]);
+
+  // Handling individual certificate link modal
+  const handleCertificateLink = (link: string) => {
+    setShowCertificate(true);
+    setSelectedCertificate(link);
+  };
+
+  // Handling multiple links modal for a specific certificate
+  const handleMultipleLinks = (links: any) => {
+    setSelectedCertificateLinks(links);
+    setShowCertificatesLinks(true);
+  };
 
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
@@ -37,26 +62,17 @@ const Certificates: React.FC = () => {
             <motion.div
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 20 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.2,
-              }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <Paper
                 elevation={3}
                 sx={{
-                  borderRadius: 4,
                   overflow: "hidden",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
                   height: "100%",
                   position: "relative",
-                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-                  transition: "all 0.3s ease-in-out",
-                  ":hover": {
-                    boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
-                  },
                 }}
               >
                 <Box sx={{ p: 2 }}>
@@ -74,32 +90,30 @@ const Certificates: React.FC = () => {
                     >
                       {cert?.name}
                     </Typography>
-                    {cert?.link && (
+                    {/* Link handling for individual certificate */}
+                    {cert?.links?.length === 1 && (
                       <IconButton
                         onClick={() => {
-                          setShowCertificate(true);
-                          setSelectedCertificate(cert?.link);
+                          if (cert.links[0].type === "Browser") {
+                            window.open(cert?.links[0]?.url);
+                          } else {
+                            handleCertificateLink(cert?.links[0]?.url);
+                          }
                         }}
                       >
                         <LinkRounded />
                       </IconButton>
                     )}
-                    {cert?.links && (
+                    {/* Link handling for multiple certificate links */}
+                    {cert?.links?.length > 1 && (
                       <IconButton
-                        onClick={() => {
-                          setShowCertificatesLinks(true);
-                        }}
+                        onClick={() => handleMultipleLinks(cert?.links)}
                       >
                         <LinkRounded />
                       </IconButton>
                     )}
                   </Box>
-                  <Divider
-                    sx={{
-                      mb: 1,
-                    }}
-                  />
-                  {/* Certificate Details */}
+                  <Divider sx={{ mb: 1 }} />
                   <Box sx={{ mb: 2 }}>
                     <Typography
                       variant="body2"
@@ -142,11 +156,11 @@ const Certificates: React.FC = () => {
                       >
                         {cert?.skills.map((skill, idx) => (
                           <Chip
-                            sx={{ p: 2 }}
                             key={idx}
                             label={skill}
                             color="primary"
                             size="small"
+                            sx={{ p: 2 }}
                           />
                         ))}
                       </Box>
@@ -154,13 +168,13 @@ const Certificates: React.FC = () => {
                   )}
                   {/* Achievements */}
                   {cert?.achievements &&
-                    Array.isArray(cert.achievements) &&
-                    cert?.achievements?.length > 0 && (
+                    Array.isArray(cert?.achievements) &&
+                    cert?.achievements.length > 0 && (
                       <Typography
                         variant="body2"
                         sx={{
                           display: "flex",
-                          flexWrap: "wrap", // Allows content to wrap if necessary
+                          flexWrap: "wrap",
                           alignItems: "center",
                           mb: 1,
                         }}
@@ -184,15 +198,14 @@ const Certificates: React.FC = () => {
                         </span>
                       </Typography>
                     )}
-
                   {/* Projects */}
-                  {cert?.projects && cert?.projects?.length > 0 && (
+                  {cert?.projects && cert?.projects.length > 0 && (
                     <Typography
                       variant="body2"
                       sx={{
                         display: "flex",
-                        flexWrap: "wrap", // Allows wrapping of long content
-                        alignItems: "center", // Aligns items vertically
+                        flexWrap: "wrap",
+                        alignItems: "center",
                         mb: 1,
                       }}
                     >
@@ -201,7 +214,7 @@ const Certificates: React.FC = () => {
                         Projects:
                       </strong>
                       <span style={{ marginLeft: 4, flexGrow: 1 }}>
-                        {cert?.projects?.map((project, index) => (
+                        {cert?.projects.map((project, index) => (
                           <span
                             key={index}
                             style={{ display: "inline-block", marginRight: 8 }}
@@ -219,7 +232,7 @@ const Certificates: React.FC = () => {
         ))}
       </Grid>
 
-      {/* Modal */}
+      {/* Modal for Single Certificate */}
       <CustomModal
         open={showCertificate}
         onClose={() => setShowCertificate(false)}
@@ -244,25 +257,72 @@ const Certificates: React.FC = () => {
               width: "100%",
               minHeight: "100%",
             }}
-            title="Responsive A4 PDF Viewer"
-          ></iframe>
+            title="Certificate View"
+          />
         </div>
       </CustomModal>
+
+      {/* Modal for Multiple Links */}
       <CustomModal
         open={showCertificatesLinks}
         onClose={() => setShowCertificatesLinks(false)}
-        showHeader={false}
         width="auto"
       >
-        <div
-          style={{
-            position: "relative",
-            height: "100vh",
-            width: "100%",
-            overflow: "hidden",
-            minWidth: "780px",
-          }}
-        ></div>
+        <Box sx={{ p: 2 }}>
+          {selectedCertificateLinks?.map((certificate, index) => (
+            <Box
+              key={index}
+              sx={{
+                p: 2,
+                mb: 2,
+                border: "1px solid rgba(0, 0, 0, 0.1)",
+                borderRadius: 2,
+                boxShadow: 2,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  boxShadow: 4,
+                  backgroundColor: "rgba(0, 0, 0, 0.05)",
+                },
+              }}
+            >
+              {/* Title with FlexGrow to push icon to the right */}
+              <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontWeight: "bold",
+                    color: "text.primary",
+                    mr: 1, // margin-right for spacing between title and icon
+                    textDecoration: "none",
+                  }}
+                >
+                  {certificate.title}
+                </Typography>
+              </Box>
+              {/* Icon indicating new tab */}
+              <Link
+                to={certificate?.url || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconButton
+                  sx={{
+                    color: "primary.main",
+                    fontSize: 18,
+                    "&:hover": {
+                      color: "primary.dark",
+                    },
+                  }}
+                >
+                  <OpenInNewRounded />
+                </IconButton>
+              </Link>
+            </Box>
+          ))}
+        </Box>
       </CustomModal>
     </Box>
   );

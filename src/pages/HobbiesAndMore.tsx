@@ -5,7 +5,7 @@ import { hobbies, personal } from "../data/data";
 const HobbiesAndMore: React.FC = () => {
   return (
     <Box sx={{ p: { sm: 2, xs: 1 } }}>
-      <Box component={Paper} elevation={3} sx={{ p: 2, borderRadius: 2 }}>
+      <Box component={Paper}>
         <Typography variant="h6" sx={{ fontWeight: "bold", py: 1 }}>
           Hobbies
         </Typography>

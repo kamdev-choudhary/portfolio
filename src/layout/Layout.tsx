@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import { Box, Fab, Typography } from "@mui/material";
 import { KeyboardArrowUp as ArrowUpIcon } from "@mui/icons-material";
 import Navbar from "./Navbar";
-import { motion } from "framer-motion";
 import { pages } from "./pages";
 
 // Define types for page references and the section keys
@@ -22,7 +21,7 @@ export default function Layout() {
   ).current;
 
   // Type for scrollToSection function
-  const scrollToSection = (section: string, margin: number = 140): void => {
+  const scrollToSection = (section: string, margin: number = 80): void => {
     const targetRef = pagesRefs[section];
     if (targetRef?.current) {
       const { top } = targetRef.current.getBoundingClientRect();
@@ -66,13 +65,7 @@ export default function Layout() {
 
       {/* Main Content */}
       {pages.map(({ component: Component, key, showHeader, icon, name }) => (
-        <motion.div
-          key={key}
-          ref={pagesRefs[key]}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        <Box key={key}>
           {showHeader && (
             <Box
               sx={{
@@ -98,7 +91,7 @@ export default function Layout() {
             </Box>
           )}
           <Component />
-        </motion.div>
+        </Box>
       ))}
 
       {/* Scroll-to-Top Button */}
