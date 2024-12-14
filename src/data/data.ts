@@ -102,6 +102,8 @@ export const certificates = [
     institute: "Coursera",
     duration: "4 Months",
     period: "May 2022 to Aug 2022",
+    mode: "Online",
+    skills: ["Basic Networking"],
     links: [
       {
         type: "Coursera",
@@ -128,21 +130,22 @@ export const certificates = [
   {
     name: "Google Cloud - Console",
     institute: "Google Cloud",
-    duration: "4 Months",
-    period: "2021",
+    duration: "8 Months",
+    period: "May 2021 - Dec 2021",
     links: [
       {
         type: "Browser",
         url: "https://www.cloudskillsboost.google/public_profiles/4741e38b-3d41-4037-a246-1e4f646c2115",
       },
     ],
+    mode: "Online",
   },
 ];
 
 export const basicEducation = [
   {
     level: "Under Graduation",
-    stream: "Bachelor of Science _ Mathematics",
+    stream: "Bachelor of Science _ Maths",
     institute: "Ranchi University, Ranchi",
     year: "2021",
     gradeSystem: "Percentage",
