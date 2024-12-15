@@ -130,7 +130,6 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           : "transparent",
         borderRadius: isSmallScreen ? 10 : 2,
         p: isSmallScreen ? 1 : "inherit",
-        backdropFilter: "blur(15px)",
       }}
     >
       {isSmallScreen ? (
@@ -161,11 +160,10 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
         <>
           <Box
             component={Paper}
-            elevation={3}
             sx={{
               display: "flex",
               p: 1,
-              backdropFilter: "blur(5px)",
+              // backdropFilter: "blur(5px)",
               borderRadius: 10,
               paddingX: 4,
               alignItems: "center",

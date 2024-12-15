@@ -236,8 +236,8 @@ const Certificates: React.FC = () => {
       <CustomModal
         open={showCertificate}
         onClose={() => setShowCertificate(false)}
-        width="auto"
-        height="auto"
+        // width="auto"
+        // height="auto"
       >
         <Box
           sx={{

@@ -44,12 +44,7 @@ export default function Layout() {
   };
 
   return (
-    <Box
-      sx={{
-        bgcolor: "background.default",
-        overflowY: "auto",
-      }}
-    >
+    <Box>
       {/* Fixed Navbar */}
       <Box
         sx={{

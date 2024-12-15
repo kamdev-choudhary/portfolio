@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Aptos";
+  src: url("./assets/fonts/Aptos.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Optionally, add fallback fonts */
+body {
+  font-family: "Aptos", "Roboto", "Arial", sans-serif;
+}

@@ -1,5 +1,7 @@
 export const name = "KAMDEV CHOUDHARY (KD)";
+
 export const projectGithub = "https://github.com/kamdev-choudhary/portfolio";
+
 export const aboutMe = [
   "I am a passionate developer with a deep curiosity for building innovative solutions.",
   " Although my current job profile differs from my dream career in tech,",
@@ -13,11 +15,11 @@ export const aboutMe = [
 export const headlineTexts = [
   "MERN Stack",
   "JavaScript",
-  "Full Stack",
   "React Native",
-  "Mongo",
+  "MongoDB",
   "NodeJS",
   "ExpressJS",
+  "TypeScript",
 ];
 
 export const certificates = [
