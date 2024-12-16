@@ -51,6 +51,11 @@ const Home: React.FC = () => {
               <Typography variant="h3" sx={{ mb: 1, fontWeight: "bold" }}>
                 {name}
               </Typography>
+              <IconWithName
+                component="button"
+                label="Download PDF"
+                icon={icons.pdf}
+              />
               <Box
                 sx={{
                   gap: 1,

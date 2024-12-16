@@ -20,6 +20,7 @@ export const icons = {
   location: "https://img.icons8.com/3d-fluency/94/map-marker.png",
   list: "https://img.icons8.com/color/48/star.png",
 
+  pdf: "https://img.icons8.com/3d-fluency/50/pdf.png",
   email: "https://img.icons8.com/3d-fluency/50/gmail.png",
   phone: "https://img.icons8.com/3d-fluency/50/smartphone.png",
   linkedIn: "https://img.icons8.com/3d-fluency/50/linkedin.png",
