@@ -12,7 +12,6 @@ import {
   Menu,
   MenuItem,
   useMediaQuery,
-  Paper,
   Divider,
 } from "@mui/material";
 import { motion } from "framer-motion";
@@ -120,16 +119,17 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: isSmallScreen ? "space-between" : "center",
+        justifyContent: "space-between",
         alignItems: "center",
         m: 1,
         bgcolor: isSmallScreen
           ? theme === "light"
-            ? "rgba(201, 201, 234,0.6)"
+            ? "rgba(246, 228, 255, 0.9)"
             : "rgba(45, 41, 41, 0.6)"
-          : "transparent",
+          : "background.paper",
         borderRadius: isSmallScreen ? 10 : 2,
         p: isSmallScreen ? 1 : "inherit",
+        backdropFilter: "blur(10px)",
       }}
     >
       {isSmallScreen ? (
@@ -159,13 +159,10 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
       ) : (
         <>
           <Box
-            component={Paper}
             sx={{
               display: "flex",
               p: 1,
-              // backdropFilter: "blur(5px)",
               borderRadius: 10,
-              paddingX: 4,
               alignItems: "center",
             }}
           >
@@ -216,7 +213,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           </Box>
         </>
       )}
-      <Box sx={{ display: "flex", alignItems: "center", mx: 1 }}>
+      <Box sx={{ display: "flex", alignItems: "center", mx: 1, px: 2 }}>
         <IconButton onClick={toggleTheme}>
           {theme === "light" ? <LightModeRounded /> : <DarkModeRounded />}
         </IconButton>

@@ -49,9 +49,9 @@ export default function Layout() {
       <Box
         sx={{
           position: "fixed",
-          top: 5,
-          left: 10,
-          right: 10,
+          top: 0,
+          left: 0,
+          right: 0,
           zIndex: 10,
         }}
       >

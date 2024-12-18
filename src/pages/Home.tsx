@@ -1,15 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Box, Grid2 as Grid, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Grid2 as Grid,
+  Paper,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import photo from "../assets/photo.jpg";
 import TypingText from "../components/TypingText";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { aboutMe, contact, name, location } from "../data/data";
-import DownloadAsPDF from "../components/DownloadAsPDF";
 
 const Home: React.FC = () => {
   const { present: presentAddress } = location;
+  const isSmallScreen = useMediaQuery("(max-width:650px)");
+
   return (
     <Box sx={{ p: { sm: 2, xs: 1 }, mt: 10 }}>
       <Grid container spacing={2}>
@@ -52,10 +59,9 @@ const Home: React.FC = () => {
               <Typography variant="h3" sx={{ mb: 1, fontWeight: "bold" }}>
                 {name}
               </Typography>
-              <DownloadAsPDF />
               <Box
                 sx={{
-                  gap: 1,
+                  gap: isSmallScreen ? 0 : 1,
                   display: "flex",
                   flexWrap: "wrap",
                   mt: 1,
