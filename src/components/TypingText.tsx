@@ -24,7 +24,6 @@ const TypingText: React.FC = () => {
           setCurrentText(currentText + currentWord[currentText.length]);
         }, typingSpeed);
       } else {
-        // If the word is fully typed, switch to backspace effect
         timer = setTimeout(() => {
           setIsTyping(false); // Start backspacing after the word is typed
         }, switchDelay);
@@ -45,12 +44,20 @@ const TypingText: React.FC = () => {
     }
 
     return () => clearTimeout(timer); // Cleanup the timer when component unmounts or effect changes
-  }, [currentText, isTyping, currentWordIndex, headlineTexts]);
+  }, [currentText, isTyping, currentWordIndex]);
 
   return (
     <Typography
-      variant="h2"
-      style={{ display: "inline-block", marginBottom: "10px" }}
+      variant="h3"
+      sx={{
+        display: "inline-block",
+        whiteSpace: "nowrap", // Prevent text wrapping
+        overflow: "hidden", // Hide overflowing text
+        textOverflow: "ellipsis", // Show dots for truncated text
+        maxWidth: "100%", // Ensure the text does not exceed container width
+        alignmentBaseline: "central",
+        fontWeight: "bold",
+      }}
     >
       {currentText}
     </Typography>
