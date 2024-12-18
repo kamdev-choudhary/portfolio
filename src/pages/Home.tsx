@@ -6,6 +6,7 @@ import TypingText from "../components/TypingText";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { aboutMe, contact, name, location } from "../data/data";
+import DownloadAsPDF from "../components/DownloadAsPDF";
 
 const Home: React.FC = () => {
   const { present: presentAddress } = location;
@@ -51,11 +52,7 @@ const Home: React.FC = () => {
               <Typography variant="h3" sx={{ mb: 1, fontWeight: "bold" }}>
                 {name}
               </Typography>
-              <IconWithName
-                component="button"
-                label="Download PDF"
-                icon={icons.pdf}
-              />
+              <DownloadAsPDF />
               <Box
                 sx={{
                   gap: 1,
