@@ -422,6 +422,7 @@ export const location = {
     pincode: "835102",
     url: "https://maps.app.goo.gl/vrvnmjXsHrtAHAyq7",
   },
+  // Present (Dakshana Valley)
   present: {
     address1: "413, Dakshana Foundation",
     address2: "Kadus, Rajgurnagar",
@@ -445,21 +446,26 @@ export const extra = [
     name: "National Service Scheme (NSS)",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/National_Service_Scheme_Logo.svg/800px-National_Service_Scheme_Logo.svg.png",
     description:
-      "Participated actively in community service, leading initiatives focused on social awareness and development.",
+      "The National Service Scheme (NSS) fosters a spirit of voluntary community service and responsibility among youth. As an active member from 2018 to 2021, I contributed to numerous initiatives that positively impacted the community.",
     duration: "2018 - 2021",
     achievements: [
-      "Participated in Pre-Republic day Parade camp in 2019.",
-      "Organized blood donation drives benefiting over 500 individuals",
-      "Led a successful tree plantation drive in the community",
-      "Received 'Best Volunteer Award' in 2021 for outstanding contributions",
+      "Participated in the prestigious Pre-Republic Day Parade Camp in 2019, representing the NSS unit and honing leadership and teamwork skills.",
+      "Organized multiple blood donation drives, benefiting over 500 individuals and ensuring effective planning, logistics, and awareness.",
+      "Led a successful tree plantation drive, planting and nurturing over 200 saplings to promote environmental sustainability.",
+      "Awarded the 'Best Volunteer Award' in 2021 for exceptional contributions and commitment to community service.",
     ],
   },
   {
-    name: "Scouts and Guide",
+    name: "Scouts and Guides",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4AIoCr0XOjeju-KU2CKuJuxWjzlSSz0zPVQ&s",
     description:
-      "Engaged in leadership training, community service activities, and skill-building exercises.",
+      "The Scouts and Guides program is dedicated to developing leadership, self-reliance, and civic responsibility. From 2010 to 2014, I actively participated in activities that enhanced my skills and sense of community.",
     duration: "2010 - 2014",
-    achievements: ["Completed Dwitya sopan in 2014."],
+    achievements: [
+      "Completed the Dwitiya Sopan level in 2014, mastering skills like first aid, camping, and environmental conservation.",
+      "Engaged in leadership and team-building exercises through camps and workshops focused on problem-solving and effective communication.",
+      "Contributed to community service initiatives, including cleanliness drives and disaster preparedness programs.",
+      "Developed essential life skills such as cooking, orienteering, fire safety, and knot-tying, fostering adaptability and resilience.",
+    ],
   },
 ];
