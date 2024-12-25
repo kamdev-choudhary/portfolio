@@ -48,7 +48,7 @@ const TypingText: React.FC = () => {
 
   return (
     <Typography
-      variant="h3"
+      variant="h5"
       sx={{
         display: "inline-block",
         whiteSpace: "nowrap", // Prevent text wrapping
@@ -59,7 +59,7 @@ const TypingText: React.FC = () => {
         fontWeight: "bold",
       }}
     >
-      {currentText}
+      I am {currentText}
     </Typography>
   );
 };

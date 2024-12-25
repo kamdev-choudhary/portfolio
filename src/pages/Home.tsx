@@ -12,6 +12,8 @@ import TypingText from "../components/TypingText";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { aboutMe, contact, name, location } from "../data/data";
+import ClickableIcon from "../components/ClickableIcon";
+import { Email } from "@mui/icons-material";
 
 const Home: React.FC = () => {
   const { present: presentAddress } = location;
@@ -56,9 +58,11 @@ const Home: React.FC = () => {
             }}
           >
             <Box>
+              <Typography>Hello, I am</Typography>
               <Typography variant="h3" sx={{ mb: 1, fontWeight: "bold" }}>
                 {name}
               </Typography>
+              <TypingText />
               <Box
                 sx={{
                   gap: isSmallScreen ? 0 : 1,
@@ -68,6 +72,7 @@ const Home: React.FC = () => {
                 }}
               >
                 {/* Email */}
+                <ClickableIcon icon={Email} href={contact.email.href} />
                 <IconWithName
                   icon={icons.email}
                   href={contact.email.href}
@@ -94,21 +99,6 @@ const Home: React.FC = () => {
                 />
               </Box>
             </Box>
-          </Box>
-
-          <Box
-            sx={{
-              minHeight: 100,
-              mt: 2,
-              bgcolor: "#333",
-              color: "#fff",
-              p: 1,
-              display: "flex",
-              alignItems: "center",
-              borderRadius: 2,
-            }}
-          >
-            <TypingText />
           </Box>
 
           <Box

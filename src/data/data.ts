@@ -13,13 +13,13 @@ export const aboutMe = [
 ];
 
 export const headlineTexts = [
-  "MERN Stack",
-  "JavaScript",
-  "React Native",
-  "MongoDB",
-  "NodeJS",
-  "ExpressJS",
-  "TypeScript",
+  "MERN Stack Developer",
+  "JavaScript Developer",
+  "React Native Developer",
+  "MongoDB Developer",
+  "NodeJS Developer",
+  "ExpressJS Developer",
+  "TypeScript Developer",
 ];
 
 export const certificates = [
