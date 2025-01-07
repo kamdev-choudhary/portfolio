@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import photo from "../assets/photo.jpg";
 import TypingText from "../components/TypingText";
-import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { aboutMe, contact, name, location } from "../data/data";
 import { bgcolors } from "../constants/colors";
