@@ -29,7 +29,7 @@ const WorkExperience: React.FC = () => {
         flexDirection: "column",
         gap: 3,
         p: { sm: 2, xs: 1 },
-        background: bgcolors.workexperiecne,
+        background: bgcolors.workexperience,
       }}
     >
       {work?.map((d, index) => (
