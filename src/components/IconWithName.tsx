@@ -3,21 +3,22 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 
 interface IconWithNameProps {
-  icon: string;
-  iconAlt?: string;
+  icon: React.ElementType;
   label: string;
   component?: React.ElementType;
   height?: number;
   href?: string;
+  color?: string;
+  size?: number;
 }
 
 const IconWithName: React.FC<IconWithNameProps> = ({
-  icon,
-  iconAlt = "icon",
+  icon: Icon,
   label,
   component = "span",
-  height = 25,
   href = "",
+  color = "#000",
+  size = 25,
 }) => {
   const theme = useTheme();
 
@@ -52,12 +53,8 @@ const IconWithName: React.FC<IconWithNameProps> = ({
           },
         }}
       >
-        <img
-          src={icon}
-          alt={iconAlt}
-          height={height}
-          style={{ borderRadius: "50%" }}
-        />
+        <Icon sx={{ color: color }} size={size} />
+
         <Typography
           component={component}
           sx={{

@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
 import { hobbies, personal } from "../data/data";
+import { bgcolors } from "../constants/colors";
 
 const HobbiesAndMore: React.FC = () => {
   return (
-    <Box sx={{ p: { sm: 2, xs: 1 } }}>
+    <Box sx={{ p: { sm: 2, xs: 1 }, background: bgcolors.hobbies }}>
       <Box component={Paper}>
         <Typography variant="h6" sx={{ fontWeight: "bold", py: 1 }}>
           Hobbies

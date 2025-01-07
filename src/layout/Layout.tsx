@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Box, Fab, Typography } from "@mui/material";
+import { Box, Fab } from "@mui/material";
 import { KeyboardArrowUp as ArrowUpIcon } from "@mui/icons-material";
 import Navbar from "./Navbar";
 import { pages } from "./pages";
@@ -59,34 +59,11 @@ export default function Layout() {
       </Box>
 
       {/* Main Content */}
-      {pages.map(({ component: Component, key, showHeader, icon, name }) => (
+      {pages.map(({ component: Component, key }) => (
         <Box key={key}>
-          {showHeader && (
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                ml: { xs: 2, sm: 3 },
-                px: 2, // padding for better spacing
-                py: 1, // padding for vertical space
-              }}
-              ref={pagesRefs[key]}
-            >
-              <img src={icon} alt={`${name} Icon`} height="50px" width="auto" />
-              <Typography
-                sx={{
-                  ml: 1, // equivalent to marginLeft
-                  fontSize: "clamp(1.8rem, 3vw, 2.3rem)",
-                  fontWeight: 600, // slightly bolder font for emphasis
-                  color: "text.primary", // for text color
-                  letterSpacing: 0.5, // a little letter spacing for readability
-                }}
-              >
-                {name}
-              </Typography>
-            </Box>
-          )}
-          <Component />
+          <Box ref={pagesRefs[key]}>
+            <Component />
+          </Box>
         </Box>
       ))}
 

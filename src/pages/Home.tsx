@@ -12,7 +12,7 @@ import TypingText from "../components/TypingText";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { aboutMe, contact, name, location } from "../data/data";
-import ClickableIcon from "../components/ClickableIcon";
+import { bgcolors } from "../constants/colors";
 import { Email } from "@mui/icons-material";
 
 const Home: React.FC = () => {
@@ -20,7 +20,14 @@ const Home: React.FC = () => {
   const isSmallScreen = useMediaQuery("(max-width:650px)");
 
   return (
-    <Box sx={{ p: { sm: 2, xs: 1 }, mt: 10 }}>
+    <Box
+      sx={{
+        p: { sm: 2, xs: 1 },
+        mt: 10,
+        minHeight: "100vh",
+        background: bgcolors.home,
+      }}
+    >
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, md: 4, lg: 4 }}>
           <Box
@@ -71,14 +78,15 @@ const Home: React.FC = () => {
                   mt: 1,
                 }}
               >
-                {/* Email */}
-                <ClickableIcon icon={Email} href={contact.email.href} />
                 <IconWithName
-                  icon={icons.email}
+                  icon={Email}
+                  color="#666"
                   href={contact.email.href}
                   label={contact.email.name}
                   component="a"
                 />
+                {/* Email */}
+                {/* 
                 <IconWithName
                   icon={icons.phone}
                   href={contact.phone.href}
@@ -96,7 +104,7 @@ const Home: React.FC = () => {
                   href={presentAddress.url}
                   label={`${presentAddress?.address1}, ${presentAddress?.address2},  ${presentAddress?.city}, ${presentAddress?.state}, ${presentAddress?.pincode}`}
                   component="a"
-                />
+                /> */}
               </Box>
             </Box>
           </Box>

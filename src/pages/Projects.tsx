@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import { icons } from "../constants/helper";
 import IconWithName from "../components/IconWithName";
 import { projects } from "../data/data";
+import { bgcolors } from "../constants/colors";
 
 const Projects: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const Projects: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         gap: 3,
+        background: bgcolors.projects,
       }}
     >
       {projects?.map((p, index) => (
@@ -181,7 +183,7 @@ const Projects: React.FC = () => {
               <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                 Project Links:
               </Typography>
-              <IconWithName
+              {/* <IconWithName
                 icon={icons.live}
                 label="Live Project"
                 href={p.links.live_project}
@@ -192,7 +194,7 @@ const Projects: React.FC = () => {
                 label="GitHub Repository"
                 href={p.links.github_repository}
                 component="a"
-              />
+              /> */}
             </Box>
           </Paper>
         </motion.div>

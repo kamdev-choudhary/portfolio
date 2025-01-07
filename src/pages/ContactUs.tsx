@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import IconWithName from "../components/IconWithName";
 import { contact } from "../data/data";
 import { googleScriptUrl, icons } from "../constants/helper";
+import { bgcolors } from "../constants/colors";
 
 const ContactUs: React.FC = () => {
   // States for the form fields
@@ -89,7 +90,7 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <Box sx={{ p: 1 }}>
+    <Box sx={{ p: 1, background: bgcolors.contacts }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +149,7 @@ const ContactUs: React.FC = () => {
           </Box>
 
           <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-            <IconWithName
+            {/* <IconWithName
               component="a"
               href={`https://api.whatsapp.com/send/?phone=${contact?.phone?.name.slice(
                 1
@@ -156,7 +157,7 @@ const ContactUs: React.FC = () => {
               icon={icons.WhatsApp}
               height={20}
               label="Or send a message on WhatsApp"
-            />
+            /> */}
           </Box>
         </Container>
       </motion.div>

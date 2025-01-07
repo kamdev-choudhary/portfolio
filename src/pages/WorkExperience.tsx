@@ -19,6 +19,7 @@ import {
 } from "@mui/icons-material";
 
 import { work } from "../data/data";
+import { bgcolors } from "../constants/colors";
 
 const WorkExperience: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const WorkExperience: React.FC = () => {
         flexDirection: "column",
         gap: 3,
         p: { sm: 2, xs: 1 },
+        background: bgcolors.workexperiecne,
       }}
     >
       {work?.map((d, index) => (

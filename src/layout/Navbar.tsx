@@ -16,11 +16,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-  ArrowDropDownRounded,
-  DarkModeRounded,
-  LightModeRounded,
-} from "@mui/icons-material";
+import { ArrowDropDownRounded } from "@mui/icons-material";
 import { useGlobalContext } from "../GlobalProvider";
 import { buttons } from "./buttons";
 
@@ -31,7 +27,7 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
-  const { theme, toggleTheme } = useGlobalContext();
+  const { theme } = useGlobalContext();
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [visibleButtonsCount, setVisibleButtonCount] = useState<number>(4);
@@ -96,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
       <Box
         sx={{ display: "flex", alignItems: "center", alignContent: "center" }}
       >
-        <img height="22px" src={button.icon} alt={button.name} />
+        <button.icon sx={{ color: button.color }} size={button.size} />
         <Typography variant="body2" sx={{ ml: 1 }}>
           {button.name}
         </Typography>
@@ -105,10 +101,13 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
   );
 
   const DrawerListItem: React.FC<{ button: any }> = ({ button }) => (
-    <ListItem disablePadding>
+    <ListItem
+      sx={{ bgcolor: "#f1f3fb", mb: 0.5, borderRadius: 1 }}
+      disablePadding
+    >
       <ListItemButton onClick={() => handleButtonClick(button.path)}>
         <ListItemIcon>
-          <img src={button.icon} alt={button.name} style={{ height: "24px" }} />
+          <button.icon sx={{ color: button.color }} size={button.size} />
         </ListItemIcon>
         <ListItemText primary={button.name} />
       </ListItemButton>
@@ -122,14 +121,8 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
         justifyContent: "space-between",
         alignItems: "center",
         m: 1,
-        bgcolor: isSmallScreen
-          ? theme === "light"
-            ? "rgba(246, 228, 255, 0.9)"
-            : "rgba(45, 41, 41, 0.6)"
-          : "background.paper",
         borderRadius: isSmallScreen ? 10 : 2,
         p: isSmallScreen ? 1 : "inherit",
-        backdropFilter: "blur(10px)",
       }}
     >
       {isSmallScreen ? (
@@ -139,13 +132,22 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           </IconButton>
           <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
             <Box
-              sx={{ width: 250, p: 2 }}
+              sx={{ width: 250 }}
               role="presentation"
               onClick={toggleDrawer(false)}
               onKeyDown={toggleDrawer(false)}
             >
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Typography variant="h6">Portfolio</Typography>
+              <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+                <Typography
+                  sx={{
+                    fontWeight: "bold",
+                    color: "#1565c0",
+                    textShadow: "1px 1px 4px rgba(0, 0, 0, 0.4)",
+                  }}
+                  variant="h4"
+                >
+                  Portfolio
+                </Typography>
               </Box>
               <Divider />
               <List>
@@ -200,10 +202,9 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
                   }}
                 >
                   <ListItemIcon>
-                    <img
-                      src={button.icon}
-                      alt={button.name}
-                      style={{ height: "24px" }}
+                    <button.icon
+                      size={button.size}
+                      sx={{ color: button.color }}
                     />
                   </ListItemIcon>
                   <Typography>{button.name}</Typography>
@@ -213,11 +214,6 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           </Box>
         </>
       )}
-      <Box sx={{ display: "flex", alignItems: "center", mx: 1, px: 2 }}>
-        <IconButton onClick={toggleTheme}>
-          {theme === "light" ? <LightModeRounded /> : <DarkModeRounded />}
-        </IconButton>
-      </Box>
     </Box>
   );
 };

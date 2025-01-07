@@ -21,6 +21,7 @@ import { motion } from "framer-motion";
 import { CustomModal } from "../components/CustomModal";
 import { certificates } from "../data/data";
 import { Link } from "react-router-dom";
+import { bgcolors } from "../constants/colors";
 
 interface CertificateLink {
   name: string;
@@ -55,7 +56,7 @@ const Certificates: React.FC = () => {
   };
 
   return (
-    <Box sx={{ p: { sm: 2, xs: 1 } }}>
+    <Box sx={{ p: { sm: 2, xs: 1 }, background: bgcolors.certificates }}>
       <Grid container spacing={3}>
         {certificates?.map((cert, index) => (
           <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
