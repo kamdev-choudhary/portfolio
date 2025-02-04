@@ -12,11 +12,10 @@ import {
   ListItemText,
 } from "@mui/material";
 import { skills } from "../data/data";
-import { bgcolors } from "../constants/colors";
 
 const Skill: React.FC = () => {
   return (
-    <Box sx={{ p: { sm: 2, xs: 1 }, background: bgcolors.skills }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
         {skills?.map((skill, index) => (
           <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>

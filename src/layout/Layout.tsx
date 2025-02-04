@@ -1,18 +1,20 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Box, Fab } from "@mui/material";
+import { Box, Fab, useScrollTrigger, alpha } from "@mui/material";
 import { KeyboardArrowUp as ArrowUpIcon } from "@mui/icons-material";
 import Navbar from "./Navbar";
 import { pages } from "./pages";
 
-// Define types for page references and the section keys
 interface PagesRefs {
   [key: string]: React.RefObject<HTMLDivElement>;
 }
 
 export default function Layout() {
-  const [showScrollToTop, setShowScrollToTop] = useState<boolean>(false); // Track scroll position for "Scroll to Top"
+  const [navBackground, setNavBackground] = useState<boolean>(false);
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 10,
+  });
 
-  // Create refs for all pages
   const pagesRefs = useRef<PagesRefs>(
     pages.reduce((acc, { key }) => {
       acc[key] = React.createRef();
@@ -20,20 +22,18 @@ export default function Layout() {
     }, {} as PagesRefs)
   ).current;
 
-  // Type for scrollToSection function
-  const scrollToSection = (section: string, margin: number = 80): void => {
+  const scrollToSection = (section: string): void => {
     const targetRef = pagesRefs[section];
     if (targetRef?.current) {
-      const { top } = targetRef.current.getBoundingClientRect();
-      const scrollPosition = window.scrollY + top - margin;
-      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+      const navbarHeight = 64; // Match your Navbar height
+      const top = targetRef.current.offsetTop - navbarHeight;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
-  // Track scroll position
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollToTop(window.scrollY > 300); // Show button after 300px scroll
+      setNavBackground(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -44,46 +44,58 @@ export default function Layout() {
   };
 
   return (
-    <Box>
-      {/* Fixed Navbar */}
+    <Box
+      sx={{
+        background:
+          "linear-gradient(135deg,rgba(187, 234, 245, 0.76),rgb(242, 234, 250))",
+      }}
+    >
+      {/* Fixed Navbar with smooth transitions */}
       <Box
         sx={{
           position: "fixed",
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 10,
+          zIndex: 1100,
+          transition: "all 0.3s ease",
+          bgcolor: navBackground ? alpha("#ffffff", 0.92) : "transparent",
+          backdropFilter: navBackground ? "blur(8px)" : "none",
+          boxShadow: navBackground ? 1 : 0,
         }}
       >
         <Navbar scrollToSection={scrollToSection} />
       </Box>
 
-      {/* Main Content */}
-      {pages.map(({ component: Component, key }) => (
-        <Box key={key}>
-          <Box ref={pagesRefs[key]}>
+      {/* Main Content with proper spacing */}
+      <Box component="main">
+        {pages.map(({ component: Component, key }) => (
+          <Box key={key} ref={pagesRefs[key]}>
             <Component />
           </Box>
-        </Box>
-      ))}
+        ))}
+      </Box>
 
       {/* Scroll-to-Top Button */}
-      {showScrollToTop && (
-        <Fab
-          color="primary"
-          size="small"
-          onClick={scrollToTop}
-          sx={{
-            position: "fixed",
-            bottom: 16,
-            right: 16,
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)", // Slight shadow for visibility
-          }}
-          aria-label="Scroll to Top"
-        >
-          <ArrowUpIcon />
-        </Fab>
-      )}
+      <Fab
+        color="primary"
+        size="medium"
+        onClick={scrollToTop}
+        sx={{
+          position: "fixed",
+          bottom: 32,
+          right: 32,
+          opacity: trigger ? 1 : 0,
+          transition: "opacity 0.3s ease",
+          boxShadow: 3,
+          "&:hover": {
+            transform: "scale(1.1)",
+          },
+        }}
+        aria-label="Scroll to Top"
+      >
+        <ArrowUpIcon />
+      </Fab>
     </Box>
   );
 }

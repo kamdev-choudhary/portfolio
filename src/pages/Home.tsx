@@ -10,21 +10,22 @@ import {
 import photo from "../assets/photo.jpg";
 import TypingText from "../components/TypingText";
 import IconWithName from "../components/IconWithName";
-import { aboutMe, contact, name, location } from "../data/data";
-import { bgcolors } from "../constants/colors";
+import { aboutMe, contact, name } from "../data/data";
+
 import { Email } from "@mui/icons-material";
 
 const Home: React.FC = () => {
-  const { present: presentAddress } = location;
   const isSmallScreen = useMediaQuery("(max-width:650px)");
 
   return (
     <Box
       sx={{
-        p: { sm: 2, xs: 1 },
-        mt: 10,
         minHeight: "100vh",
-        background: bgcolors.home,
+        padding: { xs: "80px 10px 10px 10px", md: "80px 15px 15px 15px " },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Grid container spacing={2}>
@@ -49,7 +50,7 @@ const Home: React.FC = () => {
                 height: 300,
                 borderRadius: "50%",
                 boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
-                border: "4px solid #fff",
+                // border: "4px solid #fff",
               }}
             />
           </Box>

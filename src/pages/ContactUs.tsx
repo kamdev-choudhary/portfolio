@@ -10,10 +10,7 @@ import {
 import CustomButton from "../components/CustomButton";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
-import IconWithName from "../components/IconWithName";
-import { contact } from "../data/data";
-import { googleScriptUrl, icons } from "../constants/helper";
-import { bgcolors } from "../constants/colors";
+import { googleScriptUrl } from "../constants/helper";
 
 const ContactUs: React.FC = () => {
   // States for the form fields
@@ -90,7 +87,7 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <Box sx={{ p: 1, background: bgcolors.contacts }}>
+    <Box sx={{ p: 1 }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -1,12 +1,12 @@
 export const bgcolors = {
-  home: "linear-gradient(135deg, #6CA0DC, #A1C4FD)", // Soft yet rich blue gradient for Home
-  certificates: "linear-gradient(135deg, #FAD961, #F76B1C)", // Warm gold-to-orange gradient for Certificates
-  education: "linear-gradient(135deg, #AB47BC, #D4A5E6)", // Soft rich purple gradient for Education
-  extracurricular: "linear-gradient(135deg, #FF6F61, #F9A58E)", // Warm coral gradient for Extra Curricular
-  hobbies: "linear-gradient(135deg, #A47551, #C2B49A)", // Soft earthy gradient for Hobbies
-  projects: "linear-gradient(135deg, #F9A825, #FFC375)", // Soft golden-orange gradient for Projects
-  skills: "linear-gradient(135deg, #5D9CAC, #A3D3D9)", // Soft teal gradient for Skills
-  websiteInfo: "linear-gradient(135deg, #7A5C9E, #BBA2D3)", // Elegant violet gradient for Website Info
-  workexperience: "linear-gradient(135deg, #64C68D, #A7E6B7)", // Gentle green gradient for Work Experience
-  contacts: "linear-gradient(135deg, #64C68D, #A7E6B7)", // Gentle green gradient for Contacts
+  home: "linear-gradient(135deg, #A7C7E7, #E3F2FD)", // Light sky blue for Home
+  certificates: "linear-gradient(135deg, #FFE8A3, #FFD5B5)", // Soft gold to peach for Certificates
+  education: "linear-gradient(135deg, #D4B5F9, #F3E8FF)", // Gentle pastel purple for Education
+  extracurricular: "linear-gradient(135deg, #FFC9C3, #FFEAE4)", // Soft coral-pink for Extra Curricular
+  hobbies: "linear-gradient(135deg, #D8C3A5, #F7EDE2)", // Light earthy tones for Hobbies
+  projects: "linear-gradient(135deg, #FFE8B5, #FFF3D6)", // Pale golden yellow for Projects
+  skills: "linear-gradient(135deg, #BFE9EC, #E8F8FA)", // Light aqua-teal for Skills
+  websiteInfo: "linear-gradient(135deg, #CDB7E3, #F0E8FF)", // Soft lilac for Website Info
+  workexperience: "linear-gradient(135deg, #BEECD4, #E6FAF0)", // Light pastel green for Work Experience
+  contacts: "linear-gradient(135deg, #C5F0DE, #ECFAF3)", // Soft mint green for Contacts
 };

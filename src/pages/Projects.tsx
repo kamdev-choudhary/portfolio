@@ -11,10 +11,8 @@ import {
   Avatar,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { icons } from "../constants/helper";
-import IconWithName from "../components/IconWithName";
+
 import { projects } from "../data/data";
-import { bgcolors } from "../constants/colors";
 
 const Projects: React.FC = () => {
   return (
@@ -24,7 +22,6 @@ const Projects: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         gap: 3,
-        background: bgcolors.projects,
       }}
     >
       {projects?.map((p, index) => (

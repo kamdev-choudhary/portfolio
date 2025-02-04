@@ -12,13 +12,12 @@ import {
 import { CodeRounded, EmojiObjectsRounded, GitHub } from "@mui/icons-material";
 import IconWithName from "../components/IconWithName";
 import { website, projectGithub } from "../data/data";
-import { bgcolors } from "../constants/colors";
 
 const { packages, icon } = website;
 
 const WebsiteInfo: React.FC = () => {
   return (
-    <Box sx={{ background: bgcolors.websiteInfo, p: 2 }}>
+    <Box sx={{ p: 2 }}>
       <Paper>
         <Typography variant="body1" sx={{ mb: 2 }}>
           This website is built using React and Vite, ensuring a fast and smooth

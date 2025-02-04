@@ -10,11 +10,10 @@ import {
 import { School, CalendarToday, Grade, EmojiEvents } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { basicEducation } from "../data/data";
-import { bgcolors } from "../constants/colors";
 
 const Education: React.FC = () => {
   return (
-    <Box sx={{ p: { sm: 2, xs: 1 }, background: bgcolors.education }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       <Grid container spacing={3}>
         {basicEducation?.map((d, index) => (
           <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4 }} key={index}>

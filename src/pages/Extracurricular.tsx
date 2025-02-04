@@ -1,11 +1,10 @@
 import React from "react";
 import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
 import { extra } from "../data/data";
-import { bgcolors } from "../constants/colors";
 
 const Extracurricular: React.FC = () => {
   return (
-    <Box sx={{ p: { sm: 2, xs: 1 }, background: bgcolors.extracurricular }}>
+    <Box sx={{ p: { sm: 2, xs: 1 } }}>
       {extra?.map((e, index) => (
         <Box
           key={index}
