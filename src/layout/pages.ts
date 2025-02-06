@@ -1,14 +1,14 @@
 import { icons } from "../constants/helper";
-import Home from "../pages/Home";
-import WorkExperience from "../pages/WorkExperience";
-import ContactUs from "../pages/ContactUs";
-import Education from "../pages/Education";
-import WebsiteInfo from "../pages/WebsiteInfo";
-import Certificate from "../pages/Certificates";
-import Projects from "../pages/Projects";
-import Skills from "../pages/Skills";
-import ExtraCurricular from "../pages/Extracurricular";
-import HobbiesAndMore from "../pages/HobbiesAndMore";
+import Home from "../pages/home/Home";
+import WorkExperience from "../pages/work-experience/WorkExperience";
+import ContactUs from "../pages/contact-me/ContactUs";
+import Education from "../pages/education/Education";
+import WebsiteInfo from "../pages/website-info/WebsiteInfo";
+import Certificates from "../pages/certificates/Certificates";
+import Projects from "../pages/projects/Projects";
+import Skills from "../pages/skills/Skills";
+import ExtraCurricular from "../pages/extra-curricular/Extracurricular";
+import HobbiesAndMore from "../pages/hobbies/HobbiesAndMore";
 
 export const pages = [
   {
@@ -41,7 +41,7 @@ export const pages = [
   },
   {
     name: "Certificates",
-    component: Certificate,
+    component: Certificates,
     key: "certificate",
     icon: icons.certificate,
     showHeader: true,

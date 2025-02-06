@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { School, CalendarToday, Grade, EmojiEvents } from "@mui/icons-material";
 import { motion } from "framer-motion";
-import { basicEducation } from "../data/data";
+import { basicEducation } from "../../data/data";
 
 // Define animation variants for the cards
 const cardVariants = {

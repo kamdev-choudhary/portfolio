@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 
-import { projects } from "../data/data";
+import { projects } from "../../data/data";
 
 const Projects: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
-import { extra } from "../data/data";
+import { extra } from "../../data/data";
 
 const Extracurricular: React.FC = () => {
   return (

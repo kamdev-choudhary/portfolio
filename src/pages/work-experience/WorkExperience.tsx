@@ -18,7 +18,7 @@ import {
   AccessTimeRounded,
 } from "@mui/icons-material";
 
-import { work } from "../data/data";
+import { work } from "../../data/data";
 
 const WorkExperience: React.FC = () => {
   return (

@@ -61,7 +61,7 @@ export default function Layout() {
           transition: "all 0.3s ease",
           bgcolor: navBackground ? alpha("#ffffff", 0.92) : "transparent",
           backdropFilter: navBackground ? "blur(8px)" : "none",
-          boxShadow: navBackground ? 1 : 0,
+          // boxShadow: navBackground ? 1 : 0,
         }}
       >
         <Navbar scrollToSection={scrollToSection} />

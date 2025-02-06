@@ -18,8 +18,8 @@ import {
   OpenInNewRounded,
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
-import { CustomModal } from "../components/CustomModal";
-import { certificates } from "../data/data";
+import { CustomModal } from "../../components/CustomModal";
+import { certificates } from "../../data/data";
 import { Link } from "react-router-dom";
 
 interface CertificateLink {

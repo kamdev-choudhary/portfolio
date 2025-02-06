@@ -11,7 +11,7 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
-import { skills } from "../data/data";
+import { skills } from "../../data/data";
 
 const Skill: React.FC = () => {
   return (

@@ -7,10 +7,11 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import photo from "../assets/photo.jpg";
-import TypingText from "../components/TypingText";
-import IconWithName from "../components/IconWithName";
-import { aboutMe, contact, name } from "../data/data";
+import photo from "../../assets/photo.jpg";
+import TypingText from "../../components/TypingText";
+import IconWithName from "../../components/IconWithName";
+import { aboutMe, contact, name } from "../../data/data";
+import Name from "./Name";
 
 import { Email } from "@mui/icons-material";
 
@@ -67,7 +68,7 @@ const Home: React.FC = () => {
             <Box>
               <Typography>Hello, I am</Typography>
               <Typography variant="h3" sx={{ mb: 1, fontWeight: "bold" }}>
-                {name}
+                <Name name={name} />
               </Typography>
               <TypingText />
               <Box

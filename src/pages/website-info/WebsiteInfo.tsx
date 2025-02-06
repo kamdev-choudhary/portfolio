@@ -10,8 +10,8 @@ import {
   Box,
 } from "@mui/material";
 import { CodeRounded, EmojiObjectsRounded, GitHub } from "@mui/icons-material";
-import IconWithName from "../components/IconWithName";
-import { website, projectGithub } from "../data/data";
+import IconWithName from "../../components/IconWithName";
+import { website, projectGithub } from "../../data/data";
 
 const { packages, icon } = website;
 

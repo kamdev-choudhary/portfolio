@@ -7,10 +7,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import CustomButton from "../components/CustomButton";
+import CustomButton from "../../components/CustomButton";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
-import { googleScriptUrl } from "../constants/helper";
+import { googleScriptUrl } from "../../constants/helper";
 
 const ContactUs: React.FC = () => {
   // States for the form fields

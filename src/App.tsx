@@ -4,6 +4,8 @@ import { lightTheme, darkTheme } from "./theme"; // Adjust path as necessary
 import { useGlobalContext } from "./GlobalProvider";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Loader from "./components/Loader";
+import ProtectedRoute from "./layout/ProtectedRoute";
+import Test from "./pages/test/Test";
 
 // Lazy load the Layout component
 const LayoutLazy = React.lazy(() => import("./layout/Layout"));
@@ -24,6 +26,16 @@ const App: React.FC = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<LayoutLazy />} />
+            <Route
+              path="/test"
+              element={
+                <>
+                  <ProtectedRoute>
+                    <Test />
+                  </ProtectedRoute>
+                </>
+              }
+            />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
