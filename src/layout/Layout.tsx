@@ -1,5 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Box, Fab, useScrollTrigger, alpha } from "@mui/material";
+import {
+  Box,
+  Fab,
+  useScrollTrigger,
+  alpha,
+  styled,
+  Typography,
+} from "@mui/material";
 import { KeyboardArrowUp as ArrowUpIcon } from "@mui/icons-material";
 import Navbar from "./Navbar";
 import { pages } from "./pages";
@@ -43,6 +50,12 @@ export default function Layout() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const GradientText = styled(Typography)(({ theme }) => ({
+    background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  }));
+
   return (
     <Box
       sx={{
@@ -69,8 +82,20 @@ export default function Layout() {
 
       {/* Main Content with proper spacing */}
       <Box component="main">
-        {pages.map(({ component: Component, key }) => (
+        {pages.map(({ component: Component, key, name, showHeader }) => (
           <Box key={key} ref={pagesRefs[key]}>
+            {showHeader && (
+              <GradientText
+                variant="h3"
+                sx={{
+                  fontWeight: 800,
+                  mb: 2,
+                  textAlign: "center",
+                }}
+              >
+                {name}
+              </GradientText>
+            )}
             <Component />
           </Box>
         ))}
