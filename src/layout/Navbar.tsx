@@ -93,7 +93,10 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
         sx={{ display: "flex", alignItems: "center", alignContent: "center" }}
       >
         <button.icon sx={{ color: button.color }} size={button.size} />
-        <Typography variant="body2" sx={{ ml: 1 }}>
+        <Typography
+          variant="body2"
+          sx={{ ml: 1, mixBlendMode: "difference", color: "white" }}
+        >
           {button.name}
         </Typography>
       </Box>
@@ -163,7 +166,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           <Box
             sx={{
               display: "flex",
-              p: 1,
+              py: 0.5,
               borderRadius: 10,
               alignItems: "center",
             }}
@@ -180,7 +183,12 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
               >
                 <Typography
                   variant="body2"
-                  sx={{ alignItems: "center", display: "flex" }}
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    mixBlendMode: "difference",
+                    color: "white",
+                  }}
                 >
                   <ArrowDropDownRounded />
                   More

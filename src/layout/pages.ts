@@ -69,11 +69,11 @@ export const pages = [
   },
 
   {
-    name: "Contact Us",
+    name: "Contact Me",
     component: ContactUs,
     key: "contact",
     icon: icons.contactUs,
-    showHeader: false,
+    showHeader: true,
   },
   {
     name: "Website Info",

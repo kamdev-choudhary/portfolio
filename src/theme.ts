@@ -1,36 +1,43 @@
 import { createTheme, ThemeOptions } from "@mui/material/styles";
 
-// Common properties for both light and dark themes
+// Common properties for both themes
 const commonThemeOptions: ThemeOptions = {
   shape: {
-    borderRadius: 8, // Set default border radius
+    borderRadius: 10, // Slightly more rounded corners
   },
   typography: {
-    fontFamily: "'Aptos','Roboto', 'Arial', sans-serif",
-    fontSize: 14, // Default font size
+    fontFamily: "'Inter', 'Roboto', 'Arial', sans-serif",
+    fontSize: 15,
+    fontWeightRegular: 400,
+    fontWeightBold: 600,
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: "none", // Prevent buttons from having uppercase text
-          borderRadius: 8, // Use consistent border radius for buttons
+          textTransform: "none",
+          borderRadius: 10,
+          padding: "10px 20px",
+          fontWeight: 600,
+          transition: "all 0.3s ease-in-out",
+          ":hover": {
+            transform: "translateY(-2px)", // Modern hover effect
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+          },
         },
       },
     },
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 12, // Slightly rounded corners for a modern look
-          padding: 20, // Standardized padding for better content spacing
-          boxShadow: "0px 6px 20px rgba(0, 0, 0, 0.1)",
+          borderRadius: 14,
+          padding: 24,
+          background: "rgba(255, 255, 255, 0.75)", // Optimized glassmorphism effect
+          backdropFilter: "blur(12px)",
+          boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
           transition: "all 0.3s ease-in-out",
-          ":hover": {
-            boxShadow: "0px 8px 25px rgba(0, 0, 0, 0.15)",
-            transform: "translateY(-1px)", // Subtle lift effect on hover
-          },
-          "&.MuiPaper-elevation1": {
-            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)", // Custom shadow for elevation 1
+          "&:hover": {
+            boxShadow: "0px 12px 35px rgba(0, 0, 0, 0.15)",
           },
         },
       },
@@ -39,7 +46,13 @@ const commonThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           "& .MuiOutlinedInput-root": {
-            borderRadius: 12, // Smooth text field borders
+            borderRadius: 12,
+            "& fieldset": {
+              borderWidth: 1.5,
+            },
+            "&:hover fieldset": {
+              borderColor: "#2563eb",
+            },
           },
         },
       },
@@ -47,50 +60,49 @@ const commonThemeOptions: ThemeOptions = {
   },
 };
 
-// Define vibrant light theme options
+// Light Theme with optimized modern colors
 const lightThemeOptions: ThemeOptions = {
   ...commonThemeOptions,
   palette: {
     mode: "light",
     primary: {
-      main: "#f57c00", // Vibrant orange for primary elements
+      main: "#ff4d4d", // Modern vibrant red
     },
     secondary: {
-      main: "#1976d2", // Strong blue for secondary elements
+      main: "#3b82f6", // Sleek blue
     },
     background: {
-      default: "#f1f3fb", // Light gray background for the overall page
-      paper: "#ffffff", // White background for Paper components
+      default: "#f9fafb", // Softer neutral background
+      paper: "#ffffff",
     },
     text: {
-      primary: "#212121", // Dark text color for readability
-      secondary: "#757575", // Subtle secondary text color
+      primary: "#1f2937",
+      secondary: "#6b7280",
     },
   },
 };
 
-// Define vibrant dark theme options
+// Dark Theme with optimized modern colors
 const darkThemeOptions: ThemeOptions = {
   ...commonThemeOptions,
   palette: {
     mode: "dark",
     primary: {
-      main: "#f57c00", // Vibrant orange for primary elements
+      main: "#ff4d4d", // Consistent vibrant red
     },
     secondary: {
-      main: "#1976d2", // Strong blue for secondary elements
+      main: "#3b82f6", // Sleek blue
     },
     background: {
-      default: "#121212", // Dark background for the overall page
-      paper: "#1d1d1d", // Slightly lighter dark background for Paper components
+      default: "#111827", // Darker, rich background
+      paper: "#1f2937", // Deep modern dark gray
     },
     text: {
-      primary: "#e0e0e0", // Light text color for readability in dark mode
-      secondary: "#b0b0b0", // Subtle secondary text color in dark mode
+      primary: "#f3f4f6",
+      secondary: "#9ca3af",
     },
   },
 };
 
-// Create vibrant themes
 export const lightTheme = createTheme(lightThemeOptions);
 export const darkTheme = createTheme(darkThemeOptions);
