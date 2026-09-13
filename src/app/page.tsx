@@ -13,6 +13,9 @@ import { contact, education, experience, profile } from "@/content/profile";
 
 /** JSON-LD so search engines and AI crawlers get structured facts. */
 function PersonSchema() {
+  // single source of truth: "City, Region, Country" in profile.location
+  const [locality, region] = profile.location.split(",").map((p) => p.trim());
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -23,8 +26,8 @@ function PersonSchema() {
     url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kamdev.vercel.app",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Noida",
-      addressRegion: "Uttar Pradesh",
+      addressLocality: locality,
+      addressRegion: region,
       addressCountry: "IN",
     },
     sameAs: [contact.github, contact.linkedin],

@@ -4,7 +4,7 @@ import { ArrowLeft, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/terminal";
 import { Brand } from "@/components/brand-icons";
-import { PrintButton } from "./print-button";
+import { ResumeActions } from "./print-button";
 import {
   certificates,
   contact,
@@ -32,7 +32,7 @@ export default function ResumePage() {
               back
             </Link>
           </Button>
-          <PrintButton />
+          <ResumeActions />
         </Container>
       </div>
 

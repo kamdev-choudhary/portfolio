@@ -90,7 +90,7 @@ export function Contact() {
 
       <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
         {/* details */}
-        <div className="space-y-3 lg:col-span-2">
+        <div className="min-w-0 space-y-3 lg:col-span-2">
           <ContactRow
             icon={Mail}
             label="email"
@@ -266,7 +266,7 @@ function ContactRow({
         <Icon className="size-4 text-primary" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block font-mono text-[11px] text-muted-foreground">
+        <span className="block truncate font-mono text-[11px] text-muted-foreground">
           {label}
         </span>
         <span className="block truncate font-mono text-sm">{value}</span>
@@ -275,7 +275,7 @@ function ContactRow({
   );
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border bg-card p-3 transition-colors hover:border-primary/40">
+    <div className="flex min-w-0 items-center gap-3 rounded-lg border bg-card p-3 transition-colors hover:border-primary/40">
       {href ? (
         <a
           href={href}
