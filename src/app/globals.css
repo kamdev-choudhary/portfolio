@@ -99,7 +99,8 @@
   --ring: oklch(0.505 0.135 150);
 
   --term-green: oklch(0.505 0.135 150);
-  --term-amber: oklch(0.585 0.135 70);
+  /* 0.585 measured 4.34:1 on white — below AA; 0.55 gives 4.99:1 */
+  --term-amber: oklch(0.55 0.135 70);
   --term-cyan: oklch(0.535 0.105 220);
   --term-magenta: oklch(0.535 0.155 330);
 
@@ -309,7 +310,9 @@
     .reveal {
       animation: reveal-in linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 42%;
+      /* completes while the element is still entering, so text is never
+         left parked at partial opacity if the user stops scrolling */
+      animation-range: entry 0% entry 25%;
     }
   }
 }
@@ -317,7 +320,7 @@
 @keyframes reveal-in {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -378,7 +381,7 @@
   --ring: oklch(0.47 0.135 272);
 
   --term-green: oklch(0.52 0.12 155);
-  --term-amber: oklch(0.58 0.13 70);
+  --term-amber: oklch(0.55 0.135 70);
   --term-cyan: oklch(0.52 0.11 235);
   --term-magenta: oklch(0.52 0.15 330);
 
