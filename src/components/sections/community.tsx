@@ -23,7 +23,7 @@ export function Community() {
         description="Volunteering that shaped how I work, and what I do when I'm not at a keyboard."
       />
 
-      <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+      <div className="grid gap-6 lg:grid-cols-3 lg:items-start lg:gap-8">
         {/* volunteering */}
         <div className="space-y-5 lg:col-span-2">
           {extracurricular.map((v) => (
@@ -74,7 +74,10 @@ export function Community() {
         {/* hobbies */}
         <div className="rounded-lg border bg-card p-5 sm:p-6 lg:sticky lg:top-24 lg:self-start">
           <p className="font-mono text-xs text-muted-foreground">
-            <span className="text-primary">$</span> cat hobbies.txt
+            <span className="section-cmd">
+              <span className="text-primary">$</span> cat{" "}
+            </span>
+            <span className="font-semibold text-foreground">Hobbies</span>
           </p>
           <ul className="mt-4 space-y-4">
             {hobbies.map((h) => {

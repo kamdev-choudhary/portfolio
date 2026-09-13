@@ -300,3 +300,275 @@
     page-break-inside: avoid;
   }
 }
+
+/* ---------- scroll-linked reveals ----------
+   Pure CSS via scroll-driven animations. Browsers without support simply show
+   the content, so there is no JS cost and no flash of hidden content. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 42%;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- cross-page view transitions ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: vt-fade-out 140ms ease both;
+  }
+  ::view-transition-new(root) {
+    animation: vt-fade-in 220ms ease both;
+  }
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* =====================================================================
+   VARIANT: minimal (default) — typography-led, neutral, indigo accent
+   Every token defined for light, then overridden for dark, so both modes
+   work in each variant. The mono->sans swap below is what removes the
+   terminal feel everywhere at once, without touching a single component.
+   ===================================================================== */
+[data-variant="minimal"] {
+  /* the single lever that de-terminalises the whole page */
+  --font-mono-stack: var(--font-sans-stack);
+  --radius: 0.75rem;
+
+  --background: oklch(0.993 0.002 260);
+  --foreground: oklch(0.19 0.014 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.014 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.014 265);
+  --primary: oklch(0.47 0.135 272);
+  --primary-foreground: oklch(0.99 0.004 260);
+  --secondary: oklch(0.965 0.005 265);
+  --secondary-foreground: oklch(0.28 0.02 268);
+  --muted: oklch(0.965 0.005 265);
+  --muted-foreground: oklch(0.495 0.016 265);
+  --accent: oklch(0.955 0.012 268);
+  --accent-foreground: oklch(0.28 0.02 268);
+  --destructive: oklch(0.577 0.21 27);
+  --border: oklch(0.915 0.006 265);
+  --input: oklch(0.905 0.007 265);
+  --ring: oklch(0.47 0.135 272);
+
+  --term-green: oklch(0.52 0.12 155);
+  --term-amber: oklch(0.58 0.13 70);
+  --term-cyan: oklch(0.52 0.11 235);
+  --term-magenta: oklch(0.52 0.15 330);
+
+  --grid-line: transparent;
+  --glow: none;
+}
+
+.dark[data-variant="minimal"] {
+  --background: oklch(0.155 0.008 265);
+  --foreground: oklch(0.945 0.006 265);
+  --card: oklch(0.192 0.009 266);
+  --card-foreground: oklch(0.945 0.006 265);
+  --popover: oklch(0.192 0.009 266);
+  --popover-foreground: oklch(0.945 0.006 265);
+  --primary: oklch(0.76 0.125 272);
+  --primary-foreground: oklch(0.17 0.03 268);
+  --secondary: oklch(0.25 0.012 266);
+  --secondary-foreground: oklch(0.945 0.006 265);
+  --muted: oklch(0.24 0.011 266);
+  --muted-foreground: oklch(0.665 0.016 265);
+  --accent: oklch(0.28 0.022 268);
+  --accent-foreground: oklch(0.945 0.006 265);
+  --destructive: oklch(0.68 0.19 22);
+  --border: oklch(0.945 0.006 265 / 12%);
+  --input: oklch(0.945 0.006 265 / 16%);
+  --ring: oklch(0.76 0.125 272 / 60%);
+
+  --term-green: oklch(0.78 0.15 155);
+  --term-amber: oklch(0.82 0.14 78);
+  --term-cyan: oklch(0.78 0.11 235);
+  --term-magenta: oklch(0.77 0.14 330);
+
+  --grid-line: transparent;
+  --glow: none;
+}
+
+/* --- strip every piece of shell furniture from the clean variant --- */
+[data-variant="minimal"] .section-cmd,
+[data-variant="minimal"] .section-hash,
+[data-variant="minimal"] .caret,
+[data-variant="minimal"] .term-chrome,
+[data-variant="minimal"] .term-syntax {
+  display: none !important;
+}
+
+[data-variant="minimal"] .bg-grid {
+  background-image: none;
+}
+
+/* the eyebrow replaces the shell prompt line */
+[data-variant="minimal"] .section-eyebrow {
+  display: block;
+}
+[data-variant="minimal"] .section-eyebrow + h2 {
+  margin-top: 0.5rem;
+}
+
+/* headings: quieter weight, tighter tracking, a touch more air */
+[data-variant="minimal"] h2 {
+  letter-spacing: -0.022em;
+  font-weight: 600;
+}
+[data-variant="minimal"] h3 {
+  letter-spacing: -0.012em;
+}
+
+/* badges read as pills, not code tokens */
+[data-variant="minimal"] [data-slot="badge"] {
+  border-radius: 999px;
+  padding-inline: 0.6rem;
+  font-weight: 400;
+}
+
+/* cards: hairline borders, no shadow, a calm hover */
+[data-variant="minimal"] .bg-card {
+  box-shadow: none;
+}
+
+/* the skills grid loses its code-block indent once the braces are gone */
+[data-variant="minimal"] .pl-3 {
+  padding-left: 0;
+}
+
+/* buttons and inputs pick up the softer radius */
+[data-variant="minimal"] [data-slot="button"],
+[data-variant="minimal"] [data-slot="input"],
+[data-variant="minimal"] [data-slot="textarea"] {
+  border-radius: 0.625rem;
+}
+
+/* measured vertical rhythm — enough air to breathe, not enough to drift */
+[data-variant="minimal"] section[id] {
+  padding-block: 3.25rem;
+}
+@media (min-width: 640px) {
+  [data-variant="minimal"] section[id] {
+    padding-block: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  [data-variant="minimal"] section[id] {
+    padding-block: 5rem;
+  }
+}
+
+/* tighter gap under a section heading */
+[data-variant="minimal"] section[id] > div > header {
+  margin-bottom: 1.75rem;
+}
+
+/* panels get comfortable, even padding now the chrome bar is gone */
+[data-variant="minimal"] .term-chrome + div {
+  padding: 1.25rem;
+}
+@media (min-width: 640px) {
+  [data-variant="minimal"] .term-chrome + div {
+    padding: 1.5rem;
+  }
+}
+
+/* =====================================================================
+   VARIANT: terminal-pro — same phosphor palette, warmer surfaces so the
+   REPL reads as the focal point rather than competing with the page.
+   ===================================================================== */
+[data-variant="terminal-pro"] {
+  --primary: oklch(0.49 0.14 152);
+  --ring: oklch(0.49 0.14 152);
+}
+
+.dark[data-variant="terminal-pro"] {
+  --background: oklch(0.142 0.011 168);
+  --card: oklch(0.183 0.012 168);
+  --popover: oklch(0.183 0.012 168);
+  --primary: oklch(0.83 0.19 146);
+  --primary-foreground: oklch(0.15 0.03 155);
+  --ring: oklch(0.83 0.19 146 / 60%);
+  --glow: 0 0 34px -8px oklch(0.83 0.19 146 / 26%);
+}
+
+/* --- clean variant: forms and controls read like a product, not a shell --- */
+
+/* lowercase labels are a terminal affectation; sentence-case them here */
+[data-variant="minimal"] [data-slot="label"],
+[data-variant="minimal"] header nav a,
+[data-variant="minimal"] [data-slot="button"],
+[data-variant="minimal"] [data-slot="command-item"] span:first-of-type {
+  text-transform: capitalize;
+}
+
+/* roomier fields with a clearer focus state */
+[data-variant="minimal"] [data-slot="input"],
+[data-variant="minimal"] [data-slot="textarea"] {
+  border-radius: 0.625rem;
+  background: var(--background);
+  font-size: 0.9375rem;
+}
+[data-variant="minimal"] [data-slot="input"] {
+  height: 2.75rem;
+  padding-inline: 0.875rem;
+}
+[data-variant="minimal"] [data-slot="textarea"] {
+  padding: 0.75rem 0.875rem;
+  min-height: 9rem;
+  line-height: 1.6;
+}
+[data-variant="minimal"] [data-slot="input"]:focus-visible,
+[data-variant="minimal"] [data-slot="textarea"]:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px oklch(from var(--primary) l c h / 14%);
+}
+
+[data-variant="minimal"] [data-slot="label"] {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--foreground);
+}
+
+/* the submit button earns some presence */
+[data-variant="minimal"] form [data-slot="button"][type="submit"] {
+  height: 2.75rem;
+  padding-inline: 1.25rem;
+  font-weight: 500;
+}
+
+/* contact rows: quieter tiles, clearer hover */
+[data-variant="minimal"] .contact-row {
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.875rem;
+}
+[data-variant="minimal"] .contact-row:hover {
+  background: var(--accent);
+}

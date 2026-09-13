@@ -18,7 +18,7 @@ export function About() {
         description="Where the academic work ends and the engineering begins."
       />
 
-      <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+      <div className="grid gap-6 lg:grid-cols-3 lg:items-start lg:gap-8">
         <TerminalWindow
           title="about.md"
           className="lg:col-span-2"
@@ -34,7 +34,7 @@ export function About() {
           ))}
         </TerminalWindow>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-1 lg:content-start">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-1">
           {stats.map(({ icon: Icon, value, label }) => (
             <div
               key={label}

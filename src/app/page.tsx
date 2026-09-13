@@ -1,8 +1,14 @@
+import { BootGate } from "@/components/boot-gate";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
-import { Experience } from "@/components/sections/experience";
+import { HeroMinimal } from "@/components/variants/hero-minimal";
+import { HeroTerminal } from "@/components/variants/hero-terminal";
+import { HeroRepl } from "@/components/variants/hero-repl";
+import { ExperienceMinimal } from "@/components/variants/experience-minimal";
+import { ExperienceTerminal } from "@/components/variants/experience-terminal";
+import { ExperienceGitLog } from "@/components/variants/experience-gitlog";
+import { getVariant } from "@/lib/variant.server";
 import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { Education } from "@/components/sections/education";
@@ -58,11 +64,29 @@ function PersonSchema() {
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const variant = await getVariant();
+
+  const Hero =
+    variant === "terminal-pro"
+      ? HeroRepl
+      : variant === "terminal"
+        ? HeroTerminal
+        : HeroMinimal;
+
+  const Experience =
+    variant === "terminal-pro"
+      ? ExperienceGitLog
+      : variant === "terminal"
+        ? ExperienceTerminal
+        : ExperienceMinimal;
+
   return (
     <>
       <PersonSchema />
-      <SiteHeader />
+      {/* the boot screen belongs to the fully-interactive shell only */}
+      {variant === "terminal-pro" ? <BootGate /> : null}
+      <SiteHeader variant={variant} />
       <main id="main" className="flex-1">
         <Hero />
         <About />

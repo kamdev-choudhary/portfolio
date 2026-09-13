@@ -4,7 +4,7 @@ import { Section, SectionHeading } from "@/components/terminal";
 import { TechList } from "@/components/tech-badge";
 import { experience } from "@/content/profile";
 
-export function Experience() {
+export function ExperienceTerminal() {
   return (
     <Section id="experience" className="border-t bg-muted/20">
       <SectionHeading

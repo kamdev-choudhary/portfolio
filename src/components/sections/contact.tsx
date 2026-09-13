@@ -88,7 +88,7 @@ export function Contact() {
         description="Open to full-stack roles, freelance builds and interesting problems. I read every message."
       />
 
-      <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
+      <div className="grid gap-6 lg:grid-cols-5 lg:items-start lg:gap-8">
         {/* details */}
         <div className="min-w-0 space-y-3 lg:col-span-2">
           <ContactRow
@@ -136,8 +136,8 @@ export function Contact() {
         </div>
 
         {/* form */}
-        <TerminalWindow title="compose — new message" className="lg:col-span-3">
-          <form ref={formRef} onSubmit={onSubmit} noValidate className="space-y-4">
+        <TerminalWindow title="compose — new message" className="lg:col-span-3 lg:self-start">
+          <form ref={formRef} onSubmit={onSubmit} noValidate className="space-y-5">
             {/* honeypot */}
             <div aria-hidden className="hidden">
               <label htmlFor="website">Website</label>
@@ -150,7 +150,7 @@ export function Contact() {
               />
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-5 sm:grid-cols-2">
               <Field
                 id="name"
                 label="name"
@@ -275,7 +275,7 @@ function ContactRow({
   );
 
   return (
-    <div className="flex min-w-0 items-center gap-3 rounded-lg border bg-card p-3 transition-colors hover:border-primary/40">
+    <div className="contact-row flex min-w-0 items-center gap-3 rounded-lg border bg-card p-3 transition-colors hover:border-primary/40">
       {href ? (
         <a
           href={href}

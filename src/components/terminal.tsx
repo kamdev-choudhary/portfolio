@@ -25,7 +25,7 @@ export function Section({
       className={cn("scroll-mt-22 py-14 sm:py-18 lg:py-24", className)}
       {...props}
     >
-      <Container>{children}</Container>
+      <Container className="reveal">{children}</Container>
     </section>
   );
 }
@@ -66,9 +66,18 @@ export function SectionHeading({
 }) {
   return (
     <header className="mb-8 sm:mb-10">
-      <Prompt command={command} as="p" className="text-muted-foreground" />
+      {/* the shell prompt and # prefix are hidden in the clean variant (CSS) */}
+      <Prompt
+        command={command}
+        as="p"
+        className="section-cmd text-muted-foreground"
+      />
+      {/* clean variant shows a quiet label where the shell prompt was */}
+      <p className="section-eyebrow hidden text-xs font-medium tracking-[0.14em] text-primary uppercase">
+        {title}
+      </p>
       <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-        <span className="text-primary" aria-hidden>
+        <span className="section-hash text-primary" aria-hidden>
           #{" "}
         </span>
         {title}
@@ -103,7 +112,7 @@ export function TerminalWindow({
         className,
       )}
     >
-      <div className="flex items-center gap-2 border-b bg-muted/50 px-3 py-2 sm:px-4">
+      <div className="term-chrome flex items-center gap-2 border-b bg-muted/50 px-3 py-2 sm:px-4">
         <span className="flex shrink-0 gap-1.5" aria-hidden>
           <span className="size-2.5 rounded-full bg-destructive/70" />
           <span className="size-2.5 rounded-full bg-term-amber/70" />

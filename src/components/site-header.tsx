@@ -2,6 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { TransitionLink } from "@/components/transition-link";
+import { useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 import { FileText, Mail, Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,15 +18,20 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CommandPalette } from "@/components/command-palette";
+import { KeyboardNav } from "@/components/keyboard-nav";
 import { Container } from "@/components/terminal";
 import { Brand } from "@/components/brand-icons";
 import { contact, navigation, profile } from "@/content/profile";
+import { VariantSwitcher } from "@/components/variant-switcher";
+import type { Variant } from "@/lib/variant";
 import { cn } from "@/lib/utils";
 
 /** Only the four sections most visitors want sit in the bar; ⌘K reaches the rest. */
 const primaryNav = navigation.filter((item) => item.primary);
 
-export function SiteHeader() {
+export function SiteHeader({ variant }: { variant: Variant }) {
+  const router = useRouter();
+  const { resolvedTheme, setTheme } = useTheme();
   const [paletteOpen, setPaletteOpen] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
@@ -67,6 +75,13 @@ export function SiteHeader() {
     return () => observer.disconnect();
   }, []);
 
+  const openPalette = React.useCallback(() => setPaletteOpen(true), []);
+  const toggleTheme = React.useCallback(
+    () => setTheme(resolvedTheme === "dark" ? "light" : "dark"),
+    [resolvedTheme, setTheme],
+  );
+  const openResume = React.useCallback(() => router.push("/resume"), [router]);
+
   return (
     <header
       className={cn(
@@ -84,7 +99,7 @@ export function SiteHeader() {
           aria-label={`${profile.name} — home`}
         >
           <span className="text-primary">{profile.handle}</span>
-          <span className="text-muted-foreground">:~$</span>
+          <span className="section-cmd text-muted-foreground">:~$</span>
         </Link>
 
         {/* primary nav — underline marks the active section, no filled chips */}
@@ -125,6 +140,8 @@ export function SiteHeader() {
             </kbd>
           </Button>
 
+          <VariantSwitcher current={variant} />
+
           <ThemeToggle />
 
           <Button
@@ -133,7 +150,7 @@ export function SiteHeader() {
             variant="outline"
             className="hidden h-9 font-mono text-xs lg:inline-flex"
           >
-            <Link href="/resume">resume</Link>
+            <TransitionLink href="/resume">resume</TransitionLink>
           </Button>
 
           {/* everything folds into the sheet below md */}
@@ -189,13 +206,13 @@ export function SiteHeader() {
                 <Separator className="my-3" />
 
                 <SheetClose asChild>
-                  <Link
+                  <TransitionLink
                     href="/resume"
                     className="flex items-center gap-2.5 rounded-md px-3 py-2.5 font-mono text-sm hover:bg-accent/60"
                   >
                     <FileText className="size-4 text-muted-foreground" />
                     resume
-                  </Link>
+                  </TransitionLink>
                 </SheetClose>
                 <a
                   href={`mailto:${contact.email}`}
@@ -229,6 +246,11 @@ export function SiteHeader() {
       </Container>
 
       <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
+      <KeyboardNav
+        onPalette={openPalette}
+        onTheme={toggleTheme}
+        onResume={openResume}
+      />
     </header>
   );
 }

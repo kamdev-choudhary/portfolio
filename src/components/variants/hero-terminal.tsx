@@ -8,7 +8,7 @@ import { Container, TerminalWindow } from "@/components/terminal";
 import { TypingText } from "@/components/typing-text";
 import { contact, profile } from "@/content/profile";
 
-export function Hero() {
+export function HeroTerminal() {
   return (
     <section className="relative overflow-hidden border-b bg-grid">
       {/* soft radial wash behind the fold */}

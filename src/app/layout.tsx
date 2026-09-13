@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next";
 import { profile, contact } from "@/content/profile";
 import { siteUrl } from "@/lib/env";
+import { getVariant } from "@/lib/variant.server";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -67,11 +68,14 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const variant = await getVariant();
+
   return (
     <html
       lang="en"
       suppressHydrationWarning
+      data-variant={variant}
       className={`${geistSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">

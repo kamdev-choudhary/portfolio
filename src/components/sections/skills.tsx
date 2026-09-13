@@ -16,13 +16,13 @@ export function Skills() {
           {skills.map((group) => (
             <div key={group.label} className="p-4 sm:p-5">
               <p className="mb-3 flex items-center gap-2 font-mono text-xs sm:text-sm">
-                <span className="text-muted-foreground" aria-hidden>
+                <span className="term-syntax text-muted-foreground" aria-hidden>
                   &quot;
                 </span>
                 <span className="font-semibold text-primary">
                   {group.label}
                 </span>
-                <span className="text-muted-foreground" aria-hidden>
+                <span className="term-syntax text-muted-foreground" aria-hidden>
                   &quot;: [
                 </span>
               </p>
@@ -34,7 +34,7 @@ export function Skills() {
                 ))}
               </ul>
               <p
-                className="mt-3 font-mono text-xs text-muted-foreground"
+                className="term-syntax mt-3 font-mono text-xs text-muted-foreground"
                 aria-hidden
               >
                 ],
