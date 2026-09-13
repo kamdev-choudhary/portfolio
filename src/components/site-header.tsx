@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { FileText, Github, Linkedin, Mail, Menu, Search } from "lucide-react";
+import { FileText, Mail, Menu, Search } from "lucide-react";
+import { Brand } from "@/components/brand-icons";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -214,7 +215,7 @@ export function SiteHeader() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2.5 rounded-md px-3 py-2.5 font-mono text-sm hover:bg-accent/60"
                 >
-                  <Github className="size-4 text-muted-foreground" />
+                  <Brand.github className="size-4 text-muted-foreground" />
                   github
                 </a>
                 <a
@@ -223,7 +224,7 @@ export function SiteHeader() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2.5 rounded-md px-3 py-2.5 font-mono text-sm hover:bg-accent/60"
                 >
-                  <Linkedin className="size-4 text-muted-foreground" />
+                  <Brand.linkedin className="size-4 text-muted-foreground" />
                   linkedin
                 </a>
               </nav>

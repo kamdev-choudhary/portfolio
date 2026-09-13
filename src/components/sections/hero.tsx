@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, FileText, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { ArrowDown, FileText, Mail, MapPin } from "lucide-react";
+import { Brand } from "@/components/brand-icons";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Container, TerminalWindow } from "@/components/terminal";
@@ -81,7 +82,7 @@ export function Hero() {
                     rel="noopener noreferrer"
                     aria-label="GitHub"
                   >
-                    <Github className="size-[18px]" />
+                    <Brand.github className="size-[18px]" />
                   </a>
                 </Button>
                 <Button asChild variant="ghost" size="icon" className="size-10">
@@ -91,7 +92,7 @@ export function Hero() {
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
                   >
-                    <Linkedin className="size-[18px]" />
+                    <Brand.linkedin className="size-[18px]" />
                   </a>
                 </Button>
               </div>
