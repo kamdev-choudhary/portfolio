@@ -4,7 +4,7 @@ export const profile = {
   shortName: "KD",
   initials: "KC",
   title: "Full-Stack Developer",
-  location: "Pune, Maharashtra, India",
+  location: "Noida, Uttar Pradesh, India",
   available: true,
   roles: [
     "MERN Stack Developer",
@@ -457,12 +457,12 @@ export const hobbies = [
 ];
 
 export const navigation = [
-  { id: "about", label: "about", cmd: "whoami" },
-  { id: "experience", label: "experience", cmd: "cat work.log" },
-  { id: "projects", label: "projects", cmd: "ls ~/projects" },
-  { id: "skills", label: "skills", cmd: "cat skills.json" },
-  { id: "education", label: "education", cmd: "cat edu.md" },
-  { id: "certificates", label: "certificates", cmd: "ls ~/certs" },
-  { id: "community", label: "community", cmd: "cat volunteer.md" },
-  { id: "contact", label: "contact", cmd: "mail kd" },
+  { id: "about", label: "about", short: "about", cmd: "whoami" },
+  { id: "experience", label: "experience", short: "work", cmd: "cat work.log" },
+  { id: "projects", label: "projects", short: "projects", cmd: "ls ~/projects" },
+  { id: "skills", label: "skills", short: "skills", cmd: "cat skills.json" },
+  { id: "education", label: "education", short: "edu", cmd: "cat edu.md" },
+  { id: "certificates", label: "certificates", short: "certs", cmd: "ls ~/certs" },
+  { id: "community", label: "community", short: "community", cmd: "cat volunteer.md" },
+  { id: "contact", label: "contact", short: "contact", cmd: "mail kd" },
 ] as const;

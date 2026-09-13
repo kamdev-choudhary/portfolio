@@ -23,8 +23,8 @@ function PersonSchema() {
     url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kamdev.vercel.app",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Pune",
-      addressRegion: "Maharashtra",
+      addressLocality: "Noida",
+      addressRegion: "Uttar Pradesh",
       addressCountry: "IN",
     },
     sameAs: [contact.github, contact.linkedin],

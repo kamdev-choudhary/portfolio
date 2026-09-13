@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "Node.js",
     "TypeScript",
     "portfolio",
-    "Pune",
+    "Noida",
   ],
   authors: [{ name: profile.name, url: contact.github }],
   creator: profile.name,
