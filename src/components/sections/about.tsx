@@ -1,13 +1,23 @@
-import { Braces, GraduationCap, Rocket, Users } from "lucide-react";
+import {
+  Braces,
+  FolderGit2,
+  GraduationCap,
+  Rocket,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import { Section, SectionHeading, TerminalWindow } from "@/components/terminal";
-import { profile } from "@/content/profile";
+import { computeStats, profile } from "@/content/profile";
 
-const stats = [
-  { icon: Rocket, value: "4+", label: "years working" },
-  { icon: Braces, value: "3+", label: "years coding" },
-  { icon: Users, value: "300+", label: "scholars supported" },
-  { icon: GraduationCap, value: "B.Sc.", label: "mathematics" },
-];
+/** Icons keyed to the derived stats; the numbers themselves come from
+ *  content/stats.ts and recalculate on their own. */
+const ICONS: Record<string, LucideIcon> = {
+  working: Rocket,
+  coding: Braces,
+  scholars: Users,
+  projects: FolderGit2,
+  degree: GraduationCap,
+};
 
 export function About() {
   return (
@@ -35,9 +45,11 @@ export function About() {
         </TerminalWindow>
 
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-1">
-          {stats.map(({ icon: Icon, value, label }) => (
+          {computeStats().map(({ key, value, label }) => {
+            const Icon = ICONS[key] ?? Rocket;
+            return (
             <div
-              key={label}
+              key={key}
               className="rounded-lg border bg-card p-4 transition-colors hover:border-primary/40"
             >
               <Icon className="mb-2 size-4 text-primary" aria-hidden />
@@ -48,7 +60,8 @@ export function About() {
                 {label}
               </p>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </Section>
