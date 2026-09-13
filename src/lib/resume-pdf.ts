@@ -15,7 +15,7 @@ import {
  * parseable by applicant-tracking systems. */
 const PAGE_W = 595.28;
 const PAGE_H = 841.89;
-const MARGIN = 46;
+const MARGIN = 38;
 const CONTENT_W = PAGE_W - MARGIN * 2;
 
 const INK = [17, 24, 20] as const;
@@ -80,11 +80,11 @@ function paragraph(
   } = {},
 ) {
   const {
-    size = 9.2,
+    size = 8.9,
     style = "normal",
     color = INK,
     indent = 0,
-    lead = 1.32,
+    lead = 1.27,
     gap = 0,
   } = opts;
   setFont(ctx, size, style, color);
@@ -99,8 +99,8 @@ function paragraph(
 }
 
 function bullet(ctx: Ctx, text: string) {
-  const size = 9.2;
-  const lh = size * 1.32;
+  const size = 8.9;
+  const lh = size * 1.27;
   setFont(ctx, size, "normal", INK);
   const lines = ctx.doc.splitTextToSize(t(text), CONTENT_W - 14) as string[];
   lines.forEach((line, i) => {
@@ -115,22 +115,22 @@ function bullet(ctx: Ctx, text: string) {
 }
 
 function sectionHeading(ctx: Ctx, label: string) {
-  ensure(ctx, 34);
-  ctx.y += 6;
+  ensure(ctx, 28);
+  ctx.y += 3;
   setFont(ctx, 9, "bold", ACCENT);
   ctx.doc.text(t(label).toUpperCase(), MARGIN, ctx.y, { charSpace: 1.1 });
-  ctx.y += 4.5;
+  ctx.y += 4;
   ctx.doc.setDrawColor(RULE[0], RULE[1], RULE[2]);
   ctx.doc.setLineWidth(0.6);
   ctx.doc.line(MARGIN, ctx.y, PAGE_W - MARGIN, ctx.y);
-  ctx.y += 11;
+  ctx.y += 9.5;
 }
 
 /** Bold title on the left, muted meta right-aligned on the same baseline. */
 function titleRow(ctx: Ctx, leftRaw: string, rightRaw: string) {
   const left = t(leftRaw);
   const right = t(rightRaw);
-  const size = 9.8;
+  const size = 9.5;
   ensure(ctx, size * 1.5);
   setFont(ctx, 8.4, "normal", MUTED);
   const rightW = ctx.doc.getTextWidth(right);
@@ -211,36 +211,42 @@ export async function buildResumePdf(): Promise<jsPDF> {
 
   /* ---------- summary ---------- */
   sectionHeading(ctx, "Summary");
-  paragraph(ctx, `${profile.about[0]} ${profile.about[1]}`, { gap: 2 });
+  paragraph(ctx, profile.about[0], { gap: 2 });
 
   /* ---------- experience ---------- */
   sectionHeading(ctx, "Experience");
+  let roleIndex = 0;
   for (const job of experience) {
     for (const pos of job.positions) {
-      ensure(ctx, 48);
+      ensure(ctx, 46);
       titleRow(
         ctx,
         `${pos.role} — ${job.company}`,
         `${pos.start} – ${pos.end}  |  ${pos.location}`,
       );
-      for (const h of pos.highlights) bullet(ctx, h);
-      ctx.y += 5;
+      // recent roles earn more space; older ones get the headline points only
+      const limit = roleIndex === 0 ? 3 : roleIndex < 2 ? 2 : 1;
+      for (const h of pos.highlights.slice(0, limit)) bullet(ctx, h);
+      ctx.y += 4;
+      roleIndex++;
     }
   }
 
   /* ---------- projects ---------- */
   sectionHeading(ctx, "Selected Projects");
-  for (const proj of projects) {
-    ensure(ctx, 44);
-    titleRow(ctx, proj.name, [proj.role, proj.live ?? proj.repo ?? ""]
-      .filter(Boolean)
-      .join("  |  "));
-    paragraph(ctx, proj.blurb, { size: 8.9, color: MUTED });
-    for (const h of proj.highlights.slice(0, 3)) bullet(ctx, h);
+  for (const proj of projects.slice(0, 3)) {
+    ensure(ctx, 42);
+    titleRow(
+      ctx,
+      proj.name,
+      [proj.role, proj.live ?? proj.repo ?? ""].filter(Boolean).join("  |  "),
+    );
+    paragraph(ctx, proj.blurb, { size: 8.6, color: MUTED });
+    for (const h of proj.highlights.slice(0, 1)) bullet(ctx, h);
     paragraph(ctx, `Stack: ${proj.tech.join(" | ")}`, {
-      size: 8.4,
+      size: 8.2,
       color: MUTED,
-      gap: 6,
+      gap: 5,
     });
   }
 
@@ -274,45 +280,26 @@ export async function buildResumePdf(): Promise<jsPDF> {
   for (const e of education) {
     titleRow(
       ctx,
-      `${e.level}${e.stream ? ` — ${e.stream}` : ""}`,
+      `${e.level}${e.stream ? ` — ${e.stream}` : ""}, ${e.institute}`,
       `${e.year}  |  ${e.grade}`,
     );
-    paragraph(ctx, e.institute, { size: 8.8, color: MUTED, gap: 4 });
+    ctx.y += 2;
   }
 
   /* ---------- certifications ---------- */
   sectionHeading(ctx, "Certifications");
-  for (const c of certificates) {
+  for (const c of certificates.slice(0, 3)) {
     titleRow(ctx, `${c.name} — ${c.institute}`, `${c.period}  |  ${c.mode}`);
-    if (c.skills.length)
-      paragraph(ctx, c.skills.join(" | "), {
-        size: 8.8,
-        color: MUTED,
-        gap: 4,
-      });
-    else ctx.y += 3;
+    ctx.y += 2;
   }
 
   /* ---------- community ---------- */
-  sectionHeading(ctx, "Community & Volunteering");
-  for (const v of extracurricular) {
-    titleRow(ctx, v.name, v.period);
-    for (const a of v.achievements.slice(0, 3)) bullet(ctx, a);
-    ctx.y += 4;
-  }
-
-  /* ---------- page numbers ---------- */
-  const total = doc.getNumberOfPages();
-  for (let p = 1; p <= total; p++) {
-    doc.setPage(p);
-    setFont(ctx, 7.6, "normal", MUTED);
-    doc.text(
-      `${profile.name}  |  Page ${p} of ${total}`,
-      PAGE_W / 2,
-      PAGE_H - 24,
-      { align: "center" },
-    );
-  }
+  sectionHeading(ctx, "Community");
+  paragraph(
+    ctx,
+    extracurricular.map((v) => `${v.name} (${v.period})`).join("  |  "),
+    { size: 8.6, gap: 2 },
+  );
 
   return doc;
 }
