@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import nodemailer, { type Transporter } from "nodemailer";
 import { contact } from "@/content/profile";
-import { canSendMail, serverEnv } from "@/lib/env.server";
+import { canSendMail, mail, smtp } from "@/lib/env.server";
 
+// nodemailer needs the Node runtime; it cannot run on the edge.
 export const runtime = "nodejs";
 
 type Payload = {
@@ -18,6 +20,27 @@ function asString(v: unknown, max: number): string {
   return typeof v === "string" ? v.trim().slice(0, max) : "";
 }
 
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+let transporter: Transporter | null = null;
+
+/** Reused across invocations so warm lambdas skip the TLS handshake. */
+function getTransporter() {
+  transporter ??= nodemailer.createTransport({
+    host: smtp.host,
+    port: smtp.port,
+    secure: smtp.secure,
+    auth: { user: smtp.user, pass: smtp.pass },
+  });
+  return transporter;
+}
+
 export async function POST(request: Request) {
   let body: Payload;
   try {
@@ -26,7 +49,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
 
-  // silently accept bot submissions so they don't retry
+  // accept bot submissions silently so they don't retry
   if (asString(body.website, 200)) {
     return NextResponse.json({ ok: true });
   }
@@ -46,31 +69,27 @@ export async function POST(request: Request) {
   }
 
   if (!canSendMail) {
-    // No mail provider configured — tell the client to fall back to mailto.
+    // No SMTP configured — the client falls back to opening a mail client.
     return NextResponse.json(
       { error: "mail_not_configured", fallback: contact.email },
       { status: 503 },
     );
   }
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${serverEnv.resendApiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: serverEnv.contactFrom,
-      to: [serverEnv.contactTo],
-      reply_to: email,
+  try {
+    await getTransporter().sendMail({
+      from: { name: `${name} (portfolio)`, address: mail.from },
+      to: mail.to,
+      replyTo: { name, address: email },
       subject: `Portfolio enquiry from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    }),
-  });
-
-  if (!res.ok) {
-    const detail = await res.text().catch(() => "");
-    console.error("Resend send failed", res.status, detail);
+      html:
+        `<p><strong>Name:</strong> ${escapeHtml(name)}</p>` +
+        `<p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>` +
+        `<hr><p style="white-space:pre-wrap">${escapeHtml(message)}</p>`,
+    });
+  } catch (err) {
+    console.error("SMTP send failed:", err);
     return NextResponse.json(
       { error: "send_failed", fallback: contact.email },
       { status: 502 },

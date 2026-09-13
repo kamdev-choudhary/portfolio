@@ -7,7 +7,7 @@
  * so each variable is written out in full below.
  */
 
-const DEFAULT_SITE_URL = "https://kamdev.vercel.app";
+const DEFAULT_SITE_URL = "https://kamdevchoudhary.vercel.app";
 
 function normalizeUrl(value: string): string {
   const trimmed = value.trim().replace(/\/+$/, "");
