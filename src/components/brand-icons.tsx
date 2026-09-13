@@ -25,6 +25,9 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiVercel,
+  SiVite,
+  SiGooglemaps,
+  SiSocketdotio,
 } from "react-icons/si";
 
 /** Social/brand marks used in headers, footers and contact cards.
@@ -70,6 +73,10 @@ const TECH: Record<string, IconType> = {
   axios: SiAxios,
   lodash: SiLodash,
   coursera: SiCoursera,
+  vite: SiVite,
+  "google maps": SiGooglemaps,
+  "socket.io": SiSocketdotio,
+  "llm apis": SiJsonwebtokens,
 };
 
 export function techIcon(name: string): IconType | undefined {

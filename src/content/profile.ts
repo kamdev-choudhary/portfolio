@@ -166,6 +166,101 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Routewala",
+    blurb:
+      "An end-to-end Employee Transportation System (ETS) for corporates and their transport partners — rostering, route optimisation, live GPS and compliance in one platform.",
+    role: "Full-Stack Developer",
+    duration: "Ongoing",
+    completed: "2026",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "MongoDB",
+      "Google Maps",
+      "React Native",
+    ],
+    highlights: [
+      "Built shift-aware smart rostering that plans routes and auto-allocates cabs in minutes.",
+      "Implemented route optimisation for pickup and drop sequencing to cut distance, fuel and travel time.",
+      "Delivered live GPS tracking with speed, odometer, geofencing, route-deviation alerts and accurate ETAs.",
+      "Built compliance management for driver licences, vehicle documents and permits, with automated expiry reminders.",
+      "Shipped attendance and no-show capture through companion driver, employee and supervisor apps.",
+      "Added safety tooling — SOS, guard and escort flows — plus reporting and analytics across every trip.",
+    ],
+    challenges: [
+      "Keeping live vehicle telemetry responsive for large fleets without overwhelming the client.",
+      "Modelling rosters, vendors and compliance as 10+ modules that still behave as one product.",
+    ],
+    impact:
+      "Replaces spreadsheets and manual coordination with a single connected platform for transport teams — from planning the roster to verifying every document and tracking every kilometre.",
+    live: "https://routewala.com",
+  },
+  {
+    name: "CabGrade",
+    blurb:
+      "Cab and fleet management software for Indian car rental and taxi operators — bookings, billing, drivers and analytics, with a free tier for small operators.",
+    role: "Full-Stack Developer",
+    duration: "Ongoing",
+    completed: "2026",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "MongoDB",
+      "React Native",
+    ],
+    highlights: [
+      "Built smart booking management replacing the WhatsApp-and-Excel workflow most operators run on.",
+      "Implemented one-click billing and invoicing with payment and accounting integrations.",
+      "Delivered vehicle and driver management with multi-user, role-based access control.",
+      "Shipped 80+ reports and analytics giving operators visibility into their own business numbers.",
+      "Built companion mobile apps — an admin app and a chauffeur-facing driver app.",
+      "Added per-operator branded websites and corporate taxi (ETS) management.",
+    ],
+    challenges: [
+      "Designing for operators migrating off spreadsheets, so onboarding had to be near-zero friction.",
+      "Supporting an inter-operator booking network across cities while keeping each operator's data isolated.",
+    ],
+    impact:
+      "Serves 400+ operators across India with a platform that has processed over Rs 2,500 Cr in billing, at 95% retention.",
+    live: "https://kbcd.in",
+  },
+  {
+    name: "Academiq AI",
+    blurb:
+      "An AI workspace for classrooms — lesson plans, worksheets, quizzes and homework help generated in seconds, built for teachers and students.",
+    role: "Full-Stack Developer",
+    duration: "Ongoing",
+    completed: "2026",
+    tech: [
+      "React",
+      "Vite",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "MongoDB",
+      "LLM APIs",
+    ],
+    highlights: [
+      "Built AI generation flows for lesson plans, worksheets, quizzes and homework help.",
+      "Implemented authentication with email/password and Google sign-in, plus persistent sessions.",
+      "Designed school workspaces so teachers and students can join and share resources.",
+      "Added a gamified layer — badges and progress — to keep students engaged.",
+    ],
+    challenges: [
+      "Grounding model output in real curriculum requirements so results are classroom-usable, not generic.",
+      "Keeping generation latency low enough that teachers use it mid-planning.",
+    ],
+    impact:
+      "Turns hours of lesson preparation into seconds, giving teachers usable classroom material rather than raw model output.",
+    live: "https://academiq-tools.io",
+  },
+  {
     name: "Dakshana Edu Portal",
     blurb:
       "A learning-management platform for Dakshana scholars — resources, exams, results and analytics in one place.",
@@ -504,12 +599,12 @@ export const hobbies = [
 ];
 
 export const navigation = [
-  { id: "about", label: "about", short: "about", cmd: "whoami" },
-  { id: "experience", label: "experience", short: "work", cmd: "cat work.log" },
-  { id: "projects", label: "projects", short: "projects", cmd: "ls ~/projects" },
-  { id: "skills", label: "skills", short: "skills", cmd: "cat skills.json" },
-  { id: "education", label: "education", short: "edu", cmd: "cat edu.md" },
-  { id: "certificates", label: "certificates", short: "certs", cmd: "ls ~/certs" },
-  { id: "community", label: "community", short: "community", cmd: "cat volunteer.md" },
-  { id: "contact", label: "contact", short: "contact", cmd: "mail kd" },
+  { id: "about", label: "about", short: "about", cmd: "whoami", primary: true },
+  { id: "experience", label: "experience", short: "work", cmd: "cat work.log", primary: true },
+  { id: "projects", label: "projects", short: "projects", cmd: "ls ~/projects", primary: true },
+  { id: "skills", label: "skills", short: "skills", cmd: "cat skills.json", primary: false },
+  { id: "education", label: "education", short: "edu", cmd: "cat edu.md", primary: false },
+  { id: "certificates", label: "certificates", short: "certs", cmd: "ls ~/certs", primary: false },
+  { id: "community", label: "community", short: "community", cmd: "cat volunteer.md", primary: false },
+  { id: "contact", label: "contact", short: "contact", cmd: "mail kd", primary: true },
 ] as const;
