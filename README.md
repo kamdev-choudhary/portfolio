@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Kamdev Choudhary
 
-## Getting Started
+Personal portfolio built with a terminal-inspired design.
+Previous Vite + MUI version lives on the [`legacy`](../../tree/legacy) branch.
 
-First, run the development server:
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router, React Server Components) |
+| UI | React 19, Tailwind CSS v4, shadcn/ui (Radix) |
+| Icons | Lucide (interface) + react-icons (brand marks) |
+| Fonts | JetBrains Mono + Geist, self-hosted via `next/font` |
+| PDF | jsPDF — real text runs, so the resume stays selectable and ATS-readable |
+| Hosting | Vercel |
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # optional, see below
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # eslint
+npx tsc --noEmit # type-check
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**All site content lives in [`src/content/profile.ts`](src/content/profile.ts).**
+Experience, projects, skills, education, certificates, volunteering, hobbies and
+contact details are typed objects — edit that one file and every section, the
+resume page, the PDF and the JSON-LD structured data update together.
 
-## Learn More
+A few things are derived rather than duplicated:
 
-To learn more about Next.js, take a look at the following resources:
+- `profile.location` is parsed into the JSON-LD postal address in `src/app/page.tsx`.
+- `experience[0].company` becomes the `worksFor` field, so keep the timeline newest-first.
+- The nav and command palette are driven by the `navigation` array.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Both are optional — the site builds and runs without them.
 
-## Deploy on Vercel
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata, Open Graph and JSON-LD |
+| `RESEND_API_KEY` | Enables the contact form to send mail directly |
+| `CONTACT_FROM` / `CONTACT_TO` | Sender and recipient for contact-form mail |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Without `RESEND_API_KEY`, `/api/contact` returns 503 and the form gracefully
+falls back to opening the visitor's email client with the message pre-filled.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Features
+
+- Dark-first terminal theme with a light mode, respecting system preference
+- Command palette (<kbd>⌘K</kbd> / <kbd>Ctrl+K</kbd>) for navigation and links
+- Responsive from 320px up; verified for horizontal overflow at every breakpoint
+- `/resume` route — print stylesheet plus a jsPDF download with selectable text
+- JSON-LD `Person` schema, Open Graph and Twitter metadata
+- `prefers-reduced-motion` honoured (the hero typing effect falls back to static)
+
+## Deploying
+
+Pushed to `main` and hosted on Vercel. Set the environment variables in
+**Project → Settings → Environment Variables**, then redeploy.

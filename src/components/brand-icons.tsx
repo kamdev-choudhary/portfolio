@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { IconType } from "react-icons";
 import { FaAws, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import {
@@ -73,4 +74,17 @@ const TECH: Record<string, IconType> = {
 
 export function techIcon(name: string): IconType | undefined {
   return TECH[name.trim().toLowerCase()];
+}
+
+/** Renders a looked-up brand mark.
+ *  Passing the component in as a lowercase prop keeps it out of render-time
+ *  component creation, which React's compiler lint rules flag. */
+export function BrandGlyph({
+  icon,
+  className,
+}: {
+  icon: IconType;
+  className?: string;
+}) {
+  return React.createElement(icon, { className, "aria-hidden": true });
 }

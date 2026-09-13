@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { techIcon } from "@/components/brand-icons";
+import { BrandGlyph, techIcon } from "@/components/brand-icons";
 import { cn } from "@/lib/utils";
 
 export function TechBadge({
@@ -9,7 +9,7 @@ export function TechBadge({
   name: string;
   className?: string;
 }) {
-  const Icon = techIcon(name);
+  const icon = techIcon(name);
   return (
     <Badge
       variant="secondary"
@@ -18,7 +18,9 @@ export function TechBadge({
         className,
       )}
     >
-      {Icon ? <Icon className="size-3 shrink-0 opacity-80" aria-hidden /> : null}
+      {icon ? (
+        <BrandGlyph icon={icon} className="size-3 shrink-0 opacity-80" />
+      ) : null}
       {name}
     </Badge>
   );

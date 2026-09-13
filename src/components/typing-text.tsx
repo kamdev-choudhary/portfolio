@@ -1,9 +1,12 @@
 "use client";
 
 import * as React from "react";
+import { usePrefersReducedMotion } from "@/hooks/use-hydrated";
 
-/** Cycles through phrases with a type/erase effect. Falls back to the first
- *  phrase (static) for users who prefer reduced motion. */
+/**
+ * Cycles through phrases with a type/erase effect.
+ * Renders the first phrase statically when the user prefers reduced motion.
+ */
 export function TypingText({
   phrases,
   className,
@@ -20,47 +23,50 @@ export function TypingText({
   const [index, setIndex] = React.useState(0);
   const [text, setText] = React.useState("");
   const [erasing, setErasing] = React.useState(false);
-  const [reduced, setReduced] = React.useState(false);
-
-  React.useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
+  const reduced = usePrefersReducedMotion();
 
   React.useEffect(() => {
     if (reduced) return;
+
     const current = phrases[index % phrases.length];
+    const fullyTyped = !erasing && text === current;
+    const fullyErased = erasing && text === "";
 
-    if (!erasing && text === current) {
-      const t = setTimeout(() => setErasing(true), holdMs);
-      return () => clearTimeout(t);
-    }
-    if (erasing && text === "") {
-      setErasing(false);
-      setIndex((i) => (i + 1) % phrases.length);
-      return;
-    }
+    const delay = fullyTyped
+      ? holdMs
+      : fullyErased
+        ? 0
+        : erasing
+          ? eraseMs
+          : typeMs;
 
-    const t = setTimeout(
-      () =>
+    // Every state change happens in the timer callback, never synchronously
+    // in the effect body — that would cascade a render on each keystroke.
+    const timer = setTimeout(() => {
+      if (fullyTyped) {
+        setErasing(true);
+      } else if (fullyErased) {
+        setErasing(false);
+        setIndex((i) => (i + 1) % phrases.length);
+      } else {
         setText((prev) =>
-          erasing ? current.slice(0, prev.length - 1) : current.slice(0, prev.length + 1),
-        ),
-      erasing ? eraseMs : typeMs,
-    );
-    return () => clearTimeout(t);
+          erasing
+            ? current.slice(0, prev.length - 1)
+            : current.slice(0, prev.length + 1),
+        );
+      }
+    }, delay);
+
+    return () => clearTimeout(timer);
   }, [text, erasing, index, phrases, reduced, typeMs, eraseMs, holdMs]);
 
   return (
     <span className={className}>
-      {/* screen readers get the full list, not the animation */}
+      {/* screen readers get the whole list rather than a moving target */}
       <span className="sr-only">{phrases.join(", ")}</span>
       <span aria-hidden>
         {reduced ? phrases[0] : text}
-        {!reduced && (
+        {reduced ? null : (
           <span className="ml-0.5 inline-block animate-blink text-primary">
             ▍
           </span>

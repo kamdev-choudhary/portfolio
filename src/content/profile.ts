@@ -14,10 +14,10 @@ export const profile = {
     "MongoDB Developer",
   ],
   tagline:
-    "Academic Officer by day, full-stack developer by craft — building education platforms that actually get used.",
+    "Full-stack developer at BharatAI Innovations, building AI-powered web and mobile products — with a background in education technology.",
   about: [
-    "I'm a self-taught developer with a deep curiosity for building things that solve real problems. My day job is in education — but the code I write for it is what I care about most.",
-    "At Dakshana Foundation I coordinate academic programs for scholars preparing for JEE and NEET, and I build the internal tooling that makes those programs run: exam analytics, result pipelines, and the LMS our scholars use every day.",
+    "I'm a self-taught developer who turned a side craft into a career. I now build software full time at BharatAI Innovations, working across the stack — web, mobile, AI features, and the infrastructure that ships them.",
+    "Before that I spent nearly three years at Dakshana Foundation coordinating academic programs for scholars preparing for JEE and NEET. I also built the internal tooling that kept those programs running: exam analytics, result pipelines, and the LMS scholars used every day.",
     "Beyond work I'm drawn to new technologies, hard problems, and people who like shipping. The goal is simple — blend creativity and engineering into something with real impact.",
   ],
 } as const;
@@ -51,23 +51,53 @@ export type Job = {
 
 export const experience: Job[] = [
   {
+    company: "BharatAI Innovations Pvt. Ltd.",
+    address: "Noida, Uttar Pradesh",
+    period: "Apr 2025 — Present",
+    positions: [
+      {
+        role: "Full-Stack Developer",
+        location: "Noida, Uttar Pradesh",
+        start: "Apr 2025",
+        end: "Present",
+        current: true,
+        highlights: [
+          "Build and ship full-stack web applications end to end — React and Next.js front-ends backed by Node.js and Express APIs.",
+          "Develop AI and LLM-powered product features, integrating models into real application workflows.",
+          "Build cross-platform mobile applications with React Native.",
+          "Own deployment and infrastructure work: cloud environments, CI/CD pipelines and production monitoring.",
+          "Work across design, product and engineering to take features from idea to release.",
+        ],
+        skills: [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "React Native",
+          "MongoDB",
+          "AWS",
+          "CI/CD",
+        ],
+      },
+    ],
+  },
+  {
     company: "Dakshana Foundation",
     address: "Kadus, Pune 412404",
-    period: "May 2022 — Present",
+    period: "May 2022 — Mar 2025",
     positions: [
       {
         role: "Academic Officer",
         location: "Pune, Maharashtra",
         start: "Sep 2023",
-        end: "Present",
-        current: true,
+        end: "Mar 2025",
         highlights: [
-          "Own end-to-end academic operations at Dakshana Valley, Pune, keeping programs running for scholars preparing for JEE and NEET.",
-          "Run bimonthly exam cycles: paper creation, online review, scheduling, result compilation and deep performance analysis.",
-          "Partner with the web dev and IT teams to extend the online exam and result platforms — shipping new features on the existing backend and hardening security.",
-          "Build question-wise, scholar-wise and topic-wise analytics that turn raw results into actionable teaching decisions.",
-          "Provide one-on-one academic guidance to scholars and translate performance trends into intervention strategies.",
-          "Handle JEE & NEET application forms, eligibility verification and end-to-end registration for the cohort.",
+          "Owned end-to-end academic operations at Dakshana Valley, Pune, keeping programs running for scholars preparing for JEE and NEET.",
+          "Ran bimonthly exam cycles: paper creation, online review, scheduling, result compilation and deep performance analysis.",
+          "Partnered with the web dev and IT teams to extend the online exam and result platforms — shipping new features on the existing backend and hardening security.",
+          "Built question-wise, scholar-wise and topic-wise analytics that turned raw results into actionable teaching decisions.",
+          "Provided one-on-one academic guidance to scholars and translated performance trends into intervention strategies.",
+          "Handled JEE & NEET application forms, eligibility verification and end-to-end registration for the cohort.",
         ],
         skills: ["Power Automate", "Excel", "Analytics", "Leadership", "Ops"],
       },
@@ -228,8 +258,25 @@ export const skills: SkillGroup[] = [
     items: ["Node.js", "Express", "MongoDB", "REST APIs", "JWT / Crypto"],
   },
   {
-    label: "cloud & tools",
-    items: ["AWS S3", "Vercel", "Git", "GitHub", "Google Cloud Console", "Axios"],
+    label: "ai & integrations",
+    items: [
+      "LLM APIs",
+      "RAG pipelines",
+      "Prompt engineering",
+      "AI feature integration",
+    ],
+  },
+  {
+    label: "cloud & devops",
+    items: [
+      "AWS",
+      "AWS S3",
+      "Vercel",
+      "CI/CD",
+      "Git",
+      "GitHub",
+      "Google Cloud Console",
+    ],
   },
   {
     label: "data & automation",

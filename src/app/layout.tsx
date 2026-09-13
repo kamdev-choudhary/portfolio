@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { profile, contact } from "@/content/profile";
+import { siteUrl } from "@/lib/env";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,7 +19,6 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kamdev.vercel.app";
 const description = `${profile.title} based in ${profile.location}. ${profile.tagline}`;
 
 export const metadata: Metadata = {

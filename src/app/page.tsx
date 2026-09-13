@@ -10,6 +10,7 @@ import { Certificates } from "@/components/sections/certificates";
 import { Community } from "@/components/sections/community";
 import { Contact } from "@/components/sections/contact";
 import { contact, education, experience, profile } from "@/content/profile";
+import { siteUrl } from "@/lib/env";
 
 /** JSON-LD so search engines and AI crawlers get structured facts. */
 function PersonSchema() {
@@ -23,7 +24,7 @@ function PersonSchema() {
     jobTitle: profile.title,
     email: `mailto:${contact.email}`,
     telephone: contact.phoneHref.replace("tel:", ""),
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kamdev.vercel.app",
+    url: siteUrl,
     address: {
       "@type": "PostalAddress",
       addressLocality: locality,

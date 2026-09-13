@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { contact } from "@/content/profile";
+import { canSendMail, serverEnv } from "@/lib/env.server";
 
 export const runtime = "nodejs";
 
@@ -44,8 +45,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ errors }, { status: 422 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
+  if (!canSendMail) {
     // No mail provider configured — tell the client to fall back to mailto.
     return NextResponse.json(
       { error: "mail_not_configured", fallback: contact.email },
@@ -56,12 +56,12 @@ export async function POST(request: Request) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer ${serverEnv.resendApiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: process.env.CONTACT_FROM ?? "Portfolio <onboarding@resend.dev>",
-      to: [process.env.CONTACT_TO ?? contact.email],
+      from: serverEnv.contactFrom,
+      to: [serverEnv.contactTo],
       reply_to: email,
       subject: `Portfolio enquiry from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
