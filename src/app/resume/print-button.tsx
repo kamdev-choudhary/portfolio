@@ -7,18 +7,47 @@ import { Button } from "@/components/ui/button";
 
 export function ResumeActions() {
   const [busy, setBusy] = React.useState(false);
+  const preloaded = React.useRef<Promise<unknown> | null>(null);
+
+  // Warm the jsPDF chunk ahead of the click so the handler resolves instantly.
+  const warm = React.useCallback(() => {
+    preloaded.current ??= import("@/lib/resume-pdf").then((m) => {
+      void m.preloadPdfEngine();
+      return m;
+    });
+    return preloaded.current;
+  }, []);
+
+  React.useEffect(() => {
+    const id = window.setTimeout(warm, 1200);
+    return () => window.clearTimeout(id);
+  }, [warm]);
 
   async function onDownload() {
     setBusy(true);
     try {
-      // jsPDF is ~350KB, so it only loads when someone actually asks for the file
-      const { downloadResumePdf } = await import("@/lib/resume-pdf");
-      await downloadResumePdf();
+      const mod = (await warm()) as typeof import("@/lib/resume-pdf");
+      const blob = await mod.buildResumeBlob();
+      const name = mod.resumeFilename();
+
+      if (!mod.saveBlob(blob, name)) {
+        // iOS Safari ignores the download attribute — open it instead.
+        const url = URL.createObjectURL(blob);
+        const win = window.open(url, "_blank", "noopener");
+        if (!win) {
+          toast.error("Your browser blocked the download", {
+            description: "Allow pop-ups for this site, or use Print → Save as PDF.",
+            action: { label: "Print", onClick: () => window.print() },
+          });
+          return;
+        }
+      }
       toast.success("Resume downloaded");
     } catch (err) {
-      console.error(err);
+      console.error("Resume PDF failed:", err);
       toast.error("Couldn't generate the PDF", {
-        description: "Try the print button instead.",
+        description: "Use Print → Save as PDF instead.",
+        action: { label: "Print", onClick: () => window.print() },
       });
     } finally {
       setBusy(false);
@@ -39,6 +68,8 @@ export function ResumeActions() {
       <Button
         size="sm"
         onClick={onDownload}
+        onPointerEnter={warm}
+        onFocus={warm}
         disabled={busy}
         className="font-mono text-xs"
       >

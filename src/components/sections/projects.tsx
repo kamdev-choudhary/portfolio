@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight, ExternalLink, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,6 +41,26 @@ export function Projects() {
               </span>
               <span className="w-9 shrink-0" aria-hidden />
             </div>
+
+            {/* screenshot sits directly under the chrome, so the card reads as a window */}
+            {p.image ? (
+              <a
+                href={p.live ?? p.repo ?? "#"}
+                target={p.live || p.repo ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                tabIndex={-1}
+                aria-hidden
+                className="relative block aspect-16/10 w-full overflow-hidden border-b bg-muted"
+              >
+                <Image
+                  src={p.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </a>
+            ) : null}
 
             <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-6">
               <div className="flex items-start justify-between gap-3">

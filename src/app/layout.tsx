@@ -3,6 +3,7 @@ import { Geist, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next";
 import { profile, contact } from "@/content/profile";
 import { siteUrl } from "@/lib/env";
 import "./globals.css";
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <TooltipProvider delayDuration={200}>
             {children}
             <Toaster position="bottom-right" />
+            <Analytics />
           </TooltipProvider>
         </ThemeProvider>
       </body>

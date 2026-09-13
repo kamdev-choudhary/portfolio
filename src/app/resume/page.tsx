@@ -24,7 +24,7 @@ export default function ResumePage() {
   return (
     <>
       {/* toolbar — hidden when printing */}
-      <div className="no-print sticky top-0 z-50 border-b bg-background/85 backdrop-blur-md">
+      <header className="no-print sticky top-0 z-50 border-b bg-background/85 backdrop-blur-md">
         <Container className="flex h-14 items-center justify-between gap-3">
           <Button asChild variant="ghost" size="sm" className="font-mono text-xs">
             <Link href="/">
@@ -34,7 +34,7 @@ export default function ResumePage() {
           </Button>
           <ResumeActions />
         </Container>
-      </div>
+      </header>
 
       <main className="flex-1 py-8 print:py-0 sm:py-12">
         <Container className="max-w-3xl print:max-w-none print:px-0">

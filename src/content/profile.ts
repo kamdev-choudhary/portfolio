@@ -152,6 +152,8 @@ export const experience: Job[] = [
 export type Project = {
   name: string;
   blurb: string;
+  /** Screenshot in /public/projects, shown at the top of the card. */
+  image?: string;
   role: string;
   duration: string;
   completed: string;
@@ -167,6 +169,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "Routewala",
+    image: "/projects/routewala.webp",
     blurb:
       "An end-to-end Employee Transportation System (ETS) for corporates and their transport partners — rostering, route optimisation, live GPS and compliance in one platform.",
     role: "Full-Stack Developer",
@@ -200,6 +203,7 @@ export const projects: Project[] = [
   },
   {
     name: "CabGrade",
+    image: "/projects/cabgrade.webp",
     blurb:
       "Cab and fleet management software for Indian car rental and taxi operators — bookings, billing, drivers and analytics, with a free tier for small operators.",
     role: "Full-Stack Developer",
@@ -232,6 +236,7 @@ export const projects: Project[] = [
   },
   {
     name: "Academiq AI",
+    image: "/projects/academiq.webp",
     blurb:
       "An AI workspace for classrooms — lesson plans, worksheets, quizzes and homework help generated in seconds, built for teachers and students.",
     role: "Full-Stack Developer",

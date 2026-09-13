@@ -6,6 +6,7 @@ import {
   experience,
   extracurricular,
   profile,
+  projects,
   skills,
 } from "@/content/profile";
 
@@ -227,6 +228,22 @@ export async function buildResumePdf(): Promise<jsPDF> {
     }
   }
 
+  /* ---------- projects ---------- */
+  sectionHeading(ctx, "Selected Projects");
+  for (const proj of projects) {
+    ensure(ctx, 44);
+    titleRow(ctx, proj.name, [proj.role, proj.live ?? proj.repo ?? ""]
+      .filter(Boolean)
+      .join("  |  "));
+    paragraph(ctx, proj.blurb, { size: 8.9, color: MUTED });
+    for (const h of proj.highlights.slice(0, 3)) bullet(ctx, h);
+    paragraph(ctx, `Stack: ${proj.tech.join(" | ")}`, {
+      size: 8.4,
+      color: MUTED,
+      gap: 6,
+    });
+  }
+
   /* ---------- skills ---------- */
   sectionHeading(ctx, "Skills");
   for (const g of skills) {
@@ -300,8 +317,50 @@ export async function buildResumePdf(): Promise<jsPDF> {
   return doc;
 }
 
-export async function downloadResumePdf() {
+export function resumeFilename(): string {
+  return `${profile.name.toLowerCase().replace(/\s+/g, "-")}-resume.pdf`;
+}
+
+/** Warm the jsPDF chunk so the click handler doesn't have to await a network
+ *  round-trip — an await inside the handler drops the browser's transient user
+ *  activation, and Safari/Firefox then refuse to start the download. */
+export function preloadPdfEngine(): Promise<unknown> {
+  return import("jspdf");
+}
+
+export async function buildResumeBlob(): Promise<Blob> {
   const doc = await buildResumePdf();
-  const slug = profile.name.toLowerCase().replace(/\s+/g, "-");
-  doc.save(`${slug}-resume.pdf`);
+  return doc.output("blob");
+}
+
+/**
+ * Saves the PDF via a real anchor click. Returns false when the browser
+ * ignored the download attribute (notably iOS Safari), so the caller can fall
+ * back to opening the file in a new tab.
+ */
+export function saveBlob(blob: Blob, filename: string): boolean {
+  const url = URL.createObjectURL(blob);
+  try {
+    const a = document.createElement("a");
+    const supportsDownload = "download" in a;
+    a.href = url;
+    a.download = filename;
+    a.rel = "noopener";
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    return supportsDownload;
+  } finally {
+    // give the browser a beat to start reading the blob before releasing it
+    setTimeout(() => URL.revokeObjectURL(url), 30_000);
+  }
+}
+
+export async function downloadResumePdf() {
+  const blob = await buildResumeBlob();
+  const name = resumeFilename();
+  if (!saveBlob(blob, name)) {
+    window.open(URL.createObjectURL(blob), "_blank", "noopener");
+  }
 }
